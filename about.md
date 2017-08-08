@@ -4,12 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
 
-### More Information
+### Interest
 
-A place to include any other types of information that you'd like to include about yourself.
+machine learning, computer vision
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[jianfengwang@outlook.com](mailto:jianfengwang@outlook.com)
