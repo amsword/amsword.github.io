@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title: An implementation of job scheduler to run jobs through Python
 ---
 
