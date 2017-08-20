@@ -81,7 +81,7 @@ run func(**kwargs) in a remote machine.
     scp(local_file, target_file, ssh_cmd)
     ```
 
-Note: run matplotlib.use('Agg') in case we would like to generate the figure. 
+    Note: run matplotlib.use('Agg') in case we would like to generate the figure. 
 
 4. Issue rsync command to do the code sync so that the remote machine has the same code as
 what we have locally. 
