@@ -121,9 +121,14 @@ def remote_run(str_cmd, ssh_info, return_output=False):
 ```
 Note: sometimes, it cannot find the library when we run some command remotely.
 To solver it, please just add the path in the command by: 
-
 ```python
 cmd.append('export PATH=/your/path/:$PATH && ' + str_cmd)
 ```
+
+The option of '-t', '-t' to make sure when we kill the process by ctrl+c, the
+remote process will also be killed. The option of StrictHostKeyChecking is to
+make sure no prompt is aksed when the remote machine is brand new.
+
+
 
 
