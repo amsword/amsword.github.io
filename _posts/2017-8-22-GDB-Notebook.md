@@ -6,6 +6,7 @@ title: GDB notebook
 
 * How to write a script to execute some command
 
+```shell
 (gdb) define max_elephant
 Redefine command "max_elephant"? (y or n) y
 Type commands for definition of "max_elephant".
@@ -32,8 +33,11 @@ $28 = 353
 $29 = 0.294953734
 (gdb) print $max_i
 $30 = 353
+```
 
 * How to print an array
 
+```shell
 print *ptr@length
+```
 
