@@ -3,7 +3,6 @@ layout: post
 comments: true
 title: How Caffe Implements Parallel Training
 ---
-It calls two functions
 
 ```cpp
 caffe::NCCL<float> nccl(solver);
@@ -91,7 +90,12 @@ Callback.
                 2. computer the update value also based on the momentum
                    parameters
                 3. update all the parameters
-                
+    4. Note the parameter is not broadcasted every iteration, since each worker
+       will have the same diff and they will apply the parameter update
+       independently with the same data. So, there is no need to do that. For
+       BN layer, each worker does the BN logic independently and the running
+       mean and running variance is also updated independently. When we save
+       teh model, we only use the running mean/varaiance from rank 0.
 1. The parameter of net->add_after_backward is Net::CallBack. 
     1. NCCL object is the input parameter;
     2. class NCCL: public Net<Dtype>::Callback;
