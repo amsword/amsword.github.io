@@ -1,3 +1,9 @@
+---
+layout: post
+comments: true
+title: FPN Inference Network Structure in Maskrcnn-Benchmark
+---
+
 1. read the image
     ```python
     original = cv2.imread('/home/jianfw/data/sample_images/TaylorSwift.jpg',
