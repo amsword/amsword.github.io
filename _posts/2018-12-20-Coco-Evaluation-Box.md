@@ -4,11 +4,12 @@ comments: true
 title: Coco Evaluation for the Bounding Box
 ---
 
-* Abstract
+# Abstract
+
 The code is based on pycocotools and the maskrcnn-benchmark.
 
-* Details
-** prepare the prediction results.
+# Details
+## prepare the prediction results.
    ```python
    coco_results["bbox"] = prepare_for_coco_detection(predictions, dataset)
    def prepare_for_coco_detection(predictions, dataset):
@@ -44,8 +45,7 @@ The code is based on pycocotools and the maskrcnn-benchmark.
            )
        return coco_results
    ``` 
-** save the `coco_results` to the json file and load it by `Coco` in
-pycocotools lib
+## save the coco_results to the json file and load it by Coco in pycocotools lib
    ```python
    with open(json_result_file, "w") as f:
        json.dump(coco_results, f)
@@ -78,13 +78,13 @@ pycocotools lib
            return res
    ```
 
-** construct the `COCOEval` object
+## construct the `COCOEval` object
    ```python
    coco_eval = COCOeval(coco_gt, coco_dt, iou_type)
    ```
 
-** evaluate. Calculate the IoU matrix between any ground-truth and the top-100
-detections for each (image, cat). Two notes
+## evaluate. 
+   Calculate the IoU matrix between any ground-truth and the top-100 detections for each (image, cat). Two notes
     - If a ground-truth box is labeled as crowded, the IoU is
     Intersection/AreaOfDetection not Intersection/Union.
     - If a ground-truth box is labeled as crowded, this ground-truth box can be
@@ -273,8 +273,9 @@ detections for each (image, cat). Two notes
      }
    }
    ```
-** accumulate the individual evaluation. The basic logic is 1) to calculate the
-recall first, 2) split the recall from 0 to 1 with a step of 0.01, 3) find the
+
+## accumulate the individual evaluation. 
+   The basic logic is 1) to calculate the recall first, 2) split the recall from 0 to 1 with a step of 0.01, 3) find the
 precision at each recall, and then 4) store the results into a variable.
    ```python
    class COCOeval:
@@ -385,7 +386,8 @@ precision at each recall, and then 4) store the results into a variable.
            toc = time.time()
            print('DONE (t={:0.2f}s).'.format( toc-tic))
    ```
-** the last is to summarize the result and print the number
+
+## the last is to summarize the result and print the number
 
 ```python
 class COCOeval:
