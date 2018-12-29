@@ -25,27 +25,28 @@ title: Linux Tips
     * Where is the config file
         * /etc/mongod.conf
     * How to get the latest label version
-    ``` python
-    pipeline = [{'$match': {'data': test_data, 
-                            'split': test_split,
-                            'version': {'$lte': 0}}},
-                {'$group': {'_id': {'data': '$data',
-                                    'split': '$split',
-                                    'key': '$key',
-                                    'action_target_id': '$action_target_id'},
-                            'contribution': {'$sum': '$contribution'},
-                            'class': {'$first': '$class'},
-                            'rect': {'$first': '$rect'}}},
-                {'$match': {'contribution': {'$gte': 1}}}, # if it is 0, it means we removed the box
-                {'$addFields': {'data': '$_id.data', 
-                                'split': '$_id.split',
-                                'key': '$_id.key'}},
-                ]
-    ```
+      ``` python
+      pipeline = [{'$match': {'data': test_data, 
+                              'split': test_split,
+                              'version': {'$lte': 0}}},
+                  {'$group': {'_id': {'data': '$data',
+                                      'split': '$split',
+                                      'key': '$key',
+                                      'action_target_id': '$action_target_id'},
+                              'contribution': {'$sum': '$contribution'},
+                              'class': {'$first': '$class'},
+                              'rect': {'$first': '$rect'}}},
+                  {'$match': {'contribution': {'$gte': 1}}}, # if it is 0, it means we removed the box
+                  {'$addFields': {'data': '$_id.data', 
+                                  'split': '$_id.split',
+                                  'key': '$_id.key'}},
+                  ]
+      ```
     * How to check the status
         * sudo service mongod status
     * How to start the service
         * sudo service mongod start
+
 * Python
     * Matplotlib
         * How to specify the name on x-axis
@@ -65,3 +66,21 @@ title: Linux Tips
           plt.savefig('2.eps', format='eps', bbox_inches='tight')
           plt.savefig('2.png', format='png', bbox_inches='tight')
           ```
+    * ProtoBuf
+      ```bash
+      conda install -c anaconda protobuf
+      ```
+    * opencv
+      Never use the version of 3.3. Use 3.4 instead.
+
+* Google Protoc
+    * Compile it from source code
+      ```bash
+      wget https://github.com/google/protobuf/releases/protobuf-python-3.5.1.tar.gz
+      tar zxvf protobuf-python-3.5.1.tar.gz
+      cd protobuf-python-3.5.1.tar.gz
+      ./configure
+      make
+      sudo make install
+      ```
+
