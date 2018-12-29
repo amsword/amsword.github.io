@@ -68,10 +68,18 @@ title: Linux Tips
           ```
     * ProtoBuf
       ```bash
-      conda install -c anaconda protobuf
+      conda install libprotobuf # it will install protoc (executible) and the include/lib. The python lib is not installed
+      pip install protobuf
       ```
     * opencv
       Never use the version of 3.3. Use 3.4 instead.
+      ```bash
+      conda install opencv
+      ```
+    * boost
+      ```bash
+      conda install -c anaconda boost
+      ```
 
 * Google Protoc
     * Compile it from source code
