@@ -717,30 +717,77 @@ larger than or equal to the original image size and is divisible by 32.
                 results (list[BoxList]): one BoxList for each image, containing
                     the extra fields labels and scores
             """
+            # class_logits: 8000x81 (coco has 80 categories. ) batch size = 8.
+            # Each one has 1000 proposals
+            # box_regression: 8000x324
             class_logits, box_regression = x
+            # class_prob: 8000x81
             class_prob = F.softmax(class_logits, -1)
     
             # TODO think about a representation of batch of boxes
             image_shapes = [box.size for box in boxes]
+            # image_shapes: [(1066, 800),
+            #  (1333, 750),
+            #  (1066, 800),
+            #  (1190, 800),
+            #  (1066, 800),
+            #  (1066, 800),
+            #  (1196, 800),
+            #  (1201, 800)]
             boxes_per_image = [len(box) for box in boxes]
+            # ipdb> pp boxes_per_image
+            # [1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000]
             concat_boxes = torch.cat([a.bbox for a in boxes], dim=0)
-    
+            # ipdb> pp concat_boxes.shape
+            # torch.Size([8000, 4])
+            # ipdb> pp box_regression.shape
+            # torch.Size([8000, 324])
+            # ipdb> pp box_regression.view(sum(boxes_per_image), -1).shape
+            # torch.Size([8000, 324])
             proposals = self.box_coder.decode(
                 box_regression.view(sum(boxes_per_image), -1), concat_boxes
             )
-    
+            # ipdb> pp proposals.shape
+            # torch.Size([8000, 324])
             num_classes = class_prob.shape[1]
+            # ipdb> pp num_classes
+            # 81
     
             proposals = proposals.split(boxes_per_image, dim=0)
+            # ipdb> pp [p.shape for p in proposals]
+            # [torch.Size([1000, 324]),
+            #  torch.Size([1000, 324]),
+            #  torch.Size([1000, 324]),
+            #  torch.Size([1000, 324]),
+            #  torch.Size([1000, 324]),
+            #  torch.Size([1000, 324]),
+            #  torch.Size([1000, 324]),
+            #  torch.Size([1000, 324])]
             class_prob = class_prob.split(boxes_per_image, dim=0)
-    
+            # ipdb> pp [c.shape for c in class_prob]
+            # [torch.Size([1000, 81]),
+            #  torch.Size([1000, 81]),
+            #  torch.Size([1000, 81]),
+            #  torch.Size([1000, 81]),
+            #  torch.Size([1000, 81]),
+            #  torch.Size([1000, 81]),
+            #  torch.Size([1000, 81]),
+            #  torch.Size([1000, 81])]
             results = []
             for prob, boxes_per_img, image_shape in zip(
                 class_prob, proposals, image_shapes
             ):
+                # ipdb> pp boxes_per_img.shape
+                # torch.Size([1000, 324])
                 boxlist = self.prepare_boxlist(boxes_per_img, prob, image_shape)
+                # ipdb> pp boxlist
+                # BoxList(num_boxes=81000, image_width=1066, image_height=800, mode=xyxy)
                 boxlist = boxlist.clip_to_image(remove_empty=False)
+                # ipdb> pp boxlist
+                # BoxList(num_boxes=81000, image_width=1066, image_height=800, mode=xyxy)
                 boxlist = self.filter_results(boxlist, num_classes)
+                # ipdb> pp boxlist
+                # BoxList(num_boxes=20, image_width=1066, image_height=800, mode=xyxy)
                 results.append(boxlist)
             return results
         def prepare_boxlist(self, boxes, scores, image_shape):
@@ -768,8 +815,14 @@ larger than or equal to the original image size and is divisible by 32.
             """
             # unwrap the boxlist to avoid additional overhead.
             # if we had multi-class NMS, we could perform this directly on the boxlist
+            # ipdb> pp boxlist
+            # BoxList(num_boxes=81000, image_width=1066, image_height=800, mode=xyxy)
             boxes = boxlist.bbox.reshape(-1, num_classes * 4)
+            # ipdb> pp boxes.shape
+            # torch.Size([1000, 324])
             scores = boxlist.get_field("scores").reshape(-1, num_classes)
+            # ipdb> pp scores.shape
+            # torch.Size([1000, 81])
 
             device = scores.device
             result = []
@@ -778,20 +831,36 @@ larger than or equal to the original image size and is divisible by 32.
             inds_all = scores > self.score_thresh
             for j in range(1, num_classes):
                 inds = inds_all[:, j].nonzero().squeeze(1)
+                # ipdb> pp len(inds)
+                # 23
                 scores_j = scores[inds, j]
+                # ipdb> pp scores_j.shape
+                # torch.Size([23])
                 boxes_j = boxes[inds, j * 4 : (j + 1) * 4]
+                # ipdb> pp boxes_j.shape
+                # torch.Size([23, 4])
+                # ipdb> pp boxlist.size
+                # (1066, 800)
                 boxlist_for_class = BoxList(boxes_j, boxlist.size, mode="xyxy")
                 boxlist_for_class.add_field("scores", scores_j)
                 boxlist_for_class = boxlist_nms(
                     boxlist_for_class, self.nms, score_field="scores"
                 )
+                # ipdb> pp boxlist_for_class
+                # BoxList(num_boxes=1, image_width=1066, image_height=800, mode=xyxy)
                 num_labels = len(boxlist_for_class)
                 boxlist_for_class.add_field(
                     "labels", torch.full((num_labels,), j, dtype=torch.int64, device=device)
                 )
                 result.append(boxlist_for_class)
 
+            # ipdb> pp len(result)
+            # 80
+            # ipdb> p [len(r) for r in result]
+            # [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0]
             result = cat_boxlist(result)
+            # ipdb> pp result
+            # BoxList(num_boxes=20, image_width=1066, image_height=800, mode=xyxy)
             number_of_detections = len(result)
 
             # Limit to max_per_image detections **over all classes**
