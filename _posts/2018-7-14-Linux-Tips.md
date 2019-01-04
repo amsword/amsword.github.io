@@ -91,4 +91,11 @@ title: Linux Tips
       make
       sudo make install
       ```
+* Git
+    * Migrate a repo from one server to another
+      ```shell
+      git lfs fetch --all
+      git lfs push --all 
+      git push --all
+      ```
 
