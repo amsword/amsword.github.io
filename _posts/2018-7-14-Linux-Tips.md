@@ -143,4 +143,16 @@ client IP address
   ```shell
   print *ptr@length
   ```
+* Attach a process
+  ```
+  sudo gdb -p process_id
+  ```
+* Print the call stack
+  ```
+  where
+  ```
+* Go to a specific frame
+  ```
+  frame frame_id
+  ```
 
