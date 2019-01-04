@@ -102,3 +102,8 @@ client IP address
   git push --all
   ```
 
+## Markdown
+* How to reference a sub section within the page
+  * If it is a header, say, Google Protoc, then reference it as 
+    \[Link](#google-protoc)\. Note 1) replace white space by hyphens; 2) use
+    lower case
