@@ -4,7 +4,7 @@ comments: true
 title: Linux Tips
 ---
 
-* Mount between linux and linux
+## Mount between linux and linux
     * How to export a folder from the server side
         * Add the following to /etc/exports. The IP address should be the
     client IP address
@@ -13,15 +13,15 @@ title: Linux Tips
         * Add the following to the /etc/fstab
             * server_ip:/server_folder         /local_folder   nfs    auto    0       0
 
-* Jekyll
+## Jekyll
     * How to start the server locally
         * jekyll serve --host=0.0.0.0
 
-* Django
+## Django
     * How to start the local server
         * python manage.py runserver 0:8000
 
-* Mongodb
+## Mongodb
     * Where is the config file
         * /etc/mongod.conf
     * How to get the latest label version
@@ -47,7 +47,7 @@ title: Linux Tips
     * How to start the service
         * sudo service mongod start
 
-* Python
+## Python
     * Matplotlib
         * How to specify the name on x-axis
           ```python
@@ -81,7 +81,7 @@ title: Linux Tips
       conda install -c anaconda boost
       ```
 
-* Google Protoc
+## Google Protoc
     * Compile it from source code
       ```bash
       wget https://github.com/google/protobuf/releases/protobuf-python-3.5.1.tar.gz
@@ -91,7 +91,7 @@ title: Linux Tips
       make
       sudo make install
       ```
-* Git
+## Git
     * Migrate a repo from one server to another
       ```shell
       git lfs fetch --all
