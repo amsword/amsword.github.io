@@ -17,6 +17,33 @@ client IP address
 * How to restart the computer after the power recovers
     * The option is in Bios setting. Find the options related with power.
 
+## Crontab
+* How to make the running env in crontab job the same as when the uesr logins
+  ```bash
+  bash -i -l -c 'your command'
+  ```
+  -i: run the shell interactively
+  -l: run the ~/.profile to populate the environment variables
+
+* How to debug the command
+  * Mimic the environment the crontab job uses by running the following command
+    in crontab job to get the environment variable list
+    ```bash
+    env > ~/env.txt
+    ```
+  * Run the sh with those envs.
+    ``` bash
+    env - `cat env.txt` /bin/sh
+    ```
+    After it gives you the shell, type any command you use in the crontab jobs
+
+* How to run a job at reboot
+  Using @reboot
+  ```bash
+  @reboot bash -i -l -c 'cd $HOME && ls' 2>&1 > $HOME/log.txt &
+  ```
+
+
 ## Jekyll
 * How to start the server locally
     * jekyll serve --host=0.0.0.0
