@@ -13,6 +13,10 @@ client IP address
     * Add the following to the /etc/fstab
         * server_ip:/server_folder         /local_folder   nfs    auto    0       0
 
+## Power Option
+* How to restart the computer after the power recovers
+    * The option is in Bios setting. Find the options related with power.
+
 ## Jekyll
 * How to start the server locally
     * jekyll serve --host=0.0.0.0
@@ -76,6 +80,9 @@ client IP address
   ```bash
   conda install opencv
   ```
+* Garbage Collection
+  [link1](http://www.arctrix.com/nas/python/gc/)
+  [link2](https://rushter.com/blog/python-garbage-collector/)
 
 ## c/c++
 * boost
