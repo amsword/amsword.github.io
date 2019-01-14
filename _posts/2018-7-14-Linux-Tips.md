@@ -111,6 +111,12 @@ client IP address
   [link1](http://www.arctrix.com/nas/python/gc/)
   [link2](https://rushter.com/blog/python-garbage-collector/)
 
+* Jupyter notebook
+    * How to launch
+    ```bash
+    jupyter notebook --no-browser --port=8888 --ip=0.0.0.0
+    ```
+
 ## c/c++
 * boost
   ```bash
@@ -189,4 +195,16 @@ client IP address
   ```
   frame frame_id
   ```
+## Proxy
+* How to browse the website from SSH tunel
+    * Set the tunnel by
+      ```bash
+      ssh -ND 1080 jianfw
+      ```
+    * Open the browser with that port
+      ```bash
+      chromium-browser --proxy-server="socks5://localhost:1080"
+      ```
+    From [here](https://superuser.com/questions/819714/chrome-ssh-tunnel-forwarding)
+  
 
