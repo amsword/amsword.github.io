@@ -17,6 +17,14 @@ client IP address
 * How to restart the computer after the power recovers
     * The option is in Bios setting. Find the options related with power.
 
+## Time/Date
+* How to set the time in command line
+check [this](https://askubuntu.com/questions/920361/unable-to-change-date-and-time-settings-in-ubuntu-16-04-using-command-line)
+```bash
+sudo timedatectl set-ntp 0
+sudo timedatectl set-time "2017-05-30 18:17:16"
+```
+
 ## Crontab
 * How to make the running env in crontab job the same as when the uesr logins
   ```bash
@@ -207,5 +215,21 @@ client IP address
       chromium-browser --proxy-server="socks5://localhost:1080"
       ```
     From [here](https://superuser.com/questions/819714/chrome-ssh-tunnel-forwarding)
+
+## Docker
+* How to clean the docker folder
+```bash
+docker system prune -a -f
+```
+use `docker system prune --help` to check the details.
+* How to change the docker folder not to use the space in /
+check out [this](https://linuxconfig.org/how-to-move-docker-s-default-var-lib-docker-to-another-directory-on-ubuntu-debian-linux)
+
+## nvim
+* How to generate the ycm config file for current project folder
+  ```bash
+  :YcmGenerateConfig
+  ```
+
   
 
