@@ -4,11 +4,133 @@ comments: true
 title: Linux Tips
 ---
 
+## General
+* How to change the timestamp of the file
+  ```bash
+  touch -d "2012-10-19 12:12:12.000000000 +0530" tgs.txt
+  ```
+
+* How to list all package versions in conda
+  ```bash
+  conda search pytorch-nightly -c pytorch
+  ```
+
+* How to check system log
+  * Location: /var/log/
+  * use logrotate to automatically remove the logs
+
+* How to limit the CPU usage of a process to make it slower
+  ```bash
+  cpulimit -p 157407 -l 5
+  ```
+  make the process of 157407 to use at most 5% of CPU.
+* apex install fails in maskrcnn
+  ```bash
+  conda install cryptacular
+  pip install apex
+
+  ```
+* Check the output every 2 seconds
+```bash
+watch "bash -c './philly.py -wl query &> /tmp/wu1.txt && tail -n 40 /tmp/wu1.txt'"
+```
+
+* How to test the read speed
+```bash
+pv trainval.tsv | md5sum
+rsync trainval.tsv /tmp/ --progress
+```
+
+* How to check where the nccl2 is installed
+```bash
+dpkg -L libnccl2
+```
+
+* How to debug the issue in pip install
+    * Download the source code and run
+      ```bash
+      python setup.py install
+      ```
+      which will crash and you can find the soruce code easily
+
+* How to check cuda version
+```bash
+cat /usr/local/cuda/version.txt
+```
+or
+```bash
+nvcc --version
+```
+
+* How to fix the following error
+```bash
+cuda_runtime_api.h:9156:60: error: ‘cudaGraphExec_t’ was not declared in this scope
+ extern __host__ cudaError_t CUDARTAPI cudaGraphExecDestroy(cudaGraphExec_t graphExec);
+```
+Check out [this link](https://devtalk.nvidia.com/default/topic/1045857/tensorrt/onnx-tensorrt-build-failure/)
+by 
+I open the file:
+/usr/include/cudnn.h
+
+And I changed the line:
+```c
+#include "driver_types.h"
+```
+to:
+```c
+#include <driver_types.h>
+```
+
+
+* How to check cudnn version
+```bash
+cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2
+```
+or
+```bash
+cat /usr/include/cudnn.h | grep CUDNN_MAJOR -A 2
+```
+
+* disk space check
+```bash
+du --max-depth=1 -h | sort -h # check which folder uses the most
+```
+the above command does not print any information until all information is
+collected. Sometimes, there might be lots of files in the folder and it might
+be stuck for quite a long time. In this case, we can just run `du -h` to print
+out all the scanning. This command will tell which folder contains lots of
+files. Then, use the option of --exclude to check other folders, e.g.
+```bash
+du --exclude=./abc
+```
+
+* How to test the network speed
+  * use iperf
+    * Node 1 as server
+    ```bash
+    sudo apt-get install iperf
+    iperf -s
+    ```
+    * Node 2 as client to connect with node 1
+      ```bash
+      sudo apt-get install iperf
+      iperf -c node_1_ip
+      ```
+
+
 ## Mount between linux and linux
 * How to export a folder from the server side
+    * Install the package
+    ```shell
+    sudo apt install nfs-kernel-server
+    ```
     * Add the following to /etc/exports. The IP address should be the
 client IP address
         * /server_folder       157.54.146.96(rw,sync,no_root_squash,no_subtree_check) 
+    * Restart the service by
+    ```shell
+    sudo exportfs -a
+    ```
 * How to mount the remote folder on the local side
     * Add the following to the /etc/fstab
         * server_ip:/server_folder         /local_folder   nfs    auto    0       0
@@ -23,6 +145,26 @@ check [this](https://askubuntu.com/questions/920361/unable-to-change-date-and-ti
 ```bash
 sudo timedatectl set-ntp 0
 sudo timedatectl set-time "2017-05-30 18:17:16"
+```
+
+## Search keyword in files
+```bash
+grep '\[170, 11, 269, 160\]' *.label.tsv
+```
+
+
+## Samba
+* How to start
+```bash
+sudo service smbd start
+```
+* How to stop
+```bash
+sudo service smbd stop
+```
+* How to restart
+```bash
+sudo service smbd restart
 ```
 
 ## Crontab
@@ -100,11 +242,45 @@ sudo timedatectl set-time "2017-05-30 18:17:16"
       plt.plot(x, y)
       plt.show()
       ```
+
     * How to save the figure
       ```python
       plt.savefig('2.eps', format='eps', bbox_inches='tight')
       plt.savefig('2.png', format='png', bbox_inches='tight')
       ```
+
+    * How to not use the x-window to display.
+      ```python
+      import matplotlib
+      matplotlib.use('Agg')
+      ```
+      or 
+      ```shell
+      export MPLBACKEND="agg"
+      ```
+
+    * How to remove the top and right line
+      ```python
+      fig, ax = plt.subplots()
+      ax.spines['right'].set_visible(False)
+      ax.spines['top'].set_visible(False)
+      ```
+
+    * How to make the x axis as the log scale based on 2
+      ```python
+      plt.xscale('log', basex=2)
+      ```
+
+    * How to position the location of x label
+      ```python
+      plt.xlabel(xlabel, labelpad=-25)
+      ```
+
+    * How to set the lineewidth of the axis
+      ```python
+      plt.setp(ax.spines.values(), linewidth=4)
+      ```
+
 * ProtoBuf
   ```bash
   conda install libprotobuf # it will install protoc (executible) and the include/lib. The python lib is not installed
@@ -124,6 +300,88 @@ sudo timedatectl set-time "2017-05-30 18:17:16"
     ```bash
     jupyter notebook --no-browser --port=8888 --ip=0.0.0.0
     ```
+* Setup
+    * How to install it under develop mode
+    ```bash
+    python setup.py build install --user
+    ```
+    * How to remove all data
+    ```bash
+    python setup.py clean --all
+    ```
+    * How to uninstall after python setup.py install
+    ```bash
+    python setup.py install --record files.txt
+    xargs rm -rf < files.txt
+    ```
+
+* PDB
+    * [How](https://stackoverflow.com/questions/5967241/how-to-execute-multi-line-statements-within-pythons-own-debugger-pdb) to run multi-line codes in pdb.
+    ```python
+    (pdb) !import code; code.interact(local=vars())
+    Python 2.6.5 (r265:79063, Apr 16 2010, 13:57:41) 
+    [GCC 4.4.3] on linux2
+    Type "help", "copyright", "credits" or "license" for more information.
+    (InteractiveConsole)
+    >>> 
+    ```
+* Pytorch
+    * How to check the NCCL's version
+    ```shell
+    python -c 'import torch; print(torch._C._nccl_version())'
+
+    ```
+    * What does it mean by the error of RuntimeError: copy_if failed
+    Normally it means NaN encountered
+    * How to check config information
+    ```shell
+    python -c 'import torch; print(torch.__config__.show())'
+    ```
+
+    * How to debug the distributed training, e.g. sync BN. 
+    on one terminal
+    ```shell
+    OMPI_COMM_WORLD_RANK=0 OMPI_COMM_WORLD_SIZE=2 OMPI_COMM_WORLD_LOCAL_RANK=0 OMPI_COMM_WORLD_LOCAL_SIZE=2 python scripts.py
+    ```
+
+    on another terminal
+    ```shell
+    OMPI_COMM_WORLD_RANK=1 OMPI_COMM_WORLD_SIZE=2 OMPI_COMM_WORLD_LOCAL_RANK=1 OMPI_COMM_WORLD_LOCAL_SIZE=2 python scripts.py
+    ```
+
+* Unittest
+    * How to attach the debugger when an exception is thrown. The command of ipython --pdb does not attach the debugger properly. We need to use nosetests
+    ```shell
+    pip install nose
+    nosetests test.py -pdb
+    ```
+    or
+    ```shell
+    nosetests test.py -ipdb
+    ```
+    * How to run the test with the log printed
+    ```shell
+    nosetests --nocapture test.py
+    ```
+    * How to run one test
+    ```shell
+    nosetests test_masktsvdataset:TestMaskTSVDataset.test_get_keys
+    ```
+
+* ipdb
+  * How to access all the local variables within ipdb
+  ```shell
+  ipdb> interact
+  ```
+
+## Latex
+* How to insert latex equation to figure, created by inkscape or power points
+  * use [this website](http://www.tlhiv.org/ltxpreview/), and download it as
+  svg. Then insert svg to the figures.
+* How to create a tight pdf figure
+  ```shell
+  pdfcrop fname.pdf fname-crop.pdf
+  ```
 
 ## c/c++
 * boost
@@ -148,6 +406,15 @@ sudo timedatectl set-time "2017-05-30 18:17:16"
   git lfs fetch --all
   git lfs push --all 
   git push --all
+  ```
+* How to pretty show the log
+  ```shell
+  git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+  git lg
+  ```
+* How to add submodule
+  ```shell
+  git submodule add git@github.com:amsword/mmdetection.git src/mmdetection
   ```
 
 ## Markdown
@@ -203,8 +470,16 @@ sudo timedatectl set-time "2017-05-30 18:17:16"
   ```
   frame frame_id
   ```
+* How to launch the gdb python in vim
+  ```
+  : ConqueGdb python
+  ```
+* How to start the python process in ConqueGdb python
+  ```
+  run a.py
+  ```
 
-## Proxy
+## SSH
 * How to browse the website from SSH tunel
     * Set the tunnel by
       ```bash
@@ -216,20 +491,57 @@ sudo timedatectl set-time "2017-05-30 18:17:16"
       ```
     From [here](https://superuser.com/questions/819714/chrome-ssh-tunnel-forwarding)
 
+* How to create id_rsa without prompt
+  ```bash
+  ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+  ```
+
 ## Docker
 * How to clean the docker folder
 ```bash
 docker system prune -a -f
 ```
 use `docker system prune --help` to check the details.
+
 * How to change the docker folder not to use the space in /
 check out [this](https://linuxconfig.org/how-to-move-docker-s-default-var-lib-docker-to-another-directory-on-ubuntu-debian-linux)
+
+* How to get into the container
+```bash
+docker exec -i -t 665b4a1e17b6 /bin/bash 
+```
+* How to build docker image locally
+```bash
+docker build -t amsword/setup:py36pt11 .
+```
+* How to push teh docker image to docker hub
+```bash
+docker login
+docker push amsword/setup:py36pt11
+```
 
 ## nvim
 * How to generate the ycm config file for current project folder
   ```bash
   :YcmGenerateConfig
   ```
+* How to delete the aux file from vim
+  ```bash
+  find ./ -type f -name "\.*sw[klmnop]" -delete
+  ```
+* How to get the file type of current file
+  ```bash
+  :set filetype?
+  ```
+* How to set the fold method as indent for markdown file
+  ```bash
+  # in ~/.vimrc
+  autocmd FileType markdown setlocal fdm=indent
+  ```
 
-  
-
+## Samba
+* How to add a custom config to samba default config
+  add the following to /etc/smb.conf
+  ```
+  include = /etc/samba/smb.conf.custom
+  ```

@@ -4,6 +4,12 @@ comments: true
 title: MongoDB Pipeline Examples
 ---
 
+* How to visualize the UHRS verification result
+  ```python
+  [{'$match': {'interpretation_result': 1, 'status': 'completed'}},
+   {'$addFields': {'gt': '$rects', 'key': {'$concat': ['$data', '_', '$key']}}}]
+  ```
+
 * How to compare our prediction results with Google's 
     * Google's MIT results are saved as the 6th version
     * Our results are based on full_expid and predict_file
