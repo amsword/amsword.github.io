@@ -5,11 +5,36 @@ title: Linux Tips
 ---
 
 ## General
+* How to test the connectivity of two machines
+  * On server side, listen to the port of, e.g. 23456
+  ```shell
+  nc -l 23456
+  ```
+  * on the client side, connect it with this command
+  ```shell
+  nc -v server_ip 23456
+  ```
+
+* How to write multi-lines in yaml
+  use |
+  ```yaml
+  a: |
+     abc
+     efg
+  ```
+
+* How to setup VPN
+  check [this tutorial](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-openvpn-server-on-ubuntu-16-04)
+
 * How to change the timestamp of the file
   ```bash
   touch -d "2012-10-19 12:12:12.000000000 +0530" tgs.txt
   ```
-
+* How to change the timestamp of all files under a folder
+  ```bash
+  cd folder
+  touch -d "2012-10-19 12:12:12.000000000 +0530" *
+  ```
 * How to list all package versions in conda
   ```bash
   conda search pytorch-nightly -c pytorch
@@ -197,6 +222,8 @@ sudo service smbd restart
 ## Jekyll
 * How to start the server locally
     * jekyll serve --host=0.0.0.0
+* How to write latex equation in markdown with jekyll
+  See [here](http://zjuwhw.github.io/2017/06/04/MathJax.html)
 
 ## Django
 * How to start the local server
@@ -227,6 +254,13 @@ sudo service smbd restart
     * sudo service mongod status
 * How to start the service
     * sudo service mongod start
+
+## Pytorch
+* How to access the data pointer of a tensor in c++
+  ```
+  result.data<int64_t>());
+  ```
+  Note, use int64_t rather than long long.
 
 ## Python
 * Matplotlib
@@ -388,6 +422,18 @@ sudo service smbd restart
   ```bash
   conda install boost
   ```
+* How to check the time cost
+  ```c
+  #include <iostream>
+  #include <ctime>
+  #include <chrono>
+
+  auto start = high_resolution_clock::now();
+  auto stop = high_resolution_clock::now();
+  auto duration = duration_cast<microseconds>(stop - start);
+  std::cout << "unique: " << duration.count() << std::endl;
+  ```
+
 
 ## Google Protoc
 * Compile it from source code
@@ -401,6 +447,8 @@ sudo service smbd restart
   ```
 
 ## Git
+* How to revert a merge
+  check [this](https://mijingo.com/blog/reverting-a-git-merge)
 * Migrate a repo from one server to another
   ```shell
   git lfs fetch --all
@@ -470,10 +518,6 @@ sudo service smbd restart
   ```
   frame frame_id
   ```
-* How to launch the gdb python in vim
-  ```
-  : ConqueGdb python
-  ```
 * How to start the python process in ConqueGdb python
   ```
   run a.py
@@ -520,7 +564,10 @@ docker login
 docker push amsword/setup:py36pt11
 ```
 
-## nvim
+## vim/nvim
+* How to solve the problem of slow netrw in nvim
+  [follow this change](https://github.com/vim/vim/issues/4965#issuecomment-557692553)
+  or [this one](https://github.com/neovim/neovim/pull/6892/commits/84e498a259c2e2b9cd09ebf99b2cb0b07f515bbe)
 * How to generate the ycm config file for current project folder
   ```bash
   :YcmGenerateConfig
@@ -538,6 +585,16 @@ docker push amsword/setup:py36pt11
   # in ~/.vimrc
   autocmd FileType markdown setlocal fdm=indent
   ```
+* How to launch the gdb python in vim
+  ```
+  : ConqueGdb python
+  ```
+* Netrw
+  * How to create a new directory
+    * click d
+  * How to create a new file
+    * click %
+
 
 ## Samba
 * How to add a custom config to samba default config
