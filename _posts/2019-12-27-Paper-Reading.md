@@ -5,21 +5,98 @@ title: Paper Reading
 ---
 
 - To read
-    - Colorful Image Colorizatio
+    - Dual Student: Breaking the Limits of the Teacher in Semi-supervised Learning
+    - Transductive Learning for Zero-Shot Object Detection
+    - Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering
+    - What Should Not Be Contrastive in Contrastive Learning
+    - Towards Unsupervised Crowd Counting via Regression-Detection Bi-knowledge Transfer
+    - Learning to Cluster under Domain Shift
+    - Unsupervised Deep Metric Learning with Transformed Attention Consistency and Contrastive Clustering Loss
+    - Unsupervised Feature Learning by Cross-Level Discrimination between Instances and Groups
+    - Spatiotemporal Contrastive Video Representation Learning
+    - Exploring Relations in Untrimmed Videos for Self-Supervised Learning
+    - Self-supervised Video Representation Learning Using Inter-intra Contrastive Framework
+    - Functional Regularization for Representation Learning: A Unified Theoretical Perspective
+    - Self-supervised Temporal Discriminative Learning for Video Representation Learning
+    - Self-supervised learning using consistency regularization of spatio-temporal data augmentation for action recognition
+    - Memory-augmented Dense Predictive Coding for Video Representation Learning
+    - Predicting What You Already Know Helps: Provable Self-Supervised Learning
+    - Self-supervised learning through the eyes of a child
+
+    - Learning from the Past: Continual Meta-Learning with Bayesian Graph Neural Networks
+    - High-order structure preserving graph neural network for few-shot learning
+    - Meta-learning with memory-augmented neural networks
+
+    - Towards VQA Models That Can Read
+
+    - Mining Cross-Image Semantics for Weakly Supervised Semantic Segmentation
+    - Predicting What You Already Know Helps: Provable Self-Supervised Learning
+    - Contrastive Visual-Linguistic Pretraining
+    - ReLaB: Reliable Label Bootstrapping for Semi-Supervised Learning
+    - CrossTransformers: spatially-aware few-shot transfer
+    - Video Representation Learning by Recognizing Temporal Transformations
+    - Improving Object Detection with Selective Self-supervised Self-training
+
+    - A comprehensive overhaul of feature distillation
+
+    - Meta-Learning for Semi-Supervised Few-Shot Classification
+    - Temporal Self-Ensembling Teacher for Semi-Supervised Object Detection
+    - Prototypical Networks for Few-shot Learning
+    - Improving Few-Shot Learning using Composite Rotation based Auxiliary Task
+    - Transfer Learning or Self-supervised Learning? A Tale of Two Pretraining Paradigms
+    - Enabling On-Device CNN Training by Self-Supervised Instance Filtering and Error Map Pruning
+    - Self-supervised Neural Architecture Search
+    - Knowledge Distillation by On-the-Fly Native Ensemble
+    - Online Knowledge Distillation via Collaborative Learning
+    - MOD: A Deep Mixture Model with Online Knowledge Distillation for Large Scale Video Temporal Concept Localization
+    - Dynamic Refinement Network for Oriented and Densely Packed Object Detection
+    - Batch Renormalization: Towards Reducing Minibatch Dependence in Batch-Normalized Models
+    - Learning Invariant Representation for Unsupervised Image Restoration
+    - Transformation GAN for Unsupervised Image Synthesis and Representation Learning
+    - Deep Representation Learning on Long-Tailed Data: A Learnable Embedding Augmentation Perspective
+    - Global-Local Bidirectional Reasoning for Unsupervised Representation Learning of 3D Point Clouds
+    - HigherHRNet: Scale-Aware Representation Learning for Bottom-Up Human Pose Estimation
+    - Probabilistic Structural Latent Representation for Unsupervised Embedding
+    - Decoupled Representation Learning for Skeleton-Based Gesture Recognition
+    - Towards Backward-Compatible Representation Learning
+    - Sketch-BERT: Learning Sketch Bidirectional Encoder Representation From Transformers by Self-Supervised Learning of Sketch Gestalt
+    - Towards Universal Representation Learning for Deep Face Recognition
+    - S3VAE: Self-Supervised Sequential VAE for Representation Disentanglement and Data Generation
+    - Video Playback Rate Perception for Self-Supervised Spatio-Temporal Representation Learning
+    - Unsupervised Representation Learning for Gaze Estimation
+    - Hierarchically Robust Representation Learning
+    - Learning Representations by Predicting Bags of Visual Words
+
+    - Large Scale Video Representation Learning via Relational Graph Clustering
+    - Distribution-Induced Bidirectional Generative Adversarial Network for Graph Representation Learning
+    - Are we done with ImageNet?
+    - Evolving Losses for Unsupervised Video Representation Learning
+    - Learning Representations by Predicting Bags of Visual Words
+    - Knowledge Distillation Meets Self-Supervision
+    - Training low bitwidth convolutional neural networks with low bitwidth gradients
+    - fb-net
+    - Generalized Focal Loss: Learning Qualified and Distributed Bounding Boxes for Dense Object Detection
+    - https://blog.evjang.com/2016/11/tutorial-categorical-variational.html
+    - htps://openreview.net/pdf?id=rkE3y85ee 
+    - https://towardsdatascience.com/what-is-gumbel-softmax-7f6d9cdcb90e?gi=26de57769dc4 
+    - Creating Something from Nothing: Unsupervised Knowledge Distillation for Cross-Modal Hashing
+    - Behind the Scene: Revealing the Secrets of Pre-trained Vision-and-Language Models
+    - Attention Augmented Convolutional Networks
+    - Stand-Alone Self-Attention in Vision Models
+    - On the Relationship between Self-Attention and Convolutional Layers
+    - Multi-similarity loss with general pair weighting for deep metric learning
+    - Cut, paste and learn: Surprisingly easy synthesis for instance detection
+    - Circle Loss: A Unified Perspective of Pair Similarity Optimization
+    - MaxUp: A Simple Way to Improve Generalization of Neural Network Training
     - DetNAS: Backbone Search for Object Detection
     - https://lilianweng.github.io/lil-log/tag/generative-model
     - https://github.com/jason718/awesome-self-supervised-learning
-    - Unsupervised Visual Representation Learning by Context Prediction
-    - Unsupervised Learning of Visual Representations by Solving Jigsaw Puzzles
     - Extracting and Composing Robust Features with Denoising Autoencoders
     - Context Encoders: Feature Learning by Inpainting
-    - Split-Brain Autoencoders: Unsupervised Learning by Cross-Channel Prediction
     - Multimedia Search with Pseudo-Relevance Feedback 
-    - Randaugment: Practical data augmentation with no separate search
     - M2det: A single-shot object detector based on multi-level feature pyramid network
     - Dynamic anchor feature selection for single-shot object detection
     - Low-shot learning with large-scale diffusion
-    - Cross-Batch Memory for Embedding Learning
     - FixMatch: Simplifying Semi-Supervised Learning with Consistency and Confidence
     - ∆-encoder: an effective sample synthesis method for few-shot object recognition
     - Conditional image generation with pixelcnn decoders
@@ -74,6 +151,7 @@ title: Paper Reading
         - github: https://github.com/tianzhi0549/FCOS
     - NAS-FCOS: Fast Neural Architecture Search for Object Detection
         - https://github.com/Lausannen/NAS-FCOS
+    - Self-Supervised Bernoulli Autoencoders for Semi-Supervised Hashing
 
 # Product Recognition
 - Fine-Grained Product Class Recognition for Assisted Shopping
@@ -106,8 +184,35 @@ title: Paper Reading
       there might be some redundant trace between objects, which might not be
       useful and not be easy to remove.
 
-
 # Network Component
+- Non-local Neural Networks
+    - cvpr 2018
+    - similar with self-attention module to increase the dependency of the
+      output on the global information through the whole spatial input.
+- AdderNet: Do We Really Need Multiplications in Deep Learning
+    - 12/31/2019, arxiv
+    - replace the conv layer with addition only operations. That is, the
+      similarity between the input region and the kernel is replaced by the
+      (negative) l1 distance, which has no multiplications.
+    - BN is still used here.
+    - The gradient of the filter is calculated based on squared l2 distance loss.
+    - The gradient of the input from the output is also based on the full
+      precision, but truncated within -1 to 1.
+    - exp
+        - resnet18, imagenet; CNN: 69.8; the proposed: 67.0
+        - resnet50, imagenet; CNN: 76.2; the proposed: 74.9
+- Weight Standardization
+    -  3/25/2019 arxiv
+    - idea
+        - normalize the weight for the conv layers.
+    - experiment
+        - r50 on imagenet
+        - bn: 24.3; ws + bn: 23.76
+        - gn: 24.81: ws + gn: 23.72
+- Evolving Normalization-Activation Layers
+    - arxiv 4/2020
+    - search the nromalization + activation layer and replace it with BN-Relu
+    - +1 improvement on instance segmentation, +0.2 around in imagenet
 - Dynamic ReLU
     - Key idea
         - Generalize Relu and LeackyRelu as a learnable relu, which is the
@@ -179,7 +284,63 @@ title: Paper Reading
           longer, but inference time should be the same.
         - not sure how it performs in detection and other tasks.
 
+# Analysis
+- Rethinking Pre-training and Self-training
+    - 6/11/2020 arxiv
+    - conclusion
+        - stronger data augmentation for coco detection task does not need
+          pre-training, which could even hurt the accuracy.
+    - similar with data distillation
+
+# Network architecture
+- Are Labels Necessary for Neural Architecture Search?
+    - arxiv 3/2020
+    - highlights
+        - the paper does not provide any new algorithm for NAS
+        - the paper replaces the supervised loss based on labels by rotation,
+          jigsaw, colorization losses, which are unsupervised.
+        - one experiment is to rank 500 architectures based on supervised loss
+          and self-supervised loss. Then, calculate the correlation. The
+          conclusion is that the rank is highly correlated so that replacing
+          supervised labels with self-supervised labels is promising for NAS
+        - another experiment is to replace the loss in off-the-shelf DARTS (a
+          NAS algorithm) to search the architecture and evaluate on imagenet
+          classification and scemantic segmentation problems. The accuracy is
+          competitive compared with supervised counterpart.
+    - pros
+        - raised a good question and found labels are not essential for NAS
+    - cons
+        - no new algorithm
+- FBNetV3: Joint Architecture-Recipe Search using Neural Acquisition Function
+    - 6/3/2020 arxiv, FB
+    - architecture search, novelty
+        - combine the architecture search and training algorithm
+    - misc
+        - RMSProp is better than SGD
+        - EMA also improves
+        - pre-train the predictor (input is archtecture embedding; output is
+          the accuracy) by the task to predict the flops, which performs better
+          than non-pretraining
+    - experiment
+        - fbnetv3-a vs efficient-net-0
+            - 343M flops vs 390M flops
+            - 78.0 top1 vs 77.3
+        - fbnetv3-c vs efficient-net-1
+            - 544M vs 734M
+            - 79.6 vs 79.2
+        - fbnetv3-e vs efficient-net-2
+            - 752 vs 1G
+            - 80.4 vs 80.3
+        - fbnetv3-g vs efficient-net-3
+            - 2G vs 1.8G
+            - 82.3 vs 81.7
+
 # Image Classification
+- Adversarial Examples Improve Image Recognition
+    - arxiv 11/2019
+    - the idea is to use seperate BN for clean image and adversirial images
+      during training, which increases the accuarcy on efficient-net by 0.3~0.7
+      points.
 - Designing Network Design Spaces
     - The key idea is to filter the network architecture search by applying
       some constraints, e.g. the network width should be non-decreasing. Then,
@@ -203,7 +364,15 @@ title: Paper Reading
 - ShuffleNet V2: Practical Guidelines for Efficient CNN Architecture Design
     - ECCV 18
 
+
 # Optimization
+- Fixing the train-test resolution discrepancy
+    - 3/30/2020, arxiv
+    - the contribution
+        - during test, use a larger input
+        - during training, fine-tune the network with the larger input size.
+    - exp
+        - 85.4 -> 86.4 for x101-32-48d
 - Understanding the Role of Momentum in Stochastic Gradient Methods
     - NIPs 2019, Igor/Pengchuan
 - some docs about multi-armed bandit optimization
@@ -221,7 +390,14 @@ title: Paper Reading
         - from facebook
         - good to use. checkout the service api example
     - https://www.cs.ox.ac.uk/people/nando.defreitas/publications/BayesOptLoop.pdf
-- network component
+## optimization/transport problem
+- Sinkhorn Distances: Lightspeed Computation of Optimal Transport
+    - nips 2013
+    - a very nice solution
+- https://michielstock.github.io/OptimalTransport/
+    - nice blog about some basis
+
+# network component
     - In-Place Activated BatchNorm for Memory-Optimized Training of DNNs
         - an efficient BN implementation.
         - worth giving it a try
@@ -234,14 +410,83 @@ title: Paper Reading
           search strategy, and performance evaluation
         - pretty-good survey
 
-- Few-short learning
-    - Generalizing from a Few Examples: A Survey on Few-Shot Learning
-        - archiv, 5/13/19. worth reading next time
+# Document Understanding
+- LayoutLM: Pre-training of Text and Layout for Document Image Understanding
+    - arxiv 6/16/2020 from MSRA
+    - 2d encoding based on two lookup tables for each region.
+
+# network structure/Graph Network
+- Graph Attention Networks
+    - arxiv 2018/4, iclr 2018
+    - a very nice paper which improves the representation of each node by the
+      adjacent nodes with the attnetion weight
 
 
+# meta learning
+- Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks
+    - icml - 2017
+    - the goal is to optimize the loss where the parameters should be adapted
+      with a training sample. Each training sample here means a task which
+      consists of n-way k-shot samples.
+# Few-short learning
+- Learning to compare: Relation network for few-shot learning
+    - arxiv 3/2018
+    - each image in teh support set and query set is encoded by a learnable
+      network. The query's feature is concatenated with each support feature.
+      Another network is to map the concatenated feature to a scalar to indicte
+      the relationship begtween the query and the feagture in the support set.
+      This is for one-shot learning case. For multi shots, all features within
+      the same classes are avereged to have 1 feature vector.
+- Matching networks for one shot learning
+    - arxiv 2016/6
+    - similar like a knn classifier
+- Edge-Labeling Graph Neural Network for Few-shot Learning
+    - arxv 2019/5, 51 citation
+    - good writing, nice idea
+    - update the edge vectors as well
+- Laplacian Regularized Few-Shot Learning
+    - icml 2020
+    - very elegent optimizaation method to solve teh class prediction problem.
+- DPGN: Distribution Propagation Graph Network for Few-shot Learning
+    - cvpr 2020
+    - based on graph cnn
+    - use two graphs. one is the point graph; the other is called distribution
+      graph.
+- Generalizing from a Few Examples: A Survey on Few-Shot Learning
+    - archiv, 5/13/19. worth reading next time
+
+- Infinite Mixture Prototypes for Few-Shot Learning
+    - For each class, it designs multiple prototypes to represent. Different
+      classes might have different numbers of prototypes. The way how to
+      generate is based on the sample's distance to the prototype. If it is
+      larger than some pre-defined value, then create a new one.
+
+# Metric Learning
+- Cross-Batch Memory for Embedding Learning
+    - arxiv 4/2020
+    - idea
+        - use a memory bank, implemented as queue to increase the negative
+          samples.
+        - the application is the supervised learning for few-shot learning
+          case.
 # Graph Neural Network
 - A Comprehensive Survey on Graph Neural Networks
     - A good survey.
+
+# Vision Language
+- DeViSE: A Deep Visual-Semantic Embedding Model
+    - nips 2013
+    - the idea
+        - each label is represented by a vector learned from laungage model
+        - in the training, the image is targed on this soft target
+    - experiment
+        - if the labels are treated as a flat structure, the cross entropy loss
+          is still the best. For example, top-1's acc is 55.6; while the
+          proposed is 54.9.
+        - if we take into account the hirachical structure of the labels, and
+          have a newer metric to account for the strucutre, the accuracy of the
+          proposed is better. For example, the acc at top10, the traditional
+          cross entropy is 31.3; while the proposed is 33.1
 
 # Text Detection
 - ReLaText: Exploiting Visual Relationships for Arbitrary-Shaped Scene Text Detection with Graph Convolutional Networks
@@ -260,6 +505,34 @@ title: Paper Reading
             - binary classifier problem.
 
 # Object Detection
+- REPGN:OBJECT DETECTION WITH RELATIONAL PROPOSAL GRAPH NETWORK
+    - 4/18/2019, arxiv only
+    - apply the graph netowrk on the proposals. the gain is less than 1 point
+      here on coco.
+- DetectoRS: Detecting Objects with Recursive Feature Pyramid and Switchable Atrous Convolution
+- Bridging the gap between372anchor-based and anchor-free detection via adaptive training sample selection
+    - cvpr 2020
+    - contribution
+        - an adaptive method for positive/negative assignment, which is based
+          on teh center distance between teh anchor and the gt and the adaptive
+          statistic information
+        - overall, the imporovement is 1-2 points
+- End-to-end object detection with Transformers
+    - arxiv 5/2020, facebook
+    - idea
+        - similar with yolo, but the feature map is re-fused by transformer
+          layers.
+        - in the end, no aanchor is associated with the spatial locations. Each
+          location predicts independent box coordinates and classification
+          result
+        - in the training, the assignment is based on the loss, which targets
+          the matching (bipartite matching from the prediction to the ground
+          truth) to have smallest loss.
+    - roughly, it achieves 1 percent gain, compared with faster-rcnn
+- RepPoints: Point Set Representation for Object Detection
+    - idea
+        - for the bounding box regression, predict 9 points, and use the
+          min/max to get the bounding box. The loss is also based on this box.
 - A deep learning pipeline for product recognition on store shelves
     - arxiv 12/2018, IPAS 2018 (IEEE International Conference on Image Processing, Applications and Systems)
     - approach
@@ -496,6 +769,111 @@ title: Paper Reading
           comparision with sum and concatenation is not disclosed
     - official code release: https://github.com/ruinmessi/ASFF
 
+## Object detection/knowledge distillation
+- Learning Efficient Object Detection Models with Knowledge Distillation
+    - nips 2017
+    - contribution:
+        - add the class-aware weights on the combined classification loss. 
+          The weight for all categories are the same, but different from the background
+          - note, this weighting only applies to the soft loss. The
+            original loss is not altered
+          - compared with the non-weighted soft loss, the gain is from
+            57.4 to 57.7 in VOC; from 50.8 to 51.3 in KITTI.
+        - present a teacher bounded regression loss, that is, if the
+          teacher's regression loss is larger, ignore the teacher's
+          output and student's loss. If it is smaller, let the student
+          move towards teacher's performance. This is regarded as teh
+          soft regression loss, and the paper always added the normal
+          regression loss.
+          - compared with the non-bounded counterpart, the accuracy is
+            improved from 54.6 to 55.9 in voc; from 48.5 to 50.1 in
+            KITTI.
+    - non-contribution, but adopt existing approaches
+        - for the classification loss, it comebines the soft loss (from the
+          teacher network) and the hard loss (from the ground-truth). Note,
+          this is not the contribution.
+        - use the feature map to align from the teacher to the student
+            - one observation is that even the feature dimension is the
+              same, adding a 1x1 conv layer is helpful.
+                - with the adaptive layer, the accuarcy goes from 56.9
+                  to 58 in voc; and 50.3 to 52.1 in KITTI.
+        - with hint, the accuracy on training can be higher, which is
+          kinds of counter-intuitive since it imposes more constraint
+          on the features, which are not related with the ground-truth
+          alignment. This might be the problem of optimization
+          capability issue, where hint can help the optimization
+    - experiments
+        - small network is student; large network is the teacher
+            - with different datasets, the accuary improvement can be
+              3-4 points in terms of mAP@0.5.
+            - For coco metric, the improvement is always around 1 point.
+        - same network, but the network with small input image is
+          student; the network with large input image is the teacher
+            - the distilled student network can achieve comparable with
+              the high resolution netework and is much better than the
+              low resolution network.
+- Mimicking Very Efficient Network for Object Detection
+    - cvpr 2017
+    - the knowledge is passed through the roi cropped feature for
+      faster-rcnn network.
+- Quantization Mimic: Towards Very Tiny CNN for Object Detection
+    - ECCV 18
+    - the paper is similar with mimiking features for object detection,
+      where the roi feature is aligned for student's from teachers. The
+      difference is that the feature is quantized before aligning, but
+      there is no clue on how the network is learned, since the
+      quantization operation will give 0 gradient.
+- Distilling Object Detectors with Fine-grained Feature Imitation
+    - CVPR 19
+    - [github](https://github.com/twangnh/Distilling-Object-Detectors)
+    - almost the same with Mimicking Very Efficient Network for
+      Object Detection(cvpr17) except that, in Mimicking, it uses
+      the proposal to crop the region; while 
+      in this paper, it expands the region more, i.e. align the
+      features within the neighbor of the target position.
+      Specifically, for each ground-truth box, it first finds the
+      position with highest objectness; then the objectness is
+      multiplied by 0.5 as the threshold to filter all non-target region; finally the features
+      within the target regions are aligned.
+    - Experiment
+        - it also compares the case of aligning the full feature, whose
+          accuracy loses 8.9 point; while aligning the features within a
+          sub region increases the accuracy by 5.2 point. The baseline
+          accuracy is 62.63.
+- GAN-Knowledge Distillation for one-stage Object Detection
+    - arxiv only, 7/2019
+    - the paper is not ready at all. some experiments are missing, some
+      table are not fully filled.
+    - the idea is interesting. It has a discriminator to predict
+      whether the feature is from teacher or from student, which guides
+      teh student network to mimic teacher's behavior.
+- Mask Guided Knowledge Distillation for Single Shot Detector
+    - icme 2019
+    - previous methods focus on the region features to be aligned
+      between the teacher's and the student's. This paper combines the
+      global feature alignment and this local feature assignments.
+    - Based on SSD
+    - with global feature alignment, it is 54.6%. The baseline is not
+      reported by not aligning the feature. with the global + local
+      feature alignment, it is 56.88%.
+- Learning Efficient Detector with Semi-supervised Adaptive Distillation
+    - arxiv 1/2019. not find if it is in peer-reviewed conf/journal
+
+
+# Visual and Lauguage
+- End-to-End Learning of Visual Representations From Uncurated Instructional Videos 
+    - cvpr 2020
+    - video and narative, pre-training. based on contrastive learning. the
+      positive pairs come from the same video;
+- Large-Scale Adversarial Training for Vision-and-Language Representation Learning
+    - arxiv 6/2020
+    - apply the adversarial signal to the image/text to increase the robustness
+      of the model
+
+# Domain adaptation
+- Unsupervised Domain Adaptation by Backpropagation
+    - icml 2015
+    - gradient reversal layer
 # Supervised Learning with Extra Image + Image-level labels
 - Revisiting Unreasonable Effectiveness of Data in Deep Learning Era
     - arxiv 2017
@@ -509,9 +887,9 @@ title: Paper Reading
         - taerget on voc, imagenet-pretrained gives 76.3; 300M gives 81.4; imagenet
           + 300M gives 81.3
 
-# Unsupervised Learning
+# Self-supervised Learning
 
-## Theory
+## Self-supervised learning/Theory
 
 - A CRITICAL ANALYSIS OF SELF-SUPERVISION, OR WHAT WE CAN LEARN FROM A SINGLE IMAGE
     - iclr 2020
@@ -542,31 +920,165 @@ title: Paper Reading
 - Formal limitations on the measurement of mutual information
     - some theory on how to measure the mutual information.
 
-## Application
-- Using Self-Supervised Learning Can Improve Model Robustness and Uncertainty
-    - NIPs 209
-    - the idea is to train the classification loss with the self-supervised
-      loss based on the rotation. The observation is that the model could be
-      more robust. The classification loss is not based on the raw input image,
-      but based on the image modified by the gradient, so that the network can
-      learn better since the input makes the loss higher. During the testing,
-      the input image is also modified to make teh loss higher to test the
-      robustness. In this noisy input, the accuracy is dropped from 90+ to 40+.
-      With the addition of the self-supervised loss, the gain could be around 5
-      points.
-- Boosting Few-Shot Visual Learning with Self-Supervision
-    - ICCV 2019
-    - during few-shot feature extractor training, add a loss from
-      self-supervised training. This paper uses rotation-based and
-      position-based losses.
+#### self-supervised pretext task/data
+- Distilling Localization for Self-Supervised Representation Learning
+    - arxiv 4/2020
+    - idea
+        - the idea is to add a data augmentation, which extracts the salient
+          region by unsupervised method and paste it to other images (random
+          grayscale image is good enough, compared with texture images or
+          images which has no saliency response in imagenet). This augmentation
+          is performed with a probability of 50%.
+    - experiment
+        - 60.6 on imagenet linear probe, which is similar with moco v1.
+- Automatic Shortcut Removal for Self-Supervised Representation Learning
+    - arxiv 2/2020
+    - contribution
+        - add a u-net before feeding the image to the network.
+        - the u-net reconstructs the original images, which might remove some
+          shutcut information.
+        - the u-net is called lens here.
+        - then the pretext is performed on the reconstructed image
     - experiments
-        - with the rotation auxiliary loss, there is about 1 point's gain.
-        - with patch location relationship loss, there is also about 1 point's
-          gain.
-        - applied to semi-supervised few-shot learning as well, and in certain
-          cases, tehre are 3-4 points' gain.
+        - rotation as teh pretext task, 46.6 -> 48.6
+        - Exemplar, 43.7 -> 46.1
+        - Jigsaw, 37.2 -> 40.9
 
-## Practice
+## self-supervised learning/separable task
+
+### self-supervised learning/separable task/single view
+- Steering Self-Supervised Feature Learning Beyond Local Pixel Statistics
+    - cvpr 2020. 4/5/2020 arxiv
+    - use 5 transformation to process the image; the task is to predict which
+      transform it is. The 5 transformations are inpainting, which distorts a
+      sub region of an image; rotations; random wraping
+- Adversarial Feature Learning, Adversarially learned inference
+    - both are published in ICLR 2017
+    - idea is exactly the same with Large Scale Adversarial Representation Learning
+    - idea
+        - the idea is quite similar with BiGan. Two networks. One is to map the
+          image to the latent variables; the other is to map the latent
+          variable to the image. The latent variable is pre-defined and follows
+          a pre-defined distribution. The discrimator is used to distinguish
+          the pairs.
+    - no experiment on the imagenet linear probe study.
+- Large Scale Adversarial Representation Learning
+    - NIPs 2019, deepmind
+    - contribution
+        - combine the idea if BiGan and BigGan, used for representation
+          learning.
+    - imagenet dataset
+        - 55.4
+- Colorful Image Colorization
+    - ECCV 2016
+    - the input is a gray image and the output is a colored image. The loss is
+      based on cross entropy, where the color space is quantized into 300+
+      bins. Class balancing is applied by re-weighting.
+- Unsupervised representation learning by predicting image rotations
+    - ICLR 2018
+    - rotate the image and then predict it as the pretext task
+    - Experiments
+        - Imagenet + linear prob, AlexNet
+            - Random: 14.1
+            - proposed: 36.5
+            - Upper bound: 50.5
+
+# self-supervised learning/separable task/two view
+- Bootstrap Your Own Latent A New Approach to Self-Supervised Learning
+    - 6/13/2020 arxiv. deepmind
+    - solution
+        - similar with moco but without negative queue
+        - both crops of the same images are passed to each network. That is,
+          though the iteration is 100 epochs, the training cost should be 2000
+          epochs as moco.
+        - the online encoder (query encoder in moco) uses 2 sets of mlp. Each
+          MLP's structure is identical. The hidden size is 4096. The input
+          variable to MLP is 2048 (the output of average pooling). In SimCLR or
+          moco, the hidden size is teh same as the input size. Meanwhile, these
+          two baselines have only 1 set of MLP.
+        - moving average weight decay parameter is first 0.996 and gradually
+          increases to 1. That means, the parameters of the target network
+          tracks fast to the online network and then slowly. This is contrary
+          to our finding previously, that is, when the online network changes
+          fast, we should track slowly.
+        - 512 TPU v3 cores, Batch size 512, 1000 epochs, takes 8 hours.
+    - exp
+        - linear protocal acc is 74.3
+        - color solarization is used in data augmentation.
+        - the linear evaluation protocal is a little different from what we
+          thought. It added a non-linear layer on top of the logits before
+          applying cross entropy loss. Meanwhile, teh regularization is applied
+          on the output of the non-linear layer. This change improves from 74.3
+          to 74.8.
+
+- Splitbrain autoencoders: Unsupervised learning by cross-channel prediction
+    - cvpr 17
+    - contribution
+        - split the input through channels into two sub inputs. Each goes
+          through the network and predict the other split. Specifically, the
+          input is split into L and ab components. The original network is
+          split into two sub networks by spliting the channels evenly. Then, L
+          is passed to one sub network and predict ab; ab is passed to the
+          other subnetwork and predict L. The loss is based on classificatoin
+          loss by quantizaing the target into multiple discrete slots.
+          Empiracally, regression is slightly worse.
+    - on the standard imagenet problem, the accuracy is 32.8 with conv5
+      feature; 35.2 with conv4 feature; 35.4 with conv3 feature. 
+- Unsupervised visual representation learning by context prediction
+    - ICCV 2015
+    - the idea is to predict the location relationship between a central crop
+      and the 8 neighbor crop. For each image, randomly select one small crop first,
+      and then randomly select one of the 8 crops around it. Each crop is sent
+      to the network and have a feature. The 2 features are concatenated and
+      then processed by linear layer. The goal is to predict if it is relation,
+      i.e. 8-class classification.
+    - Trivial shortcuts
+        - Continuity
+            - Solution
+                - Random gap between patches
+                - [48 – 7, 48 + 7] (patch size = 96x96)
+        - Chromatic aberration
+            - Solution
+                - shift green/magenta towards gray
+                - randomly drop color channels
+                - mean subtraction
+                - Downsample and upsample
+    - no experiments on imagenet
+- AET vs. AED: Unsupervised Representation Learning by Auto-Encoding Transformations rather than Data
+    - CVPR 2019
+    - idea
+        - the network takes two inputs. one is the original image; while the
+          other is the transformed image. The goal is to predict the
+          transformation parameters. In the experiments, it uses the projection
+          parameters and l2 distance. The transformation is randomly scaling by
+          0.8 to 1.2, randomly rotated by 0/90/180/270, and randomly
+          translating +-0.125 of its width and height.
+    - experiments
+        - alexnet, the upper bound is 50.5 and this paper's approach is 37.7.
+
+# self-supervised learning/separable task/multi view
+- Representation Learning by Learning to Count
+    - ICCV 2017
+    - Idea
+        - main idea
+            - Let's say the original image size is S.
+            - Downsample it to S/2 and extract a feature.
+            - Split original image into 2x2 tiles and extract all these 4 features
+              on these tiles.
+            - the loss is the squared l2 norm of the difference between the global
+              feature and the sum of the fetures for these 4 tiles.
+        - one trivial solution is to map everything into 0 features. To
+          mitigate this issue, a regularization term is added, i.e. the
+          difference between two image pairs should be large. The difference is
+          measured based on the global feature of this other image and the sum
+          of the current 4 features from tiles.
+        - the idea is based on 5 views, but it also depends on another image.
+          This is also more like a combination of multi-view with non-separable
+          loss.
+    - the motivation is that the feature should represent the number of visual
+      primitive in some sense. Thus, the sum of the individual features should
+      be the feature from all image content.
+    - the accuracy is only 25.7 on conv5 of alexnet on imagenet (linear probe).
 - Selfie: Self-supervised Pretraining for Image Embedding
     - arxiv 2019/7
     - apply the BERT to the image.
@@ -580,75 +1092,16 @@ title: Paper Reading
         - the global representation with some regions masked out is added with
           (learnable) positional embedding and then do comparitions with the
           masked regions. Use contrastive loss to learn. If we have M masked
-          regions, we can apply M times. 
-- AET vs. AED: Unsupervised Representation Learning by Auto-Encoding Transformations rather than Data
-    - CVPR 2019
-    - idea
-        - the network takes two inputs. one is the original image; while the
-          other is the transformed image. The goal is to predict the
-          transformation parameters. In the experiments, it uses the projection
-          parameters and l2 distance. The transformation is randomly scaling by
-          0.8 to 1.2, randomly rotated by 0/90/180/270, and randomly
-          translating +-0.125 of its width and height.
-    - experiments
-        - alexnet, the upper bound is 50.5 and this paper's approach is 37.7.
-
-- Revisiting Self-Supervised Visual Representation Learning
-    - cvpr 2019
-    - conducted experiments on 4 existing approaches and with different
-      variants of resnet50. The conclusion is that the best performed model
-      architectures are different with different pretext tasks.
-- Self-Supervised Representation Learning by Rotation Feature Decoupling
-    - CVPR 2019
-    - idea: combine the loss of ratation loss and instance discrimination.
-        - the network outputs two feature vectors with same dimentions
-        - the first vector is for rotation loss.
-            - a weight is added to each rotated instance. The weight comes from
-              a pre-trained network which distinguishes rotated or non-rotated,
-              i.e. a binary classifier. In this loss, if it is non-rotated, the
-              weight is 0, otherwise teh weight is 1 - confidence^2. So, if the
-              previous network cannot tell if the image is rotated, the weight
-              here should also be small. The motivation is that some images are
-              rotation sensitive, but some are rotation agnostic. For example,
-              a plain in the sky might be rotation agnostic.
-        - the second vector is designed to have nothing with the ratation, and
-          there are two losses here.
-          - the first is to expect those 4 features from the same images should
-            be similar. The loss is the squared l2 loss of the feature and the
-            average feature.
-          - the second is the instance discrimination loss which expects the
-            feature from different images are different.
-          in the batch
-    - In the experiments on imagenet linear probe test, the accuracy is 44.3
-      with AlexNet, compared with 36.5 for RotNet; 35.6 for Instance
-      Discrimination.
-- Unsupervised Visual Representation Learning by Context Prediction
-    - ICCV 2015
-    - the idea is to predict the location relationship between a central crop
-      and the 8 neighbor crop. For each image, randomly select one small crop first,
-      and then randomly select one of the 8 crops around it. Each crop is sent
-      to the network and have a feature. The 2 features are concatenated and
-      then processed by linear layer. The goal is to predict if it is relation,
-      i.e. 8-class classification.
-- Wasserstein Dependency Measure for Representation Learning
-    - nips 2019.
-    - the theory is very complicated. but the idea is 1) the loss is the same
-      as CPC, 2) impose some gradient constraints based on the paper of Improved Training of Wasserstein GANs
-    - no experiments on the imagenet dataset, but mainly on the hand-made
-      datasets.
-- Colorful Image Colorization
-    - ECCV 2016
-    - the input is a gray image and the output is a colored image. The loss is
-      based on cross entropy, where the color space is quantized into 300+
-      bins. Class balancing is applied by re-weighting.
-- Scaling and Benchmarking Self-Supervised Visual Representation Learning
-    - facebook.
-    - conducted lots of experiments and observed the accuracy is better with
-      larger datasize, larger model, and difficult tasks
-- Unsupervised Learning of Visual Representations by Solving Jigsaw Puzzles
+          regions, we can apply M times. Each softmax also has M entries.
+    - there is no experiment on the imagenet linear probe results since the
+      pretrained is based on teh first 3 conv blocks. But mostly based on the
+      fine-tuning.
+- Unsupervised learning of visual representations by solving jigsaw puzzles
     - ECCV 2016
     - key idea
-        - the input image is split into 3x3 sub regions.
+        - randomly select 225x225 regions from the input image
+        - divide it into 3x3 grids. Each is 75x75
+        - randomly choose 64x64 within each 75x75 region.
         - each region is fed into the network and get a feature vector
         - all 9 feature vector is concatenated into one
         - use linear layer to classify it.
@@ -657,18 +1110,42 @@ title: Paper Reading
       empirical result is taht the more the better, the larger distance each
       permutation is from each other the better. We can use Hamming distance to
       measure the distance.
-- Automatic Shortcut Removal for Self-Supervised Representation Learning
-    - arxiv 2/2020
+
+### self-supervised learning/non-separable task/#classes less than #samples
+- Online Deep Clustering for Unsupervised Representation Learning
+    - cvpr 2020
     - contribution
-        - add a u-net before feeding the image to the network.
-        - the u-net reconstructs the original images, which might remove some
-          shutcut information.
-        - the u-net is called lens here.
-        - then the pretext is performed on the reconstructed image
-    - experiments
-        - rotation as teh pretext task, 46.6 -> 48.6
-        - Exemplar, 43.7 -> 46.1
-        - Jigsaw, 37.2 -> 40.9
+        - make the solution of alterating cluster & parameter update online.
+        - allocated a memory to store the features for all samples and the
+          corresponding labels, which is the cluster asssignment. Teh cluster
+          centroid is also kept in the memory.
+            - thus, it can not be scaled to billion-level images
+        - in each iteration, it has 4 steps
+            - network forward to get the feature representation
+            - based on the cluster assignment, calculate the loss and update
+              the network parameters.
+            - the feature in the memory is updated by teh current features with
+              momentum update
+                - so, it cannot scale up to billion-level datasets
+            - the cluster assignment label is updated by finding the closest
+              center
+- Unsupervised Learning of Visual Features by Contrasting Cluster Assignments
+    - arxiv 6/2020
+    - method
+        - each image has two or multiple crops. Each crop corresponds one
+          feature.
+        - for each iteration, get the cluster code based on the current batch
+          and the stored features.
+        - each feature can have a psuedo gt based on the feature assignment.
+        - each feature can predict the assignment of the other crops.
+        - the loss is the prediction error.
+    - exp
+        - imagenet linear prob: 75.3. 800 epochs; 64 V-100 (16GB), 50 hours
+        - fine-tune on imagenet with pre-trained on instagram-1B
+            - SimCLR: 60.4 with frozen features; 77.2 with fine-tuning all
+            - proposed: 66.5 with frozen features; 77.8 with fine-tuning all
+            - with larger model capacity, the gain of pre-trainign on large
+              dataset is even larger.
 - ClusterFit: Improving Generalization of Visual Representations
     - cvpr2020, facebook, good paper
     - contribution
@@ -712,23 +1189,67 @@ title: Paper Reading
         - self-supervised
             - 45.1 -> 55.2 with jigsaw pre-text task
             - 50.0 -> 56.1 with RotNet
-- Self-Supervised Learning of Pretext-Invariant Representations
-    - cvpr2020, facebook
-    - contribution
-        - based on the instance discrimination
-        - the difference is that this paper add a new head after conv5, and
-          processes a transformed input. The output feature is also
-          discriminated with similar loss function as instance discrimination.
-        - the intuitivation is the transformed representation should also be
-          similar with non-transformed representation.
-        - the transform here is 1) split the input to 3x3 regions, 2) process
-          each region and get a representation, 3) concate all these 9
-          representations with a random order, 4) map the concatenated feature
-          to a fixed feature, which will be compared against the features in
-          the memory bank. Note, since the loss is similar with instance
-          discrimination, the memory bank's size is the same as the dataset.
+- Unsupervised Deep Learning by Neighbourhood Discovery
+    - icml 2019
+    - idea, the points within the same neighorhood should be similar. The
+      neigborhood is computed based on the similarity between the features.
+      Every few iterations, the neighborhood relationship is updated by k-nn.
+      Within each batch and the relationship from the neighborhood, we can find
+      out the pair (i, j), which should be similar. The similarity between i
+      and j is the contrastive softmax between feture i and feature j over the
+      sum of feature i and other features. The neighborhood is small initially
+      and gradually increased with the motivation that initially the
+      neighborhood is not reliable and we should only trust a few point's
+      relationship. The trust is based on the entropy where the softmax
+      similarity between current point and all others are taken as a
+      probability distribution.
     - experiments
-        - on imagenet linear prob task with r50, it is 63.6, while moco is 60.6
+        - imagenet, alexnet, 37.9 (upper bound 50.5)
+- Self-labelling via simultaneous clustering and representation learning.
+    - iclr 2020
+    - [code](https://github.com/yukimasano/self-label)
+    - vgg, oxford
+    - key idea
+        - based on Deep Clustering for Unsupervised Learning of Visual Features
+        - the contribution is to explicitly balance the label assignment
+        - another trick is to add multiple heads for different clustering
+          results.
+    - experiment
+        - 39.6 on imagenet linear probe with AlexNet. (Upper bound is 50.5)
+        - addeding RotNet loss and more data augmentation, the accuracy can be
+          44.7.
+- Deep Clustering for Unsupervised Learning of Visual Features
+    - ECCV 2018
+    - key idea
+        - alternate clustering, which solves the labeling problem and the
+          classification, which learns the network parameters based on the
+          peudo labels.
+        - clustering
+            - avoid empty clusters is by 1) randomly selecting a non-empty
+              cluster, 2) using the centroid with a small random perturbation
+              as the new centroid. 
+            - based on the central cropped region
+            - features are PCA-reduced to 256, whitened, and l2-normalized
+            - updating the cluster every epoch
+
+### self-supervised learning/non-seperable task/#class equals #samples
+- Whitening for Self-Supervised Representation Learning
+    - arxiv 6/13/2020
+    - accuracy is 66 only, which is far worse than the state-of-the-art.
+- Debiased Contrastive Learning
+    - handles the problem of false negative sampling problem. The idea is more
+      like a soft-version of excluding similar points with the current samples.
+      The accuracy can be improved with more positive crops to have a better
+      estimation of the current samples.
+- Understanding Contrastive Representation Learning through Alignment and Uniformity on the Hypersphere
+    - add a parameters to dynamically tune the balance between alignment and
+      uniformity, which is good.
+- Wasserstein Dependency Measure for Representation Learning
+    - nips 2019.
+    - the theory is very complicated. but the idea is 1) the loss is the same
+      as CPC, 2) impose some gradient constraints based on the paper of Improved Training of Wasserstein GANs
+    - no experiments on the imagenet dataset, but mainly on the hand-made
+      datasets.
 - Rethinking Data Augmentation: Self-Supervision and Self-Distillation
     - iclr 2020 submission and withdrawn 
         - the main review comments are the novelty and the experiments.
@@ -739,58 +1260,10 @@ title: Paper Reading
           predict K * C outputs. After that, for inference it learns a single
           mapping by learning the teacher, which is aggregated by all teh
           transform.
-- Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks
-    - nips 2014, arxiv 9/2015
-    - The idea is
-        - randomly sample N patches from the dataset
-            - the patch is sampled with a probability propertionally to the
-              gradient. But no information about where the gradient is from and
-              how the loss is when the gradient is computed
-        - for each image, apply M random transformations
-        - assign a unique label on each patch
-        - train it like a supervised training tasks.
-    - Thus, it is highly dependent on how many images can be sampled and how many transformations
-      are used. In the experiments, N is 8k~16k. M~150. No experiments on
-      imagenet
-- Unsupervised Domain Adaptation through Self-Supervision
-    - The problem is that source domain has labels, target domain has no labels
-      but images only, the labels on these two domains are the same. The goal
-      is to do classification on the target domain.
-    - The idea here is to apply k different self-supervised losses on the
-      source domain and the target domains, in addition to the cross entropy
-      loss on the source domain. The self-supervised losses are 1) rotation,
-      which predicts one of 0/90/180/270 rotation degree applied on the image,
-      2) flip, which predicts if the image is vertically flipped, and 3) crop
-      location, which predicts one of the four corners of the absolute location
-      coordinates.
-- UNSUPERVISED REPRESENTATION LEARNING BY PREDICTING IMAGE ROTATIONS
-    - ICLR 2018
-    - rotate the image and then predict it as the pretext task
-- How Useful is Self-Supervised Pretraining for Visual Tasks?
-    - compare different factors for the exising approaches. No new algorithm is
-      proposed, but only some empirical observations, including
-      - fine-tuning last linear is not consistent with fine-tuning the whole
-        network.
-      - more labeled data in the downstream task will reduce the benefit of the
-        pre-training.
-- Splitbrain autoencoders: Unsupervised learning by cross-channel prediction
-    - cvpr 17
-    - contribution
-        - split the input through channels into two sub inputs. Each goes
-          through the network and predict the other split. Specifically, the
-          input is split into L and ab components. The original network is
-          split into two sub networks by spliting the channels evenly. Then, L
-          is passed to one sub network and predict ab; ab is passed to the
-          other subnetwork and predict L. The loss is based on classificatoin
-          loss by quantizaing the target into multiple discrete slots.
-          Empiracally, regression is slightly worse.
-    - on the standard imagenet problem, the accuracy is 32.8 with conv5
-      feature; 35.2 with conv4 feature; 35.4 with conv3 feature. 
 - Unsupervised Feature Learning via Non-parametric Instance Discrimination
-    - (code)[https://github.com/zhirongw/lemniscate.pytorch]
+    - (official code)[https://github.com/zhirongw/lemniscate.pytorch]
     - cvpr18
-    - contribution: each image is a class and adopt non-parametric contrastive
-      loss between current image and all others, whose complexity is reduced by
+    - idea: each image is a class and adopt contrastive loss between current image and all others, whose complexity is reduced by
       the trick of noise contrastive estimation from O(n) to O(1).
     - imagenet accuracy is 35.6 on alexinet and 54.0 on resnet50 on the linear
       classification evaluation task.
@@ -806,55 +1279,7 @@ title: Paper Reading
       to the momentum constrastive learning, i.e. add extra MLP layer for
       pre-training, more data augmentation, more iterations.
         - the accuracy is improved from 60.6 to 71.1.
-- S4L: Self-supervised semi-supervised learning
-    - problem: target supervised classification dataset (1% of the imagenet
-      dataset or 10%) with the unlabeled image datasets. The solution is to
-      train the model on the joint of the two datasets with the loss from
-      unsupervised learning. Each batch consists of the images from unlabeled
-      or labeled sets evenly. For the image including unlabeled and labeled, it applies the rotation
-      self-supervised loss. That is randomly rotate the input image
-      with 0/90/180/270 degres and predict the degree
-      with the cross entropy loss. The other is some exemplar loss, which is
-      similar with the contrastive loss. The experiments show that with 1% of
-      the labelled data,
-        - the approach of training supervised model only on the labelled data
-          gives 48.43% top-5 accuracy
-        - the approach of psuedo labeling (train a model on labeled, propagate
-          the labels on the unlabeled, re-train the model on the full) gives
-          51.56.
-        - self supervised + linear layer gives at most 25.98 accuracy
-        - self supervised + fine-tune gives at most 45.11, which is even lower
-          than the 48.43, which is from the supervised learning only. 
-        - the joint training gives 53.37 with the rotation loss.
-- Learning Representations by Maximizing Mutual Information Across Views
-    - NIPs 2019, MSR Montreal. 3 authors, the first two are also the authors of
-      the paper which this paper is based on
-    - (code)[https://github.com/Philip-Bachman/amdim-public]
-    - the contribution is to extend the paper of LEARNING DEEP REPRESENTATIONS 
-      BY MUTUAL INFORMATION ESTIMATION AND MAXIMIZATION by introducing
-        - multi-view of the images to construct the loss
-            - multi-view comes from multiple instantiation of the data augmentation
-            - the baseline is to use one instantiation
-        - multiple feature maps from different spatical sizes are used rather
-          than 1.
-        - extend the representation of a notion of mixed representation.
-    - experiments
-        - on cifar10, the baseline is 75.21; while this paper achieves 89.5.
-        - on cifar100, the baseline is 49.74, while this paper achieves 68.1
-- LEARNING DEEP REPRESENTATIONS BY MUTUAL INFORMATION ESTIMATION AND MAXIMIZATION
-    - iclr 2019, MSR montreal, Yoshua
-    - (code)[https://github.com/rdevon/DIM]
-    - the contribution is to incorporate local features in the representation
-      learning. Before, each image correponds to one vector, e.g. R^1024. Now,
-      it correponds to multiple vectors, e.g. R^{7x7x104} from the last feature
-      map before global average pooling.
-      - the objective is to maximize the esitmated mutural information between
-        the input and the output, as claimed. But actually, it applies the
-        maximization between the local features (the features in 7x7 feature map)
-        and the global features (after average pooling).
-    - no experiments on imagenet, but on cifar and shrinked version of
-      imagenet. The accuracy is comparable with contrastive predictive coding.
-- DATA-EFFICIENT IMAGE RECOGNITION WITH CONTRASTIVE PREDICTIVE CODING
+- Data-efficient image recognition with contrastive predictive coding
     - iclr 2020 submisssion but rejected. appear in arxiv 12/2019
         - the review comment of why it is rejected is lack of novelty.
         - the experiment results are interesting to learn.
@@ -895,8 +1320,86 @@ title: Paper Reading
             pre-training could see more data.
         - the results on voc detection are 76.6% given resnet161, while the
           supervised counterpart is 74.7.
+- Learning Representations by Maximizing Mutual Information Across Views
+    - NIPs 2019, MSR Montreal. 3 authors, the first two are also the authors of
+      the paper which this paper is based on
+    - (code)[https://github.com/Philip-Bachman/amdim-public]
+    - the contribution is to extend the paper of Learning deep representations 
+      by mutual information estimation and maximization by introducing
+        - multi-view of the images to construct the loss
+            - multi-view comes from multiple instantiation of the data augmentation
+            - the baseline is to use one instantiation
+        - multiple feature maps from different spatical sizes are used rather
+          than 1.
+        - extend the representation of a notion of mixed representation.
+    - experiments
+        - on cifar10, the baseline is 75.21; while this paper achieves 89.5.
+        - on cifar100, the baseline is 49.74, while this paper achieves 68.1
+- Learning deep representations by mutual information estimation and maximization
+    - iclr 2019, MSR montreal, Yoshua
+    - (official code)[https://github.com/rdevon/DIM]
+    - the contribution is to incorporate local features in the representation
+      learning. Before, each image correponds to one vector, e.g. R^1024. Now,
+      it correponds to multiple vectors, e.g. R^{7x7x104} from the last feature
+      map before global average pooling.
+      - the objective is to maximize the esitmated mutural information between
+        the input and the output, as claimed. But actually, it applies the
+        maximization between the local features (the features in 7x7 feature map)
+        and the global features (after average pooling).
+      - there are 3 losses in total
+        - the first one should be similar with simCLR, which uses the global
+          feature for each image and compares it against all the rest in the
+          current batch size.
+        - the second is to use the local feature. That is, use the global
+          feature to compare it with the local features of current image and
+          teh other images.
+        - the third one is an adversarial loss which tries to make the output
+          follow certain distribution, e.g. uniform distribution.
+    - no experiments on imagenet, but on cifar and shrinked version of
+      imagenet. The accuracy is comparable with contrastive predictive coding.
+- Discriminative Unsupervised Feature Learning with Exemplar Convolutional Neural Networks
+    - PAMI 2016
+    - The idea is
+        - randomly sample N patches from the dataset
+            - the patch is sampled with a probability propertionally to the
+              gradient. But no information about where the gradient is from and
+              how the loss is when the gradient is computed
+        - for each image, apply M random transformations
+        - assign a unique label on each patch
+        - train it like a supervised training tasks.
+    - Thus, it is highly dependent on how many images can be sampled and how many transformations
+      are used. In the experiments, N is 8k~16k. M~150.
+    - No experiments on imagenet
+- What Makes for Good Views for Contrastive Learning?
+    - arxiv 5/2020, from Google.
+    - the solution is built on top of moco v1, but with similar tricks mentioned in
+      moco v2 or sim-clr. Comparably, it uses even stronger data augmenation,
+      e.g. color droping. Another difference is it uses a jigsaw branch similar
+      as pretext-invariant representation paper. That is, it also has the loss
+      for jigsaw problem.
+    - the accuracy with 200 epoch's pre-training achieves 70; the accuracy with
+      800 epoch's pretraining achieves 73.
+- Self-Supervised Learning of Pretext-Invariant Representations
+    - cvpr2020, facebook
+    - contribution
+        - based on the instance discrimination
+        - the difference is that this paper add a new head after conv5, and
+          processes a transformed input. The output feature is also
+          discriminated with similar loss function as instance discrimination.
+        - the intuitivation is the transformed representation should also be
+          similar with non-transformed representation.
+        - the transform here is 1) split the input to 3x3 regions, 2) process
+          each region and get a representation, 3) concate all these 9
+          representations with a random order, 4) map the concatenated feature
+          to a fixed feature, which will be compared against the features in
+          the memory bank. Note, since the loss is similar with instance
+          discrimination, the memory bank's size is the same as the dataset.
+    - experiments
+        - on imagenet linear prob task with r50, it is 63.6, while moco is 60.6
 - Representation Learning with Contrastive Predictive Coding
     - deepmind, arxiv 1/2019
+    - the paper of DATA-EFFICIENT IMAGE RECOGNITION WITH CONTRASTIVE PREDICTIVE
+      CODING gives a better explanation about how the algorithm performs.
     - contribution
         - a framework of contrastive predictive coding for feature learning
             - assume the input signal is x_t
@@ -930,25 +1433,6 @@ title: Paper Reading
         - image classification problem
             - pre-training + fine-tining last layer
         - imagenet2012
-- Self-labelling via simultaneous clustering and representation learning.
-    - iclr 2020
-    - vgg, oxford
-    - key idea
-        - based on Deep Clustering for Unsupervised Learning of Visual Features
-        - the contribution is to explicitly balance the label assignment
-- Deep Clustering for Unsupervised Learning of Visual Features
-    - ECCV 2018
-    - key idea
-        - alternate clustering, which solves the labeling problem and the
-          classification, which learns the network parameters based on the
-          peudo labels.
-        - clustering
-            - avoid empty clusters is by 1) randomly selecting a non-empty
-              cluster, 2) using the centroid with a small random perturbation
-              as the new centroid. 
-            - based on the central cropped region
-            - features are pca-reduced to 256, whitened, and l2-normalized
-            - updating the cluster every epoch
 - Momentum Contrast for Unsupervised Visual Representation Learning
     - The task is to learn a backbone or a feature extractor from the unlabeled
       image data, without any annotations.
@@ -970,6 +1454,261 @@ title: Paper Reading
 	    - The BN in this literature is not working as the paper discusses based on some related work. But this paper alters the orders of the dictionary across different GPUs and make BN work. 
 	    - The parameter update in dictionary encoder network is not based on SGD, but only based on the momentum update. That is, the updated parameter is 0.999 * the parameter in last iteration + (1 - 0.999) * the parameter in the extraction network. 
 	    - a little bit counter-intuitive since it discards SGD. Not sure if a lower learningjkkjk rate also works. Anyway, this works. The parameter is 0.999, which is quite close to 1 and they must have done lots of parameter tunning
+
+
+# self-supervised learning/video
+- Self-Supervised Learning of Video-Induced Visual Invariances
+    - cvpr 2020
+    - idea
+        - encode the frame, then pool to get shot-level feature. pool it again to
+          get video-level feature
+        - for each frame, apply the rotation self-supervised loss
+        - for the shot embedding, it randomly permute the order and predict
+          whether it is permuted or not.
+        - another loss is based on predictive contrastive coding. That is, use
+          the first k shots' embeding to predict the m-step's future embeding,
+          which will be used as the positive pairs.
+
+#### self-supervised learning/observations with more experiments
+- Demystifying Contrastive Self-Supervised Learning: Invariances, Augmentations and Dataset Biases
+    - arxiv 7/29/2020
+    - useless
+- How Useful is Self-Supervised Pretraining for Visual Tasks?
+    - compare different factors for the exising approaches. No new algorithm is
+      proposed, but only some empirical observations, including
+      - fine-tuning last linear is not consistent with fine-tuning the whole
+        network.
+      - more labeled data in the downstream task will reduce the benefit of the
+        pre-training.
+- Scaling and Benchmarking Self-Supervised Visual Representation Learning
+    - facebook. ICCV 2019
+    - conducted lots of experiments and observed the accuracy is better with
+      larger datasize, larger model, and difficult tasks
+- Revisiting Self-Supervised Visual Representation Learning
+    - cvpr 2019
+    - conducted experiments on 4 existing approaches and with different
+      variants of resnet50. The conclusion is that the best performed model
+      architectures are different with different pretext tasks.
+
+#### self-supervised learning/combine multiple tasks
+- Prototypical Contrastive Learning of Unsupervised Representations
+    - arxiv 5/2020
+    - key idea
+        - based on moco
+        - do clustering on the features from the momentum encoder
+        - train the model with two losses
+            - one is the same as moco
+            - one is that the feature should be as close as to the nearest
+              centroid, and as far as possible to other centroids
+                - this is similar with the clustering-based but with a fixed
+                  linear layer where no bias and the weight is the centroid.
+                  The label is the index of the nearest centroid.
+    - the accuracy on imagenet linear prob experiment is 65.9 with 200 epochs.
+        - i believe the accuracy is similar with sim-clr, better than mocov1,
+          but worse than moco v2.
+- Self-Supervised Representation Learning by Rotation Feature Decoupling
+    - CVPR 2019
+    - idea: combine the loss of ratation loss and instance discrimination.
+        - the network outputs two feature vectors with same dimentions
+        - the first vector is for rotation loss.
+            - a weight is added to each rotated instance. The weight comes from
+              a pre-trained network which distinguishes rotated or non-rotated,
+              i.e. a binary classifier. In this loss, if it is non-rotated, the
+              weight is 0, otherwise teh weight is 1 - confidence^2. So, if the
+              previous network cannot tell if the image is rotated, the weight
+              here should also be small. The motivation is that some images are
+              rotation sensitive, but some are rotation agnostic. For example,
+              a plain in the sky might be rotation agnostic.
+        - the second vector is designed to have nothing with the ratation, and
+          there are two losses here.
+          - the first is to expect those 4 features from the same images should
+            be similar. The loss is the squared l2 loss of the feature and the
+            average feature.
+          - the second is the instance discrimination loss which expects the
+            feature from different images are different.
+          in the batch
+    - In the experiments on imagenet linear probe test, the accuracy is 44.3
+      with AlexNet, compared with 36.5 for RotNet; 35.6 for Instance
+      Discrimination.
+
+# self-supervised learning/application
+# self-supervised learning/application/domain generalization
+- Domain Generalization by Solving Jigsaw Puzzles
+    - iccv 2019
+    - apply the jigswaw loss on the domain generalization
+        - the network receives two kind of images. One is the source image from
+          multiple source domains with gt labels. Each domain has its own
+          domain classifier. The second is shuffled images. Shuffle means
+          within 3x3 crops in each image. The loss is to predict the
+          permutation. The permutation classifer is shared for all source
+          domains.
+# self-supervised learning/application/3d
+- Self-supervised Feature Learning by Cross-modality and Cross-view Correspondences
+    - arxiv 4/2020
+    - apply to the 3d data points
+# self-supervised learning/application/supervised classification
+- Distilling Visual Priors from Self-Supervised Learning
+    - eccv-workshop 2020
+    - summary
+        - the problem is classification problem where each class has 50 traiing
+          images. The images come from imagenet.
+        - the idea is to first pre-train a newtork with moco-v2. Then, the
+          weight is used to initialize two networks. one is called teacher; the
+          other is called student. The network strucutre should be the same.
+          Thirdly, the teacher network is frozeon, and the student network is
+          fine-tuned with 1) classification loss and 2) distillation loss based
+          on the feature map at the same time.
+        - other modification this paper does is to add a margin in teh
+          constrastive learning for pre-training. However, this is kinds of
+          similar with changing the weight decay. If tuning the weight decay,
+          it might achieve similar resutls.
+- Supervised Contrastive Learning
+    - arxiv 4/2020
+    - idea
+        - in the supervised learning, adding the contrastive loss.
+        - the positive pairs come from teh images with teh same labels
+        - the negative pairs and the positive pairs are all in denominator of
+          the loss
+        - the learning here is alternative
+            - learn based on the contrastive loss, pairs are sampled based on
+              the annotations
+            - learn the last linear layer for cross entropy.
+    - on imagenet
+        - 77.0 -> 78.8 for resnet50
+        - 78.0 -> 80.8 for resnet200
+
+# self-supervised learning/application/knowledge distillation
+- Knowledge Distillation Meets Self-Supervision
+    - arxiv 6/2020
+    - solution
+        - teacher network is first trained with feature extractor and
+          classifier
+        - add a projection head on the teacher network and use the contrastive
+          loss to do self-supervised learning
+        - the student network also has a classifier and the projection head to
+          mimic the teacher's behavior.
+        - 4 losses to train the student network
+            - the cross entropy loss supervised by the ground-truth
+            - the kl loss between the student and the teacher with temporature.
+                - the above two is the same as what traditional approach is
+            - the misalignment errors of a heavily-augmented image copy between
+              the teacher and the student. This copy is used in self-supervised
+              learning. As argued in the paper, the copy is not designed to
+              have correct classification prediction since augmentation is
+              strong here. But it asks the network outputs similar information
+              as the teacher from the classification branch (not from the
+              self-supervised learning branch)
+            - the last one, which is only the one related with self-supervised
+              learning is the misalignment error between teh similarity matrix
+              from teacher and the matrix from the student. That is, each image
+              has two copies, processed by the networks. Then, each network can
+              compute the similarity between any two pairs.
+                - one more thing the author does is to filter the entries in
+                  the matrix. The rule is that only the samples which the
+                  teacher network can successifully classify will be used as
+                  the transfor information. The error can be measured by where
+                  the self gt is. In experiments, it uses top-75% samples.
+
+- Contrastive Representation Distillation
+    - iclr 2020
+    - the paper studies the problem of knwoledge distillation for the
+      supervised learning. The intuition here is to apply the contrastive loss
+      to make the features from the same images (from teacher and student) as
+      similar as possible and make the features from different images (one 
+      is from student network, the other should come from teacher network) different.
+      The loss here drived is not like the one cross entropy loss, but more
+      like a binary classification problem. That is, it is a sum of multiple
+      losses. One loss is for the positive pairs (features from same image. One
+      feature is from teacher, one is from student); the others are for the
+      negative pairs. Each negative pair means that one feature is from current
+      image and student network; the other feature is from memory bank and
+      should be extracted from the teacher network.
+    - experiment
+        - See table 1. One examle is student's network without knwoledge
+          distillation is 73.26; teacher is 75.61; the traditional knwoledge
+          distill is 74.92; the paper's is 75.64.
+
+# self-supervised learning/application/adversarial attack
+- Using Self-Supervised Learning Can Improve Model Robustness and Uncertainty
+    - NIPs 209
+    - the idea is to train the classification loss with the self-supervised
+      loss based on the rotation. The observation is that the model could be
+      more robust. The classification loss is not based on the raw input image,
+      but based on the image modified by the gradient, so that the network can
+      learn better since the input makes the loss higher. During the testing,
+      the input image is also modified to make teh loss higher to test the
+      robustness. In this noisy input, the accuracy is dropped from 90+ to 40+.
+      With the addition of the self-supervised loss, the gain could be around 5
+      points.
+# self-supervised learning/application/domain adaptation
+- Self-Supervised Learning Across Domains
+    - arxiv 7/24/2020
+    - during training, add the loss of rotation loss or jigsaw loss
+- Unsupervised Domain Adaptation through Self-Supervision
+    - The problem is that source domain has labels, target domain has no labels
+      but images only, the labels on these two domains are the same. The goal
+      is to do classification on the target domain.
+    - The idea here is to apply k different self-supervised losses on the
+      source domain and the target domains, in addition to the cross entropy
+      loss on the source domain. The self-supervised losses are 1) rotation,
+      which predicts one of 0/90/180/270 rotation degree applied on the image,
+      2) flip, which predicts if the image is vertically flipped, and 3) crop
+      location, which predicts one of the four corners of the absolute location
+      coordinates.
+# self-supervised learning/application/semi-supervised learning
+- Big Self-Supervised Models are Strong Semi-Supervised Learners
+    - arxiv 6/17/2020
+    - contribution
+        - teacher network is pre-trained on unlabeled images
+        - teacher netowrk is fine-tuned on labeled images
+        - student network is trained and distilled with teacher network on
+          unlabeled images or combined with labeled images.
+        - sim-clr-v2 is presented. the difference is
+            - larger backbone network
+            - use 3 linear projection layer and use the first one as the input
+              for linear classification
+            - the last, which is the most important, is to add a momentum
+              encoder and a memory queue, which has 1 point's improvement
+- Boosting Few-Shot Visual Learning with Self-Supervision
+    - ICCV 2019
+    - during few-shot feature extractor training, add a loss from
+      self-supervised training. This paper uses rotation-based and
+      position-based losses.
+    - experiments
+        - with the rotation auxiliary loss, there is about 1 point's gain.
+        - with patch location relationship loss, there is also about 1 point's
+          gain.
+        - applied to semi-supervised few-shot learning as well, and in certain
+          cases, tehre are 3-4 points' gain.
+- S4L: Self-supervised semi-supervised learning
+    - iccv 2019
+    - problem: target supervised classification dataset (1% of the imagenet
+      dataset or 10%) with the unlabeled image datasets. The solution is to
+      train the model on the joint of the two datasets with the loss from
+      unsupervised learning. Each batch consists of the images from unlabeled
+      or labeled sets evenly. For the image including unlabeled and labeled, it applies the rotation
+      self-supervised loss. That is randomly rotate the input image
+      with 0/90/180/270 degres and predict the degree
+      with the cross entropy loss. The other is some exemplar loss, which is
+      similar with the contrastive loss. The experiments show that with 1% of
+      the labelled data,
+        - the approach of training supervised model only on the labelled data
+          gives 48.43% top-5 accuracy
+        - the approach of psuedo labeling (train a model on labeled, propagate
+          the labels on the unlabeled, re-train the model on the full) gives
+          51.56.
+        - self supervised + linear layer gives at most 25.98 accuracy
+        - self supervised + fine-tune gives at most 45.11, which is even lower
+          than the 48.43, which is from the supervised learning only. 
+        - the joint training gives 53.37 with the rotation loss.
+
+# large scale detection in terms of labels
+- Scaling Object Detection by Transferring Classification Weights
+    - iccv 2019, [code](https://github.com/xternalz/AE-WTN)
+    - an enchanced weight transfer network to scale the classes
+- Learning to Segment Every Thing 
+    - CVPR 2018, [code](https://github.com/ronghanghu/seg_every_thing)
+    - proposed a weight transfer network
 
 ### Video
 - Cross Pixel Optical Flow Similarity for Self-Supervised Learning
@@ -1009,13 +1748,24 @@ title: Paper Reading
         - 100M-200M face thumbnails, 8M identies
         - input size: 96~224
 
-# Image Caption
+# Image Caption/Visual Question Answering
+- Pixel-BERT: Aligning Image Pixels with Text by Deep Multi-Modal Transformers
+    - cvpr 2020
+    - only use spatial feature rather than region-level feature.
+- Iterative Answer Prediction with Pointer-Augmented Multimodal Transformers for TextVQA
+    - arxiv 11/2019
+    - idea
+        - the network inputs have 3 modalities
+            - the question word's embedding
+            - the visual object embedding
+            - the text embedding
 - TextCaps: a Dataset for Image Captioning with Reading Comprehension
     - introduced a dataset, which has lots of text (OCR).
 
-# Learning from auxiliary supervised labels
+# Detection by caption dataset
 - Caption Dataset --> Detection
     - Cap2Det: Learning to Amplify Weak Caption Supervision for Object Detection
+        - iccv 2019
         - Problem
             - use the caption dataset to infer the image-level labels, which
               are used as input to the weakly-supervised object detection
@@ -1050,41 +1800,60 @@ title: Paper Reading
               Flicker, it is 31.0 (exact term matching) to 33.6 (the results of
               learned GLoVE is not disclosed).
 
-- Semi-supervised training
-    - Billion-scale semi-supervised learning for image classification
-        - arxiv only 5/2019
-        - key idea
-            - train a classifier on the supervised data
-            - propagate the labels on the unlabeld data
-            - pre-train the student network on the propagated dataset
-            - fine-tune on the supervised data
-        - Comopared with Data Distillation: Towards Omni-Supervised Learning
-            - the ref paper studied the approach on detection and keypoint
-              detection, while this paper studies the approach on image
-              classification.
-            - the ref paper re-train on the mixed two dataset, while this paper
-              seperates them into two stages: pre-train on the propagated data
-              and then fine-tune on the labeled data
-    - Data Distillation: Towards Omni-Supervised Learning
-        - cvpr18
-        - key idea
-            - leverage the unlabeled data to help the supervised training
-            - method
-                - train a teacher network on the supervised data
-                - propagate teh labels on the unlabeled data by multi transform
-                  inference
-                    - multi transform inference means to do inference on multi form
-                      of the input, e.g. by multi scaling
-                    - the label is hard label and teh threshold is set so that the
-                      average number of labels on unlabeled image is similar with that
-                      in labeled dataset.
-                - re-train the model on the combined data from labeled dataset and
-                  the auto-labeled dataset.
-        - experiments are on keypoint detection and object detection.
-            - The gain for keypoint detection is large
-            - teh gain on detection is around 1 point.
+# Semi-supervised training
+- semi-supervised classification with graph convolutional networks
+    - arxiv, 2016, citation 4k+
+- Billion-scale semi-supervised learning for image classification
+    - arxiv only 5/2019
+    - key idea
+        - train a classifier on the supervised data
+        - propagate the labels on the unlabeld data
+        - pre-train the student network on the propagated dataset
+        - fine-tune on the supervised data
+    - Comopared with Data Distillation: Towards Omni-Supervised Learning
+        - the ref paper studied the approach on detection and keypoint
+          detection, while this paper studies the approach on image
+          classification.
+        - the ref paper re-train on the mixed two dataset, while this paper
+          seperates them into two stages: pre-train on the propagated data
+          and then fine-tune on the labeled data
+- Data Distillation: Towards Omni-Supervised Learning
+    - cvpr18
+    - key idea
+        - leverage the unlabeled data to help the supervised training
+        - method
+            - train a teacher network on the supervised data
+            - propagate teh labels on the unlabeled data by multi transform
+              inference
+                - multi transform inference means to do inference on multi form
+                  of the input, e.g. by multi scaling
+                - the label is hard label and teh threshold is set so that the
+                  average number of labels on unlabeled image is similar with that
+                  in labeled dataset.
+            - re-train the model on the combined data from labeled dataset and
+              the auto-labeled dataset.
+    - experiments are on keypoint detection and object detection.
+        - The gain for keypoint detection is large
+        - teh gain on detection is around 1 point.
 
 # Data Augmentation
+- CutMix: Regularization Strategy to Train Strong Classifiers with Localizable Features
+    - iccv 2019
+    - idea is that combine two inputs by randomly 1) sampling a sub region and
+      2) fill this region with one image, 3) fill the regions outside the
+      sub-region with the other image.
+- Randaugment: Practical data augmentation with a reduced search space
+    - arxiv 11/2019
+    - key idea
+        - the search space is composed of two parameters. one is the number of
+          transformations, and the other is the strength.
+        - grid search to determine the parameters
+- adversarial autoaugment
+    - iclr 2020
+    - the idea is to have a policy network, which tries to maximize the loss of
+      the target network. It is based on M augmented instances for each image,
+      and make decisions to tune the policy network.
+    - resnet50, imagenet, -> 79%.
 - Fast AutoAugment
     - NIPs 2019
     - The key idea is to train a model without data augmentation first; and
@@ -1101,12 +1870,87 @@ title: Paper Reading
     - icml 2019
 
 # Optimization
+- ShakeDrop Regularization for Deep Residual Learning
+    - ieee access 2019
+    - a hybrid way to pertube the weight of the residual branch stochastically
+      in the forward and backward during training.
 - Practical Bayesian Optimization of Machine Learning Algorithms
     - not a good tutorial.
 
 # Teacher-Student
+## teacher-student/classification
+- Knowledge Distillation Meets Self-Supervision
+    - arxiv 6/2020
+    - solution
+        - teacher network is first trained with feature extractor and
+          classifier
+        - add a projection head on the teacher network and use the contrastive
+          loss to do self-supervised learning
+        - the student network also has a classifier and the projection head to
+          mimic the teacher's behavior.
+        - 4 losses to train the student network
+            - the cross entropy loss supervised by the ground-truth
+            - the kl loss between the student and the teacher with temporature.
+                - the above two is the same as what traditional approach is
+            - the misalignment errors of a heavily-augmented image copy between
+              the teacher and the student. This copy is used in self-supervised
+              learning. As argued in the paper, the copy is not designed to
+              have correct classification prediction since augmentation is
+              strong here. But it asks the network outputs similar information
+              as the teacher from the classification branch (not from the
+              self-supervised learning branch)
+            - the last one, which is only the one related with self-supervised
+              learning is the misalignment error between teh similarity matrix
+              from teacher and the matrix from the student. That is, each image
+              has two copies, processed by the networks. Then, each network can
+              compute the similarity between any two pairs.
+                - one more thing the author does is to filter the entries in
+                  the matrix. The rule is that only the samples which the
+                  teacher network can successifully classify will be used as
+                  the transfor information. The error can be measured by where
+                  the self gt is. In experiments, it uses top-75% samples.
+
+- Contrastive Representation Distillation
+    - iclr 2020
+    - the paper studies the problem of knwoledge distillation for the
+      supervised learning. The intuition here is to apply the contrastive loss
+      to make the features from the same images (from teacher and student) as
+      similar as possible and make the features from different images (one 
+      is from student network, the other should come from teacher network) different.
+      The loss here drived is not like the one cross entropy loss, but more
+      like a binary classification problem. That is, it is a sum of multiple
+      losses. One loss is for the positive pairs (features from same image. One
+      feature is from teacher, one is from student); the others are for the
+      negative pairs. Each negative pair means that one feature is from current
+      image and student network; the other feature is from memory bank and
+      should be extracted from the teacher network.
+    - experiment
+        - See table 1. One examle is student's network without knwoledge
+          distillation is 73.26; teacher is 75.61; the traditional knwoledge
+          distill is 74.92; the paper's is 75.64.
+
+- The State Of Knowledge Distillation For Classification Tasks
+    - 12/2019, arxiv
+    - did some experiments on the knowledge distillation, cifar10
+
+- Data Distillation: Towards Omni-Supervised Learning
+    - cvpr 2018
+    - apply the model on the unlabled dataset and then pre-train the model on
+      that dataset. Finally, fine-tune it on the target dataset.
+
 - Snapshot Distillation: Teacher-Student Optimization in One Generation
     - cvpr 19
+    - highlight
+        - iteration k's snapshot will be used as the teacher for training from
+          k to k + k2. Then, the model at k + k2 will be used as teacher for
+          the next several iterations
+        - to make sure the teacher's model is different from the student model.
+          The learning rate is restarted and then decreased by cosine learning
+          rate policy.
+        - the temporature is only applied to the logits from the teacher model,
+          not from the student model.
+        - equivalently, the backward pass of the teacher model is not required,
+          which could save time
 - Improving Fast Segmentation With Teacher-student Learning
     - BMVC 2018
     - scematic segmentation problem, not instance segmentation, but it seems
@@ -1116,7 +1960,7 @@ title: Paper Reading
         - alignment based on the probability map, similar like the traditional
           soft-label alignment loss
         - alignment based on consistency loss
-            - for student and teacher network, compute the first order
+            #- for student and teacher network, compute the first order
               information, i.e. for each spatial location, calculate the mean
               of the difference between its response and the neighbor's
               response. If it is smooth, the information should be 0. If it is
@@ -1130,47 +1974,7 @@ title: Paper Reading
             - this is where the gain comes from most.
         - add that consistency loss -> 42.8
         - add extra training image -> 43.8
-- Learning Efficient Detector with Semi-supervised Adaptive Distillation
-    - arxiv 1/2019. not find if it is in peer-reviewed conf/journal
-- Mask Guided Knowledge Distillation for Single Shot Detector
-    - icme 2019
-    - previous methods focus on the region features to be aligned
-      between the teacher's and the student's. This paper combines the
-      global feature alignment and this local feature assignments.
-    - Based on SSD
-    - with global feature alignment, it is 54.6%. The baseline is not
-      reported by not aligning the feature. with the global + local
-      feature alignment, it is 56.88%.
-- GAN-Knowledge Distillation for one-stage Object Detection
-    - arxiv only, 7/2019
-    - the paper is not ready at all. some experiments are missing, some
-      table are not fully filled.
-    - the idea is interesting. It has a discriminator to predict
-      whether the feature is from teacher or from student, which guides
-      teh student network to mimic teacher's behavior.
-- Distilling Object Detectors with Fine-grained Feature Imitation
-    - CVPR 19
-    - almost the same with Mimicking Very Efficient Network for
-      Object Detection(cvpr17) except that, in Mimicking, it uses
-      the proposal to crop the region; while 
-      in this paper, it expands the region more, i.e. align the
-      features within the neighbor of the target position.
-      Specifically, for each ground-truth box, it first finds the
-      position with highest objectness; then the objectness is
-      multiplied by 0.5 as the threshold to filter all non-target region; finally the features
-      within the target regions are aligned.
-    - Experiment
-        - it also compares the case of aligning the full feature, whose
-          accuracy loses 8.9 point; while aligning the features within a
-          sub region increases the accuracy by 5.2 point. The baseline
-          accuracy is 62.63.
-- Quantization Mimic: Towards Very Tiny CNN for Object Detection
-    - ECCV 18
-    - the paper is similar with mimiking features for object detection,
-      where the roi feature is aligned for student's from teachers. The
-      difference is that the feature is quantized before aligning, but
-      there is no clue on how the network is learned, since the
-      quantization operation will give 0 gradient.
+
 - Fitnets: Hints for thin deep nets
     - ICLR 2015
     - Novelty
@@ -1188,52 +1992,6 @@ title: Paper Reading
       each cropped image during the classification network training.
       The improvement here is significant, on imagenet
     - 2018 arxiv
-- Mimicking Very Efficient Network for Object Detection
-    - cvpr 2017
-    - the knowledge is passed through the roi cropped feature for
-      faster-rcnn network.
-- Learning Efficient Object Detection Models with Knowledge Distillation
-    - nips 2017
-    - contribution:
-        - add the class-aware weights on the combined classification loss. 
-          The weight for all categories are the same, but different from the background
-          - note, this weighting only applies to the soft loss. The
-            original loss is not altered
-          - compared with the non-weighted soft loss, the gain is from
-            57.4 to 57.7 in VOC; from 50.8 to 51.3 in KITTI.
-        - present a teacher bounded regression loss, that is, if the
-          teacher's regression loss is larger, ignore the teacher's
-          output and student's loss. If it is smaller, let the student
-          move towards teacher's performance. This is regarded as teh
-          soft regression loss, and the paper always added the normal
-          regression loss.
-          - compared with the non-bounded counterpart, the accuracy is
-            improved from 54.6 to 55.9 in voc; from 48.5 to 50.1 in
-            KITTI.
-    - non-contribution, but adopt existing approaches
-        - for the classification loss, it comebines the soft loss (from the
-          teacher network) and the hard loss (from the ground-truth). Note,
-          this is not the contribution.
-        - use the feature map to align from the teacher to the student
-            - one observation is that even the feature dimension is the
-              same, adding a 1x1 conv layer is helpful.
-                - with the adaptive layer, the accuarcy goes from 56.9
-                  to 58 in voc; and 50.3 to 52.1 in KITTI.
-        - with hint, the accuracy on training can be higher, which is
-          kinds of counter-intuitive since it imposes more constraint
-          on the features, which are not related with the ground-truth
-          alignment. This might be the problem of optimization
-          capability issue, where hint can help the optimization
-    - experiments
-        - small network is student; large network is the teacher
-            - with different datasets, the accuary improvement can be
-              3-4 points in terms of mAP@0.5.
-            - For coco metric, the improvement is always around 1 point.
-        - same network, but the network with small input image is
-          student; the network with large input image is the teacher
-            - the distilled student network can achieve comparable with
-              the high resolution netework and is much better than the
-              low resolution network.
 
 # Dection & Counting
 - Rethinking Object Detection in Retail Stores

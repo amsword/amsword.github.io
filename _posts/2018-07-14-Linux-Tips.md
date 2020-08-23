@@ -263,6 +263,16 @@ sudo service smbd restart
   Note, use int64_t rather than long long.
 
 ## Python
+* How to rename a package based on the source code, e.g. rename mmdetection
+  to abc
+  * use vim to search all the occurance in the current folder by
+    ```
+    :grep \<mmdetection\>
+    ```
+  * in vim, run the substitute command for each file by
+    ```
+    :cfdo %s/\<mmdetection\>/abc/gc
+    ```
 * Matplotlib
     * How to specify the name on x-axis
       ```python
@@ -447,6 +457,10 @@ sudo service smbd restart
   ```
 
 ## Git
+* How to set vimdiff as mergetool
+  ```shell
+  git config merge.tool vimdiff
+  ```
 * How to revert a merge
   check [this](https://mijingo.com/blog/reverting-a-git-merge)
 * Migrate a repo from one server to another
@@ -565,6 +579,20 @@ docker push amsword/setup:py36pt11
 ```
 
 ## vim/nvim
+* How to save and restore the session when exiting or entering
+  see [this](https://stackoverflow.com/a/47656092)
+* How to add syntax
+    - check the [link](https://superuser.com/a/844060)
+
+* How to profile and find which plugin is slow
+  ```bash
+  :profile start profile.log
+  :profile func *
+  :profile file *
+  " At this point do slow actions
+  :profile pause
+  :noautocmd qall!
+  ```
 * How to solve the problem of slow netrw in nvim
   [follow this change](https://github.com/vim/vim/issues/4965#issuecomment-557692553)
   or [this one](https://github.com/neovim/neovim/pull/6892/commits/84e498a259c2e2b9cd09ebf99b2cb0b07f515bbe)
