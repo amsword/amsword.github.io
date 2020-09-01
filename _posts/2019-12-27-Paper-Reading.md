@@ -1,17 +1,16 @@
 ---
 layout: post
-comments: true
+comments: tr=e
 title: Paper Reading
 ---
 
 - To read
+    -  Learning to find common objects across few image collections
+    - Dimensionality reduction by learning an invariant mapping
     - Dual Student: Breaking the Limits of the Teacher in Semi-supervised Learning
     - Transductive Learning for Zero-Shot Object Detection
     - Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering
-    - What Should Not Be Contrastive in Contrastive Learning
-    - Towards Unsupervised Crowd Counting via Regression-Detection Bi-knowledge Transfer
     - Learning to Cluster under Domain Shift
-    - Unsupervised Deep Metric Learning with Transformed Attention Consistency and Contrastive Clustering Loss
     - Unsupervised Feature Learning by Cross-Level Discrimination between Instances and Groups
     - Spatiotemporal Contrastive Video Representation Learning
     - Exploring Relations in Untrimmed Videos for Self-Supervised Learning
@@ -27,7 +26,6 @@ title: Paper Reading
     - High-order structure preserving graph neural network for few-shot learning
     - Meta-learning with memory-augmented neural networks
 
-    - Towards VQA Models That Can Read
 
     - Mining Cross-Image Semantics for Weakly Supervised Semantic Segmentation
     - Predicting What You Already Know Helps: Provable Self-Supervised Learning
@@ -35,7 +33,6 @@ title: Paper Reading
     - ReLaB: Reliable Label Bootstrapping for Semi-Supervised Learning
     - CrossTransformers: spatially-aware few-shot transfer
     - Video Representation Learning by Recognizing Temporal Transformations
-    - Improving Object Detection with Selective Self-supervised Self-training
 
     - A comprehensive overhaul of feature distillation
 
@@ -185,6 +182,9 @@ title: Paper Reading
       useful and not be easy to remove.
 
 # Network Component
+- Gaussian error linear units (gelus)
+    - arixv 6/2016
+    - x*cumulative(x)
 - Non-local Neural Networks
     - cvpr 2018
     - similar with self-attention module to increase the dependency of the
@@ -462,6 +462,9 @@ title: Paper Reading
       larger than some pre-defined value, then create a new one.
 
 # Metric Learning
+- Multi-similarity loss with general pair weighting for deep metric learning
+    - arxiv 3/2020
+    - a loss is proposed which is quite similar with the contastive loss.
 - Cross-Batch Memory for Embedding Learning
     - arxiv 4/2020
     - idea
@@ -505,6 +508,10 @@ title: Paper Reading
             - binary classifier problem.
 
 # Object Detection
+- Improving Object Detection with Selective Self-supervised Self-training
+    - eccv
+    - label propagation with an extra network to judge if the psuedo gt is good
+      or bad, or should be ignored.
 - REPGN:OBJECT DETECTION WITH RELATIONAL PROPOSAL GRAPH NETWORK
     - 4/18/2019, arxiv only
     - apply the graph netowrk on the proposals. the gain is less than 1 point
@@ -1491,6 +1498,20 @@ title: Paper Reading
       architectures are different with different pretext tasks.
 
 #### self-supervised learning/combine multiple tasks
+- What Should Not Be Contrastive in Contrastive Learning
+    - arxiv 8/2020
+    - the idea is to add multiple heads in moco framework. The first head is
+      teh same as usual. Let's say we have n type of data augmentation. Then,
+      it will add extra n heads. Each head focuses on one type of data
+      augmentation. For the i-th extra head, the possitive pairs should have
+      the same parameters for the i-th data augmentation type. All other views
+      even from the same image would be used as negative samples. This is
+      similar like to ask each head to predict the parameter of one type of
+      data augmentation.
+    - For the experiment, there is no experiment on imagenet-1k linear probe.
+      On one thing, it creates a task to predict teh ratation degree. On the
+      otehr hands, it finds this algorithm works on some data set, e.g. iNat.
+      It is not working on imagenet.
 - Prototypical Contrastive Learning of Unsupervised Representations
     - arxiv 5/2020
     - key idea
@@ -1532,6 +1553,12 @@ title: Paper Reading
       Discrimination.
 
 # self-supervised learning/application
+### self-supervised learing/application/metric learning
+- Unsupervised Deep Metric Learning with Transformed Attention Consistency and Contrastive Clustering Loss
+    - arxiv 8/2020
+    - need to read it again. no idea of how it relates the sift-matching result
+      with the loss
+
 # self-supervised learning/application/domain generalization
 - Domain Generalization by Solving Jigsaw Puzzles
     - iccv 2019
@@ -1749,6 +1776,8 @@ title: Paper Reading
         - input size: 96~224
 
 # Image Caption/Visual Question Answering
+- Towards VQA Models That Can Read
+    - dataset
 - Pixel-BERT: Aligning Image Pixels with Text by Deep Multi-Modal Transformers
     - cvpr 2020
     - only use spatial feature rather than region-level feature.
@@ -1799,6 +1828,12 @@ title: Paper Reading
               matching), 41.7 (learned GLoVe) to 43.1 on voc test by leveraging coco. If using
               Flicker, it is 31.0 (exact term matching) to 33.6 (the results of
               learned GLoVE is not disclosed).
+
+# weakly supervised object detection
+- Pairwise Similarity Knowledge Transfer for Weakly Supervised Object Localization
+    - eccv 2020
+    - introduce the pairwise similarity function to predict whether two
+      proposals come from the same class
 
 # Semi-supervised training
 - semi-supervised classification with graph convolutional networks
