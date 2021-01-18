@@ -4,7 +4,27 @@ comments: true
 title: Linux Tips
 ---
 
+## Toolset for paper writing
+* Connect to linux machine and download figures
+  - WinScp
+* figure plot
+  ```python
+  plt.plot(xs, ys, '*', markersize=12)
+  for d in data:
+      plt.annotate(d['name'], (d['flops'], d['CIDEr']))
+  plt.ylim((100, 120))
+  plt.xlim((1, 15))
+  plt.xlabel('FLOPS of BERT Models')
+  plt.ylabel('CIDEr')
+  plt.grid()
+  plt.tight_layout()
+  #plt.savefig('/mnt/gpu02_raid/jianfw/bert.png')
+  plt.savefig('/home/jianfw/data/fast_vl/bert.eps')
+  ```
+* Download the code from overleaf with source tree.
 ## General
+* change the limit of maximum opened files
+  check [this](https://serverfault.com/a/48820)
 * How to test the connectivity of two machines
   * On server side, listen to the port of, e.g. 23456
   ```shell

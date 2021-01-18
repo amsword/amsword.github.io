@@ -4,10 +4,18 @@ comments: tr=e
 title: Paper Reading
 ---
 
+- book to read
+    - Rites of Passage at $100,000 to $1,000,000+
 - To read
-    -  Learning to find common objects across few image collections
+    - Distilling Knowledge Learned in BERT for Text Generation
+    - Get to the point: Summarization with pointer-generator networks
+    - Incorporating copying mechanism in image captioning for learning novel objects
+    - Incorporating copying mechanism in sequence-to-sequence learning
+    - Character Region Awareness for Text Detection
+    - ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators
+    - SCAN: Learning to Classify Images without Labels
     - Dimensionality reduction by learning an invariant mapping
-    - Dual Student: Breaking the Limits of the Teacher in Semi-supervised Learning
+    - knwoledge distillation
     - Transductive Learning for Zero-Shot Object Detection
     - Convolutional Neural Networks on Graphs with Fast Localized Spectral Filtering
     - Learning to Cluster under Domain Shift
@@ -21,12 +29,9 @@ title: Paper Reading
     - Memory-augmented Dense Predictive Coding for Video Representation Learning
     - Predicting What You Already Know Helps: Provable Self-Supervised Learning
     - Self-supervised learning through the eyes of a child
-
     - Learning from the Past: Continual Meta-Learning with Bayesian Graph Neural Networks
     - High-order structure preserving graph neural network for few-shot learning
     - Meta-learning with memory-augmented neural networks
-
-
     - Mining Cross-Image Semantics for Weakly Supervised Semantic Segmentation
     - Predicting What You Already Know Helps: Provable Self-Supervised Learning
     - Contrastive Visual-Linguistic Pretraining
@@ -150,6 +155,15 @@ title: Paper Reading
         - https://github.com/Lausannen/NAS-FCOS
     - Self-Supervised Bernoulli Autoencoders for Semi-Supervised Hashing
 
+
+# Co-localization
+- MOPRO: WEBLY SUPERVISED LEARNING WITH MOMENTUM PROTOTYPES
+- AutoAssign
+- Learning to find common objects across few image collections
+    - arxiv 8/2019
+    - the problem is to find a common proposal within each image given multiple
+      images which containing common proposals and one image which does not
+      contain the proposal of the target.
 # Product Recognition
 - Fine-Grained Product Class Recognition for Assisted Shopping
     - ICCV 2015 workshop
@@ -410,6 +424,430 @@ title: Paper Reading
           search strategy, and performance evaluation
         - pretty-good survey
 
+# RL
+- Policy Gradients in a Nutshell
+    - [blog](https://towardsdatascience.com/policy-gradients-in-a-nutshell-8b72f9743c5d)
+
+
+
+# nlp
+- Taking Notes on the Fly Helps BERT Pre-training
+    - arxiv 8/2020
+    - add a memory bank to contain the surrounding contextural information of
+      rare words. The bank size is pre-defined based on how rare the word is.
+      The entry is updated by the average of surrounding vectors of this word.
+      During pre-training, the token vector is also averaged with the entry in
+      the bank.
+    - improves the accuracy from 82.5 to 83.8 in GLUE tasks.
+- Contrastive Distillation on Intermediate Representations for Language Model Compression
+    - arxiv 9/2020
+    - contribution
+        - each sentence is represented as one vector
+            - the vector is an average pooling results from all layers
+            - it compares with to use CLS as the representation vector, which
+              has 0.5 ponits' drop
+        - use a memory bank here to keep the vector for other instances
+            - not use the queue-based memory bank
+        - negative samples are sampled based on the sentence in current
+          min-batch
+- MiniLM: Deep Self-Attention Distillation for Task-Agnostic Compression of Pre-Trained Transformers
+    - arxiv 2/2020
+    - contribution
+        - two losses. one is kl losss for attention probability. The other is
+          the kl loss for the relationship between values. That is, for the
+          value matrix
+        - only apply to the last transformer layer
+- DistilBERT, a distilled version of BERT: smaller, faster, cheaper and lighter
+    - arxiv 3/2020
+    - contribution
+        - apply distillation on pre-training stage only.
+        - reduce the number of layers by half. The initialization is also done
+          by sampling one every two layers from original BERT model.
+- Small and Practical BERT Models for Sequence Labeling
+    - arxiv 8/2019
+    - contribution
+        - 3 layers' BERT callced miniBERT
+        - disllation on the cross entropy part
+- Distilling Task-Specific Knowledge from BERT into Simple Neural Networks
+    - arxiv 3/28/2019
+    - contribution
+        - the student model is not a simple bert model but BiLSTM.
+        - only apply on cross entropy loss
+        - the distillation is only based on mimicking the logits (before
+          softmax). No distillation loss on the feature maps as the network
+          architecture is quite dissimilar.
+- TinyBERT: Distilling BERT for Natural Language Understanding
+    - arxiv 9/23/2019
+    - contribution
+        - use a linear mapping function to bridge two features with different
+          dimensions
+        - alignment loss between embedding feature, attention maps, transformer
+          hidden state, cross entropy loss
+        - data augmentation is used during downstream task fine-tuning to
+          enrich the dataset. The augmentation is based on word replacement
+          with BERT and GloVe.
+        - distillation is performed on both pre-training and fine-tuning.
+- MobileBERT: a Compact Task-Agnostic BERT for Resource-Limited Devices
+    - 12/4/2019
+    - contribution
+        - small network
+        - distillation study, including distillation in the cross entropy loss,
+          feature map, and attention map. all works to improve the accuracy,
+          but from Table 9, feature map transfer works the best.
+        - distillation strategies. compared 3. The first one is to add
+          distillation loss as auxiliary loss during pre-training, but it works
+          the worst. The second is that first distill the feature map and
+          attention map and then re-fine the network with the traditional loss
+          with cross entorpy distillation
+        - removing layer norm and gelu and replacing it can increase the speed
+          a lot, but drops the accuracy.
+
+# visual language
+- Video Understanding as Machine Translation
+    - arxiv 12/2020
+    - facebook
+    - key
+        - video pre-processing
+            - uniformly select 32 frames for each video clip
+        - network input
+            - visual feature extraction
+                - R(2+1)D-34 network
+                - pre-trained on IG65M
+                - the output is T * C_v * H * W. -> spatially average-pool to get
+                  T*C_v -> linear embedding to get T * C
+            - cls token is mapped by looking-up table from text embedding matrix
+            - altered text as input
+                - masked or shuffled
+                - mask: randomly choose 0% to 100% tokens
+            - task description as text input also
+                - either classification or captioning
+        - backbone
+            - multimodal encoder
+                - T5 model, a transformer model, pre-trained on C4 dataset
+        - output
+            - the output is N_t * |V|. V is the vocabulary. N_t is the number
+              of output tokens. It is not auto-regressive process, but just a
+              one pass to get the final matrix.
+
+- Learning Transferable Visual Models From Natural Language Supervision
+    - key
+        - constructed a dataset with 400 million image-text pairs
+            - construct a query list, whose item includes
+                - the terms which occurs more than 100 times in English version
+                  of wiki
+                - augmented with bi-grams with high mutual information as well
+                  as the wiki titles (above a certain search volume)
+                - merge with WordNet
+                - query list: 500k
+        - directly predicting the caption based on the image is less efficient.
+          it is about 3 times less efficient compared to a simple approach
+          which pridicts a bag of word embedding.
+        - the proposed approach is: in one batch, N images; N text; construct a
+          similarity matrix NxN. Row-wise: i-throw: the gt label is (i, i) ->
+          CE loss. Column-wise: j-th column, gt label is (j, j). CE loss.
+          - implicitly assumes the text are different within the same batch
+        - image encoder can be r50 or ViT
+        - text encoder is based on byte pair encoding. vocab size is 49k. max
+          length is 76.
+        - in zero-shot evaluation, the system should be given a set of the
+          target label names. Each label is embeded with the text encoder, and
+          then then image can be encoded and compared with all text description
+          with cosine distance. The label name is also augmented with a photo
+          of a dog, or a photo of a large dog. Each label can be augmented
+          multiple times, and then the emebedding is averaged.
+- Image Captioning as an Assistive Technology: Lessons Learned from VizWiz 2020 Challenge
+    - arxiv 12/2020
+    - key
+        - grid feature
+            - the feature is grid feature from resnext-101, not r101. The gain is
+              10 CIDEr
+            - the feature is from 99th layer and forming 14x14x2048.
+        - ocr feature
+            - the image is rotated with 0/90/180/270 degress and each image is
+              processed by ocr engine. The one with the largest number of fastText
+              token is selected.
+            - fastText representation is also used
+            - max 20 words
+        - object detection
+            - use efficient-det to only extract the bounding boxes. the conf
+              threshold is 0.25
+            - the class name is encoded by fastText. no object feature is used
+              here.
+            - maximum is 10 objects
+            - the detector is the released detector on coco
+        - above 3 modality is mapped to 512 dimensions by a linear projection
+        - it also uses teh copy mechanism and dynamic vocabulary, but it is not
+          clear about the details. May need to check reference work on copy
+          mechanism.
+        - bert tokenizer
+        - ensemble. at each step, the probability is averaged over all models,
+          and choose the highest confidence.
+        - ensemble from 90 models
+- UNIMO: Towards Unified-Modal Understanding and Generation via Cross-Modal Contrastive Learning
+    - arxiv 12/31/2020
+    - key
+        - data augmentation
+            - back-translation to generate positive captions
+            - use scene-graph to replace the entity/attribute/relations to
+              generate negative captions
+        - use contrastive loss to distinguish those positive and negative
+          pairs.
+- In Defense of Grid Features for Visual Question Answering
+    - a nice paper, arxiv 1/2020
+    - contribution
+        - grid feature fine-tuned on detection dataset or converting a
+          detection model so that we can extract the grid feature.
+        - as good as the region feature. Note, the number of grid features
+          depends on the input size, and all features are used.
+        - end2end training together with the detector works a little bit
+          better.
+        - the loss weight for the attribute on vg dataset is important also
+- Weakly-supervised VisualBERT: Pre-training without Parallel Images and Captions
+    - arxiv 20/2020
+    - key
+        - in pre-training, the input is either text or image. Each adopts the
+          masked reconstruction loss
+        - tag is used for image domain. Teh tag is appended with the spatial
+          coordinates.
+        - also use the object tags as an additional input to the BERT model.
+        - pre-training data is CC only. In each iteration, either a batch of
+          images are selected or a batch of text descriptions. BookCorpus is
+          used as external text domain. 1.7M openimages are used here for
+          external images.
+        - combining the aligned and non-aligned gives better accuracy
+- Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks
+    - 2020 ECCV
+    - design
+        - data
+            - image
+                - region feature
+- Unicoder-VL: A Universal Encoder for Vision and Language by Cross-modal Pre-training
+    - 2019/12
+    - design
+        - data
+            - image
+                - region feature
+                - provided in Pythia. not clear if it is peter anderson's
+- VisualBERT: A Simple and Performant Baseline for Vision and Language
+    - design
+        - data
+            - image
+                - region features
+                - should be also peter anderson's detector, but the wording is
+                  standard detetor.
+            - image - text
+                - segment embedding
+            - text
+                - bert-like
+        - model
+            - BERT
+        - task
+            - masked language modeling
+                - mask the text and predict it
+            - matching loss
+                - each image is paired with 2 sentences. One is the correct
+                  one, and the other one has 50% chance to be a random caption.
+                  The network is to distinguish them.
+- ERNIE-ViL: Knowledge Enhanced Vision-Language Representations Through Scene Graph
+    - arxiv 2020/6
+    - design
+        - data
+            - text
+                - wordpiece tokenizer + position embeddding
+            - image - text
+                - segment embedding
+            - image
+                - frcnn region feature
+                - a full region covers all the image content is also used.
+                    - same as ViLBERT
+                - the location is encoded as 5-dimensions: normalized top-left,
+                  bottom-right and area ratio
+                - boxes with confidence higher than 0.2 is kept; each image has
+                  10 to 36 boxes
+        - model
+            - same as ViLBERT
+        - task
+            - masked laungauge modeling
+                - for each sentence, it first parses it to scene graph. Each node
+                  in teh graph is a word in the sentence with the type being
+                  object, attribute or relationship between objects
+                - object prediction
+                    - randomly select 30% of the objects to mask. Each object
+                      corresponds to a sub-stentence in the text. Each selected 
+                      object will be replaced with [mask] with a prob of 90%;
+                      random token with 10%; or kept the same with the rest 10%.
+                - attribute prediction
+                    - almost the same as what object prediction does. But for each
+                      masked attribute, it makes sure the object associated with
+                      not be masked.
+                - relationship prediction
+                    - almost also the same as what attribute prediction does, but
+                      the paper does not mention the probability. also 30%.
+            - image-text matching task
+            - masked region modeling
+                - similar like  ViLBERT. mask the region feature as 0 and then
+                  align the probability distribution with k-l distance. 15%
+                  chance
+    - experiment
+        - pre-training data
+            - CC and SBU
+        - visual commonsense reasoning
+            - Q->A
+                - Each A is paired with teh image; prediction is based on inner
+                  product of image and text representation, folllowed by a
+                  linear layer.
+            - QA->R
+                - not mentioned how. it only says same as Q->A
+            - pre-training on this vcr dataset is also performed before
+              fine-tuning
+        - visual question answering
+            - question-answer from vg is also used
+            - collected 3129 answers. Given an image, each answer is mapped to
+              a score.
+            - 2-layer mlp
+- InterBERT: An Effective Multi-Modal Pretraining Approach via Vision-and-Language Interaction
+    - arxiv 2020/3
+    - design
+        - data
+            - text
+                - WordPiece tokenizer + position embedding
+            - image - text
+                - segment embedding
+                    - distinguish image and text
+            - image
+                - faster-rcnn trained on vg
+        - model
+            - first full attention and then seperate attention for image and text
+              individually.
+        - task
+            - Masked group modeling (proposed in this paper)
+                - masked segment modeling
+                    - 10% prob to mask current word as anchor
+                        - if masked
+                            - 1/3 prob to mask 0 or 1 or 2 following consecutive
+                              words
+                            - predict loss
+                - masked region modeling
+                    - 10% prob to mask current object region as anchor
+                        - if masked
+                            - mask all other regions which have IoU larger than
+                              0.4.
+                            - predict the category by cross entropy loss
+            - image-text matching loss
+                - 50% prob for positive/negative pairs.
+    - experiment
+        - grouped version vs non-groupped version modeling
+            - VCR task
+                - Q->A: 72.3 -> 73.1
+                - QA -> R: 74.3 -> 74.8
+                - Q -> AR: 54.0 -> 54.9
+            - there is improvement but minor
+        - extraction model vs bert-base vs single stream pre-trained on
+          multi-model data
+            - tested it on 8 NLP taskes
+            - on avarage, BERT-based achives 82.0; single-stream achieves 80.0.
+              The proposed achieves 81.8
+- UNITER: UNiversal Image-TExt Representation Learning
+    - arxiv 2019/9
+    - data
+        - visual feature
+            - region feature is extracted from frcnn, trained on vg with object and
+              attribute data
+            - region location feature is 7-dim: 4 normalized top-left/bottom-right
+              coordinates + width + height + area.
+            - the above two fewaturs are projected to same dim by one
+              fully-connected layer and then sum them up. 
+        - text feture
+            - tokenize based on what BERT does
+            - position embedding also
+        - task design
+            - mask laugugage modeling by replacing a tet token with <mask>
+                - 15%
+            - visual feature is randomly masked by zeroing out the features.
+                - each time, only one modality is masked
+                - each iteration, only one tsk is enabled
+            - image-text matching
+- Pixel-BERT: Aligning Image Pixels with Text by Deep Multi-Modal Transformers
+    - cvpr 2020
+    - only use spatial feature rather than region-level feature.
+- VL-BERT: Pre-training of Generic Visual-Linguistic Representations
+    - iclr 2020
+    - design
+        - data
+            - text feature as in BERT
+            - sequence position embedding
+            - image region feature from frcnn + 4-D location (top-left,
+              bottom-right) projected by cosine/sine functions of different
+              wavelengths
+                - peter anderson's
+            - segment embedding is added. sentence a, sentence b, image. Three
+              types
+            - 50% of the images are these visual-linguistic data; the rest is pure
+              text dataset. (BooksCorpus)
+        - model
+            - faster-rcnn is also fine-tuned
+        - loss
+            - masked language modeling loss. This is the only loss if the input is
+              pure text without images.
+            - masked roi classification loss. the gt is the frcnn classification
+              output. masking is performed by zero out the regions before sending
+              it to frcnn instead of to make the feature values as 0
+    - experiment
+        - image-sentence pair matching loss hurts the accuracy, and thus this
+          paper does not use this one.
+        - frcnn parameter is also tuned.
+- LXMERT: Learning Cross-Modality Encoder Representations from Transformers
+    - EMNLP 2019
+    - model:
+        - first with the transformer for each modality
+        - then add a cross-attention transformer. named as co-attention in
+          ViLBERT
+    - data:
+        - image region feature + position embeding (project it to the same
+          dimension)
+            - apply LayerNorm for region feature and position embedding
+            - peter anderson's detector
+        - text feature. Embedding + position embedding
+            - apply LayerNorm after the sum
+        - append [CLS] before the language sentence
+    - loss
+        - masked language modeling, 15% prob to mask the words. for text
+        - 15% prob to mask the region feature to zero. Then predict
+            - feature by regression with l2 loss
+            - detected label, which is from frcnn model
+        - image-caption matching loss. 50% prob to make it a mismatch
+        - predict the answer if the input is a question and there is an answer
+          only when the input is matched
+- VL-BERT: PRE-TRAINING OF GENERIC VISUALLINGUISTIC REPRESENTATIONS
+    - arxiv 2020/2
+    - design
+        - data
+            - text
+            - image region
+                - peter anderson's detector
+- ViLBERT: Pretraining Task-Agnostic Visiolinguistic Representations for Vision-and-Language Tasks
+    - nips 2019
+    - design
+        - data:
+            - image region features, 10 to 36 regions per images. feature +
+              projection of (top-left, bottom-right, area ratio)
+                - peter anderson model
+            - append [img] token where the whole image as the region
+        - model:
+            - seperate stream first and then a co-attention module
+            - proposed a co-attention module which exchange the visual and laungage
+              representation in the transformer modules.
+        - task
+            - 15% chance to mask region and text.
+                - For the masked image region, 90% of chance to zero the feature
+                  out and 10% of the chance there is no change on the text.
+                - No mention of the chance to mask the text with [mask],
+                  or a random text or unaltered.
+            - for the image region task, the task is to align the probability score from the bert model
+              to the detection classification score in the faster-rcnn model with
+              k-l distance
+            - masked laungage model to predict the masked word
+
 # Document Understanding
 - LayoutLM: Pre-training of Text and Layout for Document Image Understanding
     - arxiv 6/16/2020 from MSRA
@@ -476,6 +914,10 @@ title: Paper Reading
 - A Comprehensive Survey on Graph Neural Networks
     - A good survey.
 
+# Reinforcement Learning (RL)
+- a very nice [introduction](https://towardsdatascience.com/policy-gradients-in-a-nutshell-8b72f9743c5d)
+
+
 # Vision Language
 - DeViSE: A Deep Visual-Semantic Embedding Model
     - nips 2013
@@ -507,7 +949,50 @@ title: Paper Reading
               features and the location informatoin
             - binary classifier problem.
 
+# Instance segmentation
+- SOLOv2: Dynamic and Fast Instance Segmentation
+    - 10/3/2020
+    - the mask branch is based on a dynamic convolutional operation. That is,
+      the kernel is the output of another layer. In this case, the space can be
+      reduced and the computational cost can also be reduced.
+
 # Object Detection
+- End-to-End Object Detection with Fully Convolutional Network
+    - arxiv 12/2020
+    - key
+        - remove the NMS
+        - one-to-one mapping based on the multiplication of the confidence and
+          the IoU. confidence has an exponental factor of 0.2. Iou has a factor
+          of 0.8. If it only relies on confidence or regresion, the accuracy is
+          much worse (more than 10 points' gap).
+        - added one module based on 3-d max pooling, but not sure the
+          underlying reason behind it.
+        - on coco, the accuracy is comparable with fcos + nms. On CrowdHuman,
+          it is much better, and the reason could be the NMS as NMS could
+          easily make mistake in crowded scene.
+- Sparse R-CNN: End-to-End Object Detection with Learnable Proposals
+    - arxiv 11/2020
+    - key
+        - the proposal box is learnable. it is not from RPN.
+        - the proposal feature is also learnable.
+        - iteratitve prediction is used for predicting the box coordinate and
+          category.
+- OneNet: Towards End-to-End One-Stage Object Detection
+    - arxiv 12/2020
+    - key
+        - one point as positive. The matching cost is based on location loss and
+          classification loss as well, and use addition to combine.
+        - only one feature map is used with stride = 4.
+        - cascading the features.
+- YOLOv4: Optimal Speed and Accuracy of Object Detection
+    - 4/2020
+    - designed several components to improve the od
+- Distance-IoU Loss: Faster and Better Learning for Bounding Box Regression
+    - 11/2019
+    - some variant of GIOU loss. DIOU and CIOU.
+- AutoAssign: Differentiable Label Assignment for Dense Object Detection 
+    - arxiv 7/2020
+    - very interesting paper to make the assignment learnable.
 - Improving Object Detection with Selective Self-supervised Self-training
     - eccv
     - label propagation with an extra network to judge if the psuedo gt is good
@@ -684,7 +1169,6 @@ title: Paper Reading
               same as YoloV2.
         - experiment
             - the highest accuracy it can achieve is 42.1 with hourglass-104 as the backbone
-
     - Improving Object Detection with Inverted Attention
         - on arxiv 3/28/2019 
         - contribution
@@ -866,6 +1350,30 @@ title: Paper Reading
 - Learning Efficient Detector with Semi-supervised Adaptive Distillation
     - arxiv 1/2019. not find if it is in peer-reviewed conf/journal
 
+# semi-supervised learning
+- A Simple Semi-Supervised Learning Framework for Object Detection
+    - arxiv 12/2020
+    - method
+        - a teacher network is trained on the labled data
+        - label propagation on the unlabled data
+        - apply data augmentation on image as well as the pseudo box if needed
+        - re-train the model
+- Dual Student: Breaking the Limits of the Teacher in Semi-supervised Learning
+    - iccv 2019
+    - method
+        - each batch contains labeled and unlabeled data. classification task
+        - each sample is augmented twice.
+        - each labeled data are involed in the traditional cross-entropy loss
+        - for each data, the two augmented view's prediction should be close
+          (not this paper's contribution).
+        - if the data point is stable, the prediction between the two networks
+          should be close also. Being stable here means that the predicted
+          label of the two augmented view is identical & the highest confidence
+          score is larger than a pre-defined threshold.
+    - contribution
+        - two identical networks with different random initialization
+        - proposed a loss to expec
+
 
 # Visual and Lauguage
 - End-to-End Learning of Visual Representations From Uncurated Instructional Videos 
@@ -893,6 +1401,12 @@ title: Paper Reading
           300M-pretrained gives 37.4.
         - taerget on voc, imagenet-pretrained gives 76.3; 300M gives 81.4; imagenet
           + 300M gives 81.3
+
+# network attack
+- Universal Physical Camouflage Attacks on Object Detectors
+    - 4/2020
+    - for detection. optimize w.r.t. the ditortion pattern. The network
+      parameter is fixed.
 
 # Self-supervised Learning
 
@@ -928,6 +1442,16 @@ title: Paper Reading
     - some theory on how to measure the mutual information.
 
 #### self-supervised pretext task/data
+- CASTing Your Model: Learning to Localize Improves Self-Supervised Representations
+    - arxiv 12/8/2020
+    - two contributions
+        - for data augmentation, crop the positive pairs so that the crop area
+          should be overlapped with the salient regions by at least 30%.
+        - use the saliency map as the supervised signal. loss is measured by
+          the cosine similarity. The predicted saliency is measured by the
+          gradient of the inner product between the query image and a masked key image.
+    - the model is pre-trained on coco. The data scale is small and might not
+      be enough.
 - Distilling Localization for Self-Supervised Representation Learning
     - arxiv 4/2020
     - idea
@@ -1240,6 +1764,15 @@ title: Paper Reading
             - updating the cluster every epoch
 
 ### self-supervised learning/non-seperable task/#class equals #samples
+- Propagate Yourself: Exploring Pixel-Level Consistency for Unsupervised Visual Representation Learning
+    - nips 2020
+    - contribution
+        - impose loss on the feature map with spatial information. so that the
+          fpn can be learned for object detection.
+        - each spatical feature is passed by a self-attention module, and then
+          teh positive feature pairs between two image crops should be similar.
+          The positive pair is constructed by the raw feature and the smoothed
+          feature from another view.
 - Whitening for Self-Supervised Representation Learning
     - arxiv 6/13/2020
     - accuracy is 66 only, which is far worse than the state-of-the-art.
@@ -1776,11 +2309,11 @@ title: Paper Reading
         - input size: 96~224
 
 # Image Caption/Visual Question Answering
+- Weakly Supervised Content Selection for Improved Image Captioning
+    - arxiv 9/2020
+    - first predict some tags and then caption
 - Towards VQA Models That Can Read
     - dataset
-- Pixel-BERT: Aligning Image Pixels with Text by Deep Multi-Modal Transformers
-    - cvpr 2020
-    - only use spatial feature rather than region-level feature.
 - Iterative Answer Prediction with Pointer-Augmented Multimodal Transformers for TextVQA
     - arxiv 11/2019
     - idea
@@ -1830,6 +2363,11 @@ title: Paper Reading
               learned GLoVE is not disclosed).
 
 # weakly supervised object detection
+- Evaluating Weakly Supervised Object Localization Methods Right
+    - cvpr 2020
+    - present some new metric to focus on the localiazation metric, more like
+      CorLoc. Meawnwhile, it shows classification activation map can work
+      pretty well.
 - Pairwise Similarity Knowledge Transfer for Weakly Supervised Object Localization
     - eccv 2020
     - introduce the pairwise similarity function to predict whether two
@@ -1914,6 +2452,15 @@ title: Paper Reading
 
 # Teacher-Student
 ## teacher-student/classification
+- MEAL V2: Boosting Vanilla ResNet-50 to 80%+ Top-1 Accuracy on ImageNet without Tricks
+    - arxiv 2020
+    - the teacher signal is the ensemble of multiple teachers. Then, it uses
+      cross entropy for knowledge distillation. A discriminator is also used
+      to judge whether the input is a teacher feature or a student feature.
+    - the gt is not used in training; but there is no experiment in this paper
+      to show +gt worsen the accuracy.
+    - the discriminator is used here, but there is no experiment in this paper
+      to show removing is worsen the accuracy.
 - Knowledge Distillation Meets Self-Supervision
     - arxiv 6/2020
     - solution
@@ -2027,6 +2574,17 @@ title: Paper Reading
       each cropped image during the classification network training.
       The improvement here is significant, on imagenet
     - 2018 arxiv
+
+# Instance segmentation
+- solo: segmenting objects by locations
+    - arxiv 7/2020
+    - key
+        - instance segmentation task
+        - two branches
+            - one branch is used to predict the category information on S by S
+              grid.
+            - another branch contains S^2 channels. Each corresponds to
+              class-agnostic mask for that location
 
 # Dection & Counting
 - Rethinking Object Detection in Retail Stores
