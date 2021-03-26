@@ -35,4 +35,5 @@ def test_memory_leak():
         p.join()
 ```
 
-![_config.yml](/images/config.png "_config.yml")
+
+![copyonrightbaseline](/images/copy_on_right_baseline.png "")
