@@ -14,26 +14,27 @@ mprof plot -o a.png
 ```
 
 * baseline approach without subprocess
-```python
-def sleep(x):
-    for i in range(10):
-        logging.info(x[i])
-        time.sleep(1)
 
-def test_memory_leak():
-    # mprof run --include-children python scripts/run6.py test_memory_leak
-    x = [1] * (1024**3)
-    x = tuple(x)
-    all_p = []
-    for i in range(0):
-        p = mp.Process(target=sleep, args=(x,))
-        #p = mp.Process(target=sleep)
-        p.start()
-        all_p.append(p)
-    time.sleep(20)
-    for p in all_p:
-        p.join()
-```
+  ```python
+  def sleep(x):
+      for i in range(10):
+          logging.info(x[i])
+          time.sleep(1)
+  
+  def test_memory_leak():
+      # mprof run --include-children python scripts/run6.py test_memory_leak
+      x = [1] * (1024**3)
+      x = tuple(x)
+      all_p = []
+      for i in range(0):
+          p = mp.Process(target=sleep, args=(x,))
+          #p = mp.Process(target=sleep)
+          p.start()
+          all_p.append(p)
+      time.sleep(20)
+      for p in all_p:
+          p.join()
+  ```
 
 
-![copyonrightbaseline](/images/copy_on_right_baseline.png "")
+![copyonrightbaseline](/images/copy-on-right-baseline.png "")
