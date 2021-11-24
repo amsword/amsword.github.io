@@ -4,7 +4,15 @@ comments: true
 title: Linux Tips
 ---
 
-## Toolset for paper writing
+## Windows
+- windows task scheduler logs
+    - event logs
+        - Microsoft/Windows/TaskScheduler
+- share data with linux
+    - winscp
+- pick the rgb color
+    - Color Picker
+## Toolset for writing
 * Connect to linux machine and download figures
   - WinScp
 * figure plot
@@ -23,6 +31,29 @@ title: Linux Tips
   ```
 * Download the code from overleaf with source tree.
 ## General
+* how to check if a file is locked by some process
+  ```
+  lsof file_name
+  ```
+  if the output contains W flag, it means it is locked
+* syslog file is too large with some corrected message
+    - https://askubuntu.com/a/771908
+    - https://askubuntu.com/a/19487
+* upgrade gcc
+  ```shell
+  sudo apt-get install g++-8
+  sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
+  ```
+* azcopy, upload or download a list of files
+  [this](https://github.com/Azure/azure-storage-azcopy/wiki/Listing-specific-files-to-transfer)
+* memory profile
+  [this](https://pypi.org/project/memory-profiler/)
+  ```shell
+  mprof run --include-children python xxx.py
+  mprof plot -o a.png
+  ```
+* Swap file change
+  check [this](https://forums.docker.com/t/docker-swap-space/3908/2)
 * change the limit of maximum opened files
   check [this](https://serverfault.com/a/48820)
 * How to test the connectivity of two machines
@@ -64,6 +95,10 @@ title: Linux Tips
   * Location: /var/log/
   * use logrotate to automatically remove the logs
 
+* How to change ulimit -n
+    - [link](https://medium.com/@muhammadtriwibowo/set-permanently-ulimit-n-open-files-in-ubuntu-4d61064429a)
+
+
 * How to limit the CPU usage of a process to make it slower
   ```bash
   cpulimit -p 157407 -l 5
@@ -79,7 +114,15 @@ title: Linux Tips
 ```bash
 watch "bash -c './philly.py -wl query &> /tmp/wu1.txt && tail -n 40 /tmp/wu1.txt'"
 ```
-
+* How to test random access speed
+```bash
+git clone https://github.com/axboe/fio.git
+cd fio
+./configure
+make
+make install
+fio --randrepeat=1 --direct=1 --gtod_reduce=1 --name=test --filename=dreamstime_com.9.img.tsv --bs=200k --iodepth=64 --size=4G --readwrite=randrw --rwmixread=75
+```
 * How to test the read speed
 ```bash
 pv trainval.tsv | md5sum
@@ -252,6 +295,8 @@ sudo service smbd restart
 ## Mongodb
 * Where is the config file
     * /etc/mongod.conf
+* How to open mongo client. Run mongo
+* Good source for [log management](https://gist.github.com/leommoore/c12801438550ef0375ed)
 * How to get the latest label version
   ``` python
   pipeline = [{'$match': {'data': test_data, 
@@ -283,6 +328,8 @@ sudo service smbd restart
   Note, use int64_t rather than long long.
 
 ## Python
+* unit test with pytest
+    - pytest --ipdb src/qd/unittest/test_qd_common.py -k test_attach_any_log
 * How to rename a package based on the source code, e.g. rename mmdetection
   to abc
   * use vim to search all the occurance in the current folder by

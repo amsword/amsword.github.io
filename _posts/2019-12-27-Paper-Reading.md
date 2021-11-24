@@ -4,14 +4,51 @@ comments: tr=e
 title: Paper Reading
 ---
 
+- learn
+    - scst
+    - https://arxiv.org/abs/2111.07832
+    - https://arxiv.org/pdf/2111.09886v1.pdf
 - book to read
     - Rites of Passage at $100,000 to $1,000,000+
+    - design your life from a standardford writer
+- doue read
+    - Differentiable Patch Selection for Image Recognition
+        - how the backward is derived?
+    - Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention
 - To read
-    - Distilling Knowledge Learned in BERT for Text Generation
-    - Get to the point: Summarization with pointer-generator networks
-    - Incorporating copying mechanism in image captioning for learning novel objects
+    - Efficient Large-Scale Language Model Training on GPU Clusters Using Megatron-LM
+    - Self-EMD: Self-Supervised Object Detection without ImageNet
+    - Unsupervised Object-Level Representation Learning from Scene Images
+    - Resnest: Split-attention networks
+    - Generating long sequences with sparse transformers
+    - TNT: Text-Conditioned Network with Transductive Inference for Few-Shot Video Classification
+    - Temporal context network for activity localization in videos
+    - Fast Convergence of DETR with Spatially Modulated Co-Attention
+    - TokenLearner: What Can 8 Learned Tokens Do for Images and Videos?
+    - Self-supervised Video Representation Learning with Cross-Stream Prototypical Contrasting
+    - Scaling Vision with Sparse Mixture of Experts
+    - Open-Vocabulary Object Detection Using Captions
+    - MDETR -- Modulated Detection for End-to-End Multi-Modal Understanding
+    - FILTER: An Enhanced Fusion Method for Cross-lingual Language Understanding
+    - Deep Networks with Stochastic Depth
+    - Are Sixteen Heads Really Better than One?
+    - Rethinking attention with performers
+    - REFORMER: THE EFFICIENT TRANSFORMER
+    - Deep modular co-attention networks for visual question answering
+    - Pyramid scene parsing network
+    - Spatially Aware Multimodal Transformers for TextVQA
+    - DeepViT: Towards Deeper Vision Transformer
+    - Multigrain: a unified image embedding for classes and instances
+    - Augment your batch: better training with larger batches
+    - random erasing data augmentation
+    - Frozen in Time: A Joint Video and Image Encoder for End-to-End Retrieval (arxiv.org)
+    - Xiaobin's CvT
+    - How to represent part-whole hierarchies in a neural network
+    - Unbiased Teacher for Semi-Supervised Object Detection 
+    - read Adversarial Feature Augmentation and Normalization for Vision Systems
+    - Transformer is All You Need: Multimodal Multitask Learning with a Unified Transformer
+    - Zero-Shot Text-to-Image Generation: ()[https://arxiv.org/pdf/2102.12092.pdf]
     - Incorporating copying mechanism in sequence-to-sequence learning
-    - Character Region Awareness for Text Detection
     - ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators
     - SCAN: Learning to Classify Images without Labels
     - Dimensionality reduction by learning an invariant mapping
@@ -38,9 +75,7 @@ title: Paper Reading
     - ReLaB: Reliable Label Bootstrapping for Semi-Supervised Learning
     - CrossTransformers: spatially-aware few-shot transfer
     - Video Representation Learning by Recognizing Temporal Transformations
-
     - A comprehensive overhaul of feature distillation
-
     - Meta-Learning for Semi-Supervised Few-Shot Classification
     - Temporal Self-Ensembling Teacher for Semi-Supervised Object Detection
     - Prototypical Networks for Few-shot Learning
@@ -83,7 +118,6 @@ title: Paper Reading
     - https://towardsdatascience.com/what-is-gumbel-softmax-7f6d9cdcb90e?gi=26de57769dc4 
     - Creating Something from Nothing: Unsupervised Knowledge Distillation for Cross-Modal Hashing
     - Behind the Scene: Revealing the Secrets of Pre-trained Vision-and-Language Models
-    - Attention Augmented Convolutional Networks
     - Stand-Alone Self-Attention in Vision Models
     - On the Relationship between Self-Attention and Convolutional Layers
     - Multi-similarity loss with general pair weighting for deep metric learning
@@ -156,6 +190,13 @@ title: Paper Reading
     - Self-Supervised Bernoulli Autoencoders for Semi-Supervised Hashing
 
 
+# machine learning
+- inductive bias for deep learning of higher level cognition
+    - not interesting
+- towards causal representation learning
+    - not useful
+- A Fast Proximal Point Method for Computing Exact Wasserstein Distance
+    - a nice paper to solve the transportation problem
 # Co-localization
 - MOPRO: WEBLY SUPERVISED LEARNING WITH MOMENTUM PROTOTYPES
 - AutoAssign
@@ -164,6 +205,16 @@ title: Paper Reading
     - the problem is to find a common proposal within each image given multiple
       images which containing common proposals and one image which does not
       contain the proposal of the target.
+
+# dataset
+- Open Images V5 Text Annotation and Yet Another Mask Text Spotter
+    - arxiv 2021
+    - key
+        - add text annotation in some of the data.
+# variational auto encoder (VAE)
+- a very nice tutorial:
+    - https://www.jeremyjordan.me/variational-autoencoders/
+
 # Product Recognition
 - Fine-Grained Product Class Recognition for Assisted Shopping
     - ICCV 2015 workshop
@@ -175,6 +226,18 @@ title: Paper Reading
 - Recognizing Products: A Per-exemplar Multi-label Image Classification Approach
     - ECCV14
     - recognize based on SIFt matching.
+
+# Network pruning
+- Visual Transformer Pruning
+    - arxiv 4/20/2021
+    - key
+        - for the linear layer, check which dimension output is important.
+          Learn a coefficient ratio to multiple it and then truncate before
+          further fine-tuning the network
+        - no comparision baseline. For example, how the result is by just
+          enabling part of the outputs and train it from scratch.
+        - no speed time result. not sure how useful this is for vision
+          transformer.
 
 # Data
 - Connecting Vision and Language with Localized Narratives
@@ -196,6 +259,54 @@ title: Paper Reading
       useful and not be easy to remove.
 
 # Network Component
+- ConViT: Improving Vision Transformers with Soft Convolutional Inductive Biases
+    - 3/2021
+    - key
+        - add relative positional encoding to the transformer block
+        - relative positional will be 0 if the two pixels are too far away. In
+          this way, it can mimic the conv operations
+        - the attention matrix is the sum of two softmax matrices. one is based
+          on teh innter product of query and key; the other is based on the
+          relative position
+        - the first few attention blocks uses this attention. similar like to
+          have conv layers in the stem
+- Fastformer: Additive Attention Can Be All You Need
+    - 8/2021
+    - key
+        - summarize global tokens from query matrix and then this global query
+          token is fused with the key matrix. Then, summarize these fused value
+          tokens into a global token, which is fused with teh value.
+          Eventually, the query is added with the value matrix.
+        - linear complexity
+- Linformer: Self-Attention with Linear Complexity
+    - arxiv 6/2020
+    - key
+        - rather than to apply n^2 attention matrix, it maps key and value to k
+          so that the attention matrix is nk.
+- Efficient Attention: Attention with Linear Complexities
+    - wacv 2021
+    - key
+        - update non-local module with such efficient implementation of
+          dot-product attention, so that the cost can be reduced to O(N) from
+          O(N^2)
+        - it has no relu non-linear operator on the inner product. it proposed
+          another non-linear function, i.e. softmax on query and value
+          individually. however, the softmax version here cannot give Rnn
+          property for auto-regressive case.
+- Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention
+    - very good paper
+    - key
+        - use dot product to replace the softmax in transformer so that the
+          computational cost is linear.
+- Implicit Kernel Attention
+    - AAAI-21
+    - key
+        - reformulate the attention as a multiplication of similarity score and
+          magnitude score. Similarity score is replaced with an inner product.
+          Teh claimed complexity is still O(T^2)
+        - the decomposed magnitude is based on L2, but this paper generalize it
+          to L_p. The gaol of this paper is to improve the accuracy, not to
+          reduce the cost.
 - Gaussian error linear units (gelus)
     - arixv 6/2016
     - x*cumulative(x)
@@ -299,6 +410,12 @@ title: Paper Reading
         - not sure how it performs in detection and other tasks.
 
 # Analysis
+- The Deep Bootstrap Framework: Good Online Learners are Good Offline Generalizers
+    - iclr 2021
+    - some definition to study the deep learning. the gap between the model
+      trained with a finite number of training samples (multiple epochs) and
+      the model trained with an infinite number of images. No conclusion, but
+      more about that we can think this kind of gap.
 - Rethinking Pre-training and Self-training
     - 6/11/2020 arxiv
     - conclusion
@@ -307,6 +424,69 @@ title: Paper Reading
     - similar with data distillation
 
 # Network architecture
+- Deep Transformers with Latent Depth
+    - nips 2020
+    - key
+        - gumbel softmax to learn which block should be enabled.
+- DeepViT: Towards Deeper Vision Transformer
+    - arxiv 3/2021
+    - key
+        - study the problem of that deeper transformer fails to scale well
+        - the solution is to add a fusion matrix to fuse the attention map from
+          different heads to make the attention matrix different.
+        - the issue it observes is that the attention matrix becomes similar
+          when the network goes deeper.
+        - the improvement is not that large. 80.9 vs 79.3; 80.1 vs 79.4
+- Training data-efficient image transformers & distillation through attention
+    - arxiv 12/2020
+    - key
+        - the idea is to propose a distillation token
+        - cutmix improves from 80.0 to 81.8
+        - mix-up improves from 78.7 to 81.8
+        - AA hurts the accuracy
+        - random aug improves from 79.6 to 81.8
+        - random erasing improves significantly
+        - stochastic depth improves significantly
+        - repeated aug improves also
+        - drop-out not useful
+        - expo moving average not useful
+- An Image is Worth 16x16 Words: Transformers for Image
+    - arxiv 2020
+    - key
+        - pre-train with a smaller network input
+        - fine-tune with a larger input
+- Swin Transformer: Hierarchical Vision Transformer using Shifted Windows
+    - 3/25/2021
+    - key
+        - the spatial resolution is down-sampled gradually like a CNN
+        - the attention is only applied on a sub region rather than the whole
+          image. The sub region is also shiffted to connect inter-region
+          relationship.
+        - exp is on classification, detection, segmentation. results on
+          detection are pretty good.
+- One Weight Bitwidth to Rule Them All
+    - arxiv 8/2020
+    - key
+        - for the normal conv network, 1 bit quantization is good enough.
+        - for depth-wise conv network, it could be 4 bits
+- Attention Augmented Convolutional Networks
+    - arxiv 9/9/2020
+    - key
+        - add attention module into the cnn
+- Fast and Accurate Model Scaling
+    - cvpr 2021
+    - key
+        - scale the width is more useful
+        - width scaled by 0.8; depth and resolution by 0.1
+- Attention Augmented Convolutional Networks
+    - iccv 2019
+    - key
+        - add attention module besides the conv layers
+- High-Performance Large-Scale Image Recognition Without Normalization
+    - arxiv 2/2021
+    - key
+        - remove the batch norm layer
+        - instead, replace it with the adaptive gradient cliping
 - Are Labels Necessary for Neural Architecture Search?
     - arxiv 3/2020
     - highlights
@@ -349,7 +529,204 @@ title: Paper Reading
             - 2G vs 1.8G
             - 82.3 vs 81.7
 
-# Image Classification
+# Optimization
+- SWALP : Stochastic Weight Averaging in Low Precision Training
+    - arxiv 5/2019
+    - key
+        - swa with 8 bit
+- ZeRO: Memory Optimizations Toward Training Trillion Parameter Models
+    - arxiv 5/13/2020
+    - key
+        - split the optimizer state in different rankers for large-scale model
+          training
+- Fixing the train-test resolution discrepancy
+    - 3/30/2020, arxiv
+    - the contribution
+        - during test, use a larger input
+        - during training, fine-tune the network with the larger input size.
+    - exp
+        - 85.4 -> 86.4 for x101-32-48d
+- Understanding the Role of Momentum in Stochastic Gradient Methods
+    - NIPs 2019, Igor/Pengchuan
+- some docs about multi-armed bandit optimization
+    - https://lilianweng.github.io/lil-log/2018/01/23/the-multi-armed-bandit-problem-and-its-solutions.html
+    - https://arxiv.org/pdf/1904.07272.pdf
+- Hyperband: A Novel Bandit-Based Approach to Hyperparameter Optimization
+    - arxiv 6/2018, journal of machine learning research
+- Bayesian Optimization
+    - https://github.com/fmfn/BayesianOptimization
+        - github star is 3.8k
+        - good to use; checkout the advanced tutorial, with
+          suggest-evaluate-register
+    - https://ax.dev/
+        - github star is 1k
+        - from facebook
+        - good to use. checkout the service api example
+    - https://www.cs.ox.ac.uk/people/nando.defreitas/publications/BayesOptLoop.pdf
+
+## optimization/transport problem
+- Sinkhorn Distances: Lightspeed Computation of Optimal Transport
+    - nips 2013
+    - a very nice solution
+- https://michielstock.github.io/OptimalTransport/
+    - nice blog about some basis
+
+# network component
+- Ghost Loss to Question the Reliability of Training Data
+    - arxiv 9/2021
+    - key
+        - ignore the most significant non-gt labels in prediction
+        - intuition is that the gt might be wrong. similar like to drop the
+          worst
+- In-Place Activated BatchNorm for Memory-Optimized Training of DNNs
+    - an efficient BN implementation.
+    - worth giving it a try
+    - 2018, CVPR
+
+- network architecture search
+    - MnasNet: Platform-aware neural architecture search for mobile
+    - Neural Architecture Search: A Survey
+        - high-level introduction of the approaches from 3 aspects: the search space,
+          search strategy, and performance evaluation
+        - pretty-good survey
+
+# image classification
+- LiT : Zero-Shot Transfer with Locked-image Text Tuning
+    - arxiv 10/2021
+    - key
+        - google brain
+        - in contrastive learning, image encoder is pretrained and fixed. Then,
+          tune the text encoder, which is randomly initialized
+- Combined Scaling for Zero-shot Transfer Learning
+    - arxiv 10/2021
+    - key
+        - increase the image-text pairs to 6B+
+        - increase the batch size for the contrastive learning by gradient
+          caching
+            - does not cite an earlier paper on gradient cache
+        - zero-shot imagenet classification, 85 around
+- Scaling Deep Contrastive Learning Batch Size under Memory Limited Setup
+    - 2021
+    - key
+        - gradient cache for contrastive learning. actually it is some special
+          checkpointing, but split the batch into chunks
+- Swin Transformer V2: Scaling Up Capacity and Resolution
+    - arxiv 18/11/2021
+    - key
+        - strong performance with some changes on the structure and scale it up
+- CoAtNet: Marrying Convolution and Attention for All Data Sizes
+    - arxiv 9/2021
+    - key
+        - use conv as stem layers
+        - new sota on imagenet
+- Perceiver IO: A General Architecture for Structured Inputs & Outputs
+    - arxiv 8/2021, deepmind
+    - key
+        - multiple queries to generate the output
+        - nice paper, also
+- perceiver general perception with iterative attention
+    - arxiv 6/2021
+    - key
+        - a nice paper to use a set of queries to reduce the attention cost
+- BEiT: BERT Pre-Training of Image Transformers
+    - arxiv 6/2021
+    - key
+        - recover the masked image patch. Tokenize the image patch first also
+          by the variational autoencoder. Then, recover that token.
+        - results is 83% on imagenet with vit-base model, which looks quite
+          strong
+- Multi-Exit Vision Transformer for Dynamic Inference
+    - arxiv 6/2021
+    - key
+        - not a good paper.
+- Early Convolutions Help Transformers See Better
+    - arxiv 6/2021
+    - key
+        - add some 5-7 conv layers  before patchifying the input could give
+          better stability
+- Co-advise: Cross Inductive Bias Distillation
+    - arxiv 6/2016
+    - key
+        - far from ready paper
+        - use two distillation tokens. one is for teh teacher of conv-based
+          teacher. the other is for involutional network
+- VISION PERMUTATOR: A PERMUTABLE MLP-LIKE ARCHITECTURE FOR VISUAL RECOGNITION
+    - arxiv 6/2021
+    - key
+        - encode width/height/channel seperately.
+        - the best accuracy is 83 only
+        - the number of parameters are not that large, and may not benefit well
+          from large pre-training
+- A Circular-Structured Representation for Visual Emotion Distribution Learning
+    - cvpr 2021
+    - key
+        - classify the emotion information of the image
+        - the classification is similar like a 2-layer prediction.the first
+          layer is to predict some high-level emotions, which are 3 attributes.
+          The next is to predict the targeted emotion.
+- How to train your ViT? Data, Augmentation, and Regularization in Vision Transformers
+    - arxiv 6/18/2021
+    - key
+        - larger backbone is better than smaller patch size
+        - stronger data augmentation & drop-out/connect does not work for
+          larger dataset with the same epochs
+- CoAtNet: Marrying Convolution and Attention for All Data Sizes
+    - arxiv 6/2021
+    - key
+        - two stages of conv layers, depth-wise conv layer is used
+        - two layers of transformer layers
+        - 89% on imagenet
+- Pay Attention to MLPs
+    - arxiv 6/2021
+    - key
+        - use a learnable linear layer as the attention matrix
+        - also similar with mlp-mixer
+- Not All Images are Worth 16x16 Words: Dynamic Vision Transformers with Adaptive Sequence Length
+    - arxiv 5/2021
+    - key
+        - multiple transformer networks are stacked. The first networks
+          processes 2x2 tokens. If the inference score is not high enough, use
+          the second netowrk, which processes 4x4 tokens.
+- When Vision Transformers Outperform ResNets without Pretraining or Strong Data Augmentations
+    - arxiv 6/2021
+    - key
+        - apply sharpness-aware optimizer to vit and mlp-mixer and achieves
+          quite strong accuracy. it is worth trying that optimizer
+- multiscale vision transformers
+    - arxiv 4/2021
+    - key
+        - mainly for video task. initialized from scratch
+- Multi-Scale Vision Longformer: A New Vision Transformer for High-Resolution Image Encoding
+    - arxiv 3/29/2021
+    - key
+        - multi-scale pyramid like Conv in ViT
+        - longformer -> ViT
+- Differentiable Patch Selection for Image Recognition
+    - arxiv 4/7/2021
+    - key
+        - there is one 4-layer CNN to score each input image patch. The higher
+          the score is, the better the region is for the task
+        - during training, the top-k selection is actually a weighted sum of
+          all input image patch. The weighting scheme is also vanished at the
+          end of the training
+            - the benefit of such weighting is to make it learnable
+            - no comparision with the results without such weighting scheme
+        - during inference, only the top-k is selected.
+- Visual Transformers: Token-based Image Representation and Processing for Computer Vision
+    - 2020
+    - key
+        - in the last stage of the convolutional network, replace it by the
+          proposed transformer module
+        - the transformer module
+            - the input is a feature map and the output is also a feature map
+            - first it compress HxW features into K features, and treat K
+              features as the abstract scemantic tokens. After self-attention
+              module, it convert it back to HxW with skip connection
+- CrossViT: Cross-Attention Multi-Scale Vision Transformer for Image Classification
+    - key
+        - input has two scales for transformer.
+        - the larger scale has more tokens, with fewer hidden dimensions
+        - the smaller scale has fewer tokens, with more hidden dimensions
 - Adversarial Examples Improve Image Recognition
     - arxiv 11/2019
     - the idea is to use seperate BN for clean image and adversirial images
@@ -379,58 +756,213 @@ title: Paper Reading
     - ECCV 18
 
 
-# Optimization
-- Fixing the train-test resolution discrepancy
-    - 3/30/2020, arxiv
-    - the contribution
-        - during test, use a larger input
-        - during training, fine-tune the network with the larger input size.
-    - exp
-        - 85.4 -> 86.4 for x101-32-48d
-- Understanding the Role of Momentum in Stochastic Gradient Methods
-    - NIPs 2019, Igor/Pengchuan
-- some docs about multi-armed bandit optimization
-    - https://lilianweng.github.io/lil-log/2018/01/23/the-multi-armed-bandit-problem-and-its-solutions.html
-    - https://arxiv.org/pdf/1904.07272.pdf
-- Hyperband: A Novel Bandit-Based Approach to Hyperparameter Optimization
-    - arxiv 6/2018, journal of machine learning research
-- Bayesian Optimization
-    - https://github.com/fmfn/BayesianOptimization
-        - github star is 3.8k
-        - good to use; checkout the advanced tutorial, with
-          suggest-evaluate-register
-    - https://ax.dev/
-        - github star is 1k
-        - from facebook
-        - good to use. checkout the service api example
-    - https://www.cs.ox.ac.uk/people/nando.defreitas/publications/BayesOptLoop.pdf
-## optimization/transport problem
-- Sinkhorn Distances: Lightspeed Computation of Optimal Transport
-    - nips 2013
-    - a very nice solution
-- https://michielstock.github.io/OptimalTransport/
-    - nice blog about some basis
-
-# network component
-    - In-Place Activated BatchNorm for Memory-Optimized Training of DNNs
-        - an efficient BN implementation.
-        - worth giving it a try
-        - 2018, CVPR
-
-- network architecture search
-    - MnasNet: Platform-aware neural architecture search for mobile
-    - Neural Architecture Search: A Survey
-        - high-level introduction of the approaches from 3 aspects: the search space,
-          search strategy, and performance evaluation
-        - pretty-good survey
 
 # RL
 - Policy Gradients in a Nutshell
     - [blog](https://towardsdatascience.com/policy-gradients-in-a-nutshell-8b72f9743c5d)
 
-
-
 # nlp
+- Recursively Summarizing Books with Human Feedback
+    - arxiv 10/2021
+    - key
+        - tree-like redcursive summarization for a long sentence
+- Scatterbrain: Unifying Sparse and Low-rank Attention Approximation
+    - arxiv 10/2021
+    - key
+        - combine sparse-like attention and low-rank attention. it seems like
+          promising
+- CPT: Colorful Prompt Tuning for Pre-trained Vision-Language Models
+    - arxiv 9/2021
+    - key
+        - incteresting work
+        - the region, extracted from VinVL, is marked with a color. Then, the
+          task is to predict the color
+- Robust Open­Vocabulary Translation from Visual Text Representations
+    - arxiv 9/14
+    - key
+        - make text as image to extract features
+- infinity-former: Infinite Memory Transformer
+    - key
+        - sample a limitted inputs and then model a continous function
+- Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing
+    - arxi 7/2021
+    - nice survey paper on prompting
+- FINETUNED LANGUAGE MODELS ARE ZERO-SHOT LEARNERS
+    - arxiv 9/2021
+    - key
+        - decoder only structure
+        - only the pretraining, do the fine-tuning on many tasks. Each task is
+          also re-phrased as generation task with some templates.
+        - with this fine-tuned model as the pretrained model, it can be better
+          than GPT-3
+- Contrastive Representation Learning for Exemplar-Guided Paraphrase Generation
+    - arxiv 9/2021
+    - key
+        - style transfer. The problem is that given sentence X and Z, generate
+          sentence Y. Y should have the same content with X, but with the style
+          of Z.
+        - one content encoder to encode X; one style encoder to encode Z. The
+          decoder's input is the encoded X and the encoded Z, to generate Y.
+        - contrastive loss is applied on content encoder and style encoder.
+        - fully supervised.
+- UNIFIEDQA: Crossing Format Boundaries with a Single QA System
+    - EMNLP 2020
+    - key
+        - text-to-text to cover most of QA tasks. Use T5 or BART model
+- QA-GNN: Reasoning with Language Models and Knowledge Graphs for Question Answering
+    - arxiv 6/2021
+    - key
+        - combine language model and knowledge graph for question answering
+        - based on the query and posible answers, get the langauge model
+          information, and query the knowledge graph to get a sub-graph
+          relevant to the query. The question context is then modeled as a node
+          together with the sub-graph. Then, apply the grapha network to model
+          the results.
+- On the Effect of Dropping Layers of Pre-trained Transformer Models
+    - key
+        - discuss different strategies to drop the pre-trained layers
+          simply. The conclusion is that dropping the top layers is a good
+          strategy.
+- Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer
+    - T5
+    - key
+        - encoder-decoder with masked language modeling performs better than
+          prefix language model
+- DeBERTa: Decoding-enhanced BERT with Disentangled Attention
+    - iclr 2021
+    - key
+        - 1.5 billion parameters
+        - surpass human accuracy on super-glue
+        - positional encoding with context encoding.
+- Big Bird: Transformers for Longer Sequences
+    - key
+        - local attention + some tokens are global token which can attend all
+          others
+- ByT5: Towards a token-free future with pre-trained byte-to-byte models
+    - arxiv 5/2021
+    - key
+        - tokenizer is byte by byte, that is 256 token size
+- Language Models are Unsupervised Multitask Learners
+    - key
+        - gpt 2
+        - more dataset, larger backbone
+- Improving Language Understanding by Generative Pre-Training
+    - key
+        - gpt 1
+        - only one decoder transformer network.
+        - pre-training and then fine-tuning
+- plug and play language models: a simple approach to controlled text generation
+    - key
+        - langauge model is fixed.
+        - the idea is to update the hidden states including the keys and values
+          in the transformer network, so that the output could tend to generate
+          desired outputs. the update is based on the gradient, so the key is
+          how to define the loss
+        - control code can be used in two ways
+            - a bag of word
+                - the loss is based on the sum of the probability over all
+                  those expected words
+            - a discriminator or a classifier
+                - the loss is based on this classifier loss where the feature
+                  is from the language model last hidden state
+- CTRL: A Conditional Transformer Language Model for Controllable Generation
+    - key
+        - code is released
+        - generate sentence based on control code and prefix as well.
+- Probing Inter-modality: Visual Parsing with Self-Attention for Vision-Language Pre-training
+    - arxiv 6/2021
+    - key
+        - visual encoder is swin
+        - pre-training objectives
+            - itm and mlm
+            - mask the region and use regression, carefully sampled which
+              token to mask
+- LoRA: Low-Rank Adaptation of Large Language Models
+    - arxiv 6/2021
+    - key
+        - the update matrix for a linear layer is AB, where A is Dxr and B is
+          rxD. r is much smaller than D. Thus, the hardware requirement can be
+          reduced. comment: the training time should be increased.
+- GeDi: Generative Discriminator Guided Sequence Generation
+    - key
+        - related to controllable text generation
+- multiple-attribute text rewriting
+    - iclr 2019
+    - key
+        - back translation to learn the style transfer.
+        - problem: input is text and requested style, output is the stylized text
+        - train: input + requested style -> stylized text. then stylized text +
+          original style -> original text
+        - code is released
+- Controllable Generation from Pre-trained Language Models via Inverse Prompting
+    - 3/19/2021
+    - key
+        - when doing the beam search, it changes how to evaluate the candidate.
+          The goal is that if the geenrated answer as the prompt and the prompt
+          as the generated answer, the probability should be high. This
+          probability is used as the indicator of how good/bad the candidate
+          sentence is.
+- Going deeper with Image Transformers
+    - arxiv 4/2020
+    - key
+        - per-channel weight so that at the very beginning, the residual branch
+          contributes less to the result.
+
+- Longformer: The Long-Document Transformer
+    - arxiv 4/2020
+    - key
+        - use window to do attention. similar like conv layer
+        - use dilated window to extend the receptive field
+        - lower layer, shorter window size
+        - earlier in training, shorter sentence lenght/window size
+        - closer to the end of the training, longer sentence/longer window size
+            - 2048 -> 23040
+- hierarchical attention networks for document classification
+    - arxiv 2016
+    - key
+        - attention is applied to each word to calculate the sentence-level
+          representation
+        - each sentence has one representation. For one document, then apply
+          attention to formulate document-level representation
+- Uxploring the limits of transfer learning with a unified text-to-text transformer
+    - 2015 
+    - provide a dataset, named Colossal Clean roweled Corpus (C4) and did a lot
+      of experiments.
+- Bart: Denoising sequence-to-sequence pre-training for natural language generation, translation, and comprehension
+    - arxiv 10/29/2019
+    - key
+        - the input is sent to encoder with bidirectional modeling
+            - this input can be corrupted with any scheme
+        - a decoder is used with seq2seq model
+- Distilling Knowledge Learned in BERT for Text Generation
+    - arxiv 7/2020
+    - key
+        - the teacher network is based on a different task from the teacher's
+          task. The teacher network is based on bi-directional mask language
+          modeling, while the student is based on seq2seq modeling task.
+        - if teacher is also based on seq2seq modeling, teh accuracy even drops
+          compared with the case without teacher network. This is kind of
+          strange.
+- Pointer Networks
+    - arxiv 2015
+    - key
+        - there is no vocabulary, and the output is always the input. Thus,
+          only one softmax is used there.
+- Get to the point: Summarization with pointer-generator networks
+    - arxiv 2017
+    - key
+        - the task is text summarization
+        - the solution is based on seq2seq model.
+        - pointer-generator netowrk is used. That is, the network predicts the
+          probability of using the word from the input text by 1) one
+          proability about the contribution from the input text and vocabulary,
+          and 2) one distribution on the probability of input text tokens,
+          which is the attention weight rather than from another network's
+          prediction.
+          Then, it combines the two distribution to merge the intersected part.
+        - added another loss about coverage loss. That is, it tracks the tokens
+          the network predicts and try not to predict the same words, as one
+          issue in previous work is to generate duplicate words in the output.
 - Taking Notes on the Fly Helps BERT Pre-training
     - arxiv 8/2020
     - add a memory bank to contain the surrounding contextural information of
@@ -502,7 +1034,328 @@ title: Paper Reading
         - removing layer norm and gelu and replacing it can increase the speed
           a lot, but drops the accuracy.
 
-# visual language
+# video
+unsupervised discovery of actions in insturctional videos
+- arxiv 6/2021
+- key
+	- the problem is action segmentation
+	- during training, tehre is no ground-truth. it only uses the video without the subtitle
+	- the model is stochastic based on gumble softmax. That is, each forward could generate different action predictions for all frames. The basic idea is to generate multiple action sequences, and then score them. The one with the highest score is the pseudo ground-truth.
+	- it is autoregressive to generate the action prediction.
+- CLIP2Video: Mastering Video-Text Retrieval via Image CLIP
+    - arxiv 7/2021
+    - key
+        - apply CLIP model to video retrieval
+- Video Swin Transformer
+    - arxiv 6/2021
+    - key
+        - apply the swin transformer to the video classification problem.
+        - achieves the new sota accuracy
+- Towards Long-Form Video Understanding
+    - cvpr 2021
+    - key
+        - defined 9 video classification and regression tasks. The video length
+          is kind of longer than the existing datasets, although not super long
+- VIMPAC: Video Pre-Training via Masked Token Prediction and Contrastive Learning
+    - arxiv 6/2021
+    - key
+        - input is video only. no language, no audio, no transcript
+        - pre-training task is MLM and sim-clr version of contrastive loss
+            - each frame is tokenized by a pre-trained VQ-VAE module
+        - pre-training, the first 90 epochs are with smaller input size (128). the
+          last 10 epochs are with larger input size (256)
+        - temporal position encoding + x positional encoding + y positional encoding
+- End-to-end Temporal Action Detection with Transformer
+    - arxiv 6/18/2021
+    - key
+        - apply DETR to video segment problem.
+        - the frame is extracted with a pre-trained feature extractor
+        - then use the encoder-decoder framework to predict the segment
+- ViViT: A Video Vision Transformer
+    - arxiv 3/29/2021
+    - key
+        - multiple design choices for video transformer
+            - for token sampling, one is to tokenize each frame indepdently;
+              the other is to sample the cubic region.
+            - for the model, it desgins multiple ways of teh self-attention.
+              factorized or not
+- Is Space-Time Attention All You Need for Video Understanding?
+    - from Facebook
+    - key
+        - temperal attention + spatial attention. make it seperable which
+          improves the accuracy as well comopared with teh full attention
+          mechanism.
+- Less is More: ClipBERT for Video-and-Language Learning via Sparse Sampling
+    - cvpr 2021
+    - key
+        - based on pixel-bert, but the input is the video. sampled video frames
+
+# vl - visual language
+- TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models
+    - arxiv 9/21/2021
+    - key
+        - image transformer as image encoder
+        - add decoder network
+        - input is the textline images
+        - BeiT as the image encoder gives better performance than DeiT
+- VideoCLIP: Contrastive Pre-training for Zero-shot Video-Text Understanding
+    - emnlp2021
+    - key
+        - video: cnn + transformer
+        - text: transformer
+        - careful design of positive pairs and negative pairs
+- TxT: Crossmodal End-to-End Learning with Transformers
+    - arxiv 9/2021
+    - key
+        - DETR as the image encoder.
+        - useless paper. vqa is less than 70
+- Towards General Purpose Vision Systems
+    - arxiv 9/2021
+    - key
+        - DETR as the image encoder, can do localization
+        - BERT as the text encoder.
+        - performance is quite worse
+- Grid-VLP: Revisiting Grid Features for Vision-Language Pre-training
+    - arxiv 8/21-2021
+    - key
+        - pixel bert but with the image encoder from In-defense grid feature
+- Attntion Bottlenecks for Multimodal Fusion
+    - arxiv 6/30/2020
+    - key
+        - interesting paper
+        - use some 4 extra tokens as the bridge to exchange information among
+          modalities.
+        - this could save the computational cost a lot
+- Multi-Modality Cross Attention Network for Image and Sentence Matching
+    - iccv 2020
+    - key
+        - the paper is specifically focused on image-text retrieval part
+        - for each image, there is a representation based on fster-rcnn and
+          transformer network
+        - for each text, there is another representaiton based on the
+          transformer network
+        - the two modalities are merged together and fused by another
+          transformer network
+        - the loss is applied on the inner product of the unimodal features and
+          the ininer product of the crossed-fused representation.
+- Large-Scale Adversarial Training for Vision-and-Language Representation Learning
+    - nips 2020
+    - key
+        - apply the adversarial training on the features
+        - during the pre-training, only the last few iterations adopts the
+          adversarial training
+        - improves on standard tasks.
+- LAMP: Label Augmented Multimodal Pretraining
+    - arxiv 12/2020
+    - key
+        - also use teh label for vl pretraining.
+        - teh pretraining is first done on all pretraining dataset and then
+          done on the fine-tuning dataset as well, which is called
+          second-setage pretraing.
+        - the best accuracy on vqa v2 is 72
+- UniT: Multimodal Multitask Learning with a Unified Transformer
+    - key
+        - differdent encoders are used for each modality
+        - a decoder is designed for each task
+        - the encoder output is sent to the decoder directly or they
+          concatenate the two modalities to form the input of the decoder
+- VirTex: Learning Visual Representations from Textual Annotations
+    - key
+        - use captioning task to do encoder pretraining
+        - the downstream is imagenet classification
+- VisualGPT: Data-efficient Adaptation of Pretrained Language Models for Image Captioning
+    - arxiv 2/2021
+    - key
+        - image encoder + pretrained gpt. the signal from image is used as gate
+- Align before Fuse: Vision and Language Representation Learning with Momentum Distillation
+    - arxiv 7/2021
+    - key
+        - from saleforce, good paper
+        - moving-averaged teacher network is used also
+        - image encoder, text encoder, joint encoder
+        - after unimodel encoder, a contrastive loss is applied
+        - text encoder is the first half of the bert-base, fusion transformer
+          is the second half of the bert-base.
+        - image encoder is Vit-B/16
+        - for vqa
+            - a decoder is used
+        - for retrieval
+            - first to use the representation from the unimodel encoder and
+              then use the conf from itm
+- DocFormer: End-to-End Transformer for Document Understanding
+    - arxiv 6/2021
+    - key
+        - for document understanding
+        - input of transformer includes the OCR text, teh location infromation,
+          and the raw image, which is fed into r50 to extract the features
+- Neural Fashion Image Captioning : Accounting for Data Diversity
+    - key
+        - released a dataset about fashion image. teh description is also
+          auto-generated based on some template.
+- multimodal few-shot learning with frozen language models
+    - arxiv 6/2021
+    - key
+	    - T5. image encoder is a resnet50 without normalization. only image encoder is learned on cc dataset.
+	    - during inference, the image is as prefix and can be combined with other image-text hints so that it can be treated as few-shot learner.
+- CPTR: Full Transformer Network for Image Captioning
+    - arxiv 1/2021
+    - key
+        - pass the image to vit, then add a decoder for image captioning
+        - no joint encoder there
+- Multimodal Pretraining Unmasked: Unifying the Vision and Language BERTs
+    - arxiv 5/30/2021
+    - key
+        - renamed as Multimodal Pretraining Unmasked: A Meta-Analysis and a Unified Framework of Vision-and-Language BERTs
+        - more like to analize the performance of multiple vl work
+        - use the attention to generalize the one-stream and two-stream, but it
+          seems useless
+- Unifying Vision-and-Language Tasks via Text Generation
+    - iclr 2021
+    - key
+        - in prompt, it adds some prefix, e.g. vqa to describe different tasks
+        - 36 faster-rcnn region features
+- M6: A Chinese Multimodal Pretrainer
+    - arxiv 3/2021
+    - key
+        - the image is plit into patches. For each patch, the feature is the
+          teh feature from r-50.
+- Contrastive Visual-Linguistic Pretraining
+    - arxiv 6/2020
+    - key
+        - a key network or a copy of the current network, but optimized by the
+          momentum update rather than the gradient. similar like moco
+        - the image input to the query netework is randomly masked.
+        - the image input to the key netework is not randomly masked
+        - the output of the key network is inserted to a memory queue for
+          contrastive loss calculation
+        - the contrastive is only performed on the image domain to build the
+          contrastive loss.
+        - the key message is that such contrastive loss is better than feature
+          regression and feature label classification
+        - random drop path is applied on teh key encoder after some epochs
+- Automatic Curation of Large-Scale Datasets for Audio-Visual Representation Learning
+    - arxiv 1/2021
+    - key
+        - filter the pre-training dataset, which consists of video-audio pairs.
+          The target is to find out a subset with good correspondence
+        - two method proposed. one is based on contrastive learning, which is
+          effectively CLIP. the other one is based on clustering results. That
+          is, do the clustering on each modality with different features and
+          the calculate the correlation of the clusters
+        - finaly filter out 10 Million video data
+- CUPID: Adaptive Curation of Pre-training Data for Video-and-Language Representation Learning
+    - arxiv 2021
+    - key
+        - proposed two methods to do filtering on pre-training dataset so that
+          the pre-training dataset is more consistant with downstream task
+          - one is to maek sure the title contains at least one word from the
+            downstream dataset
+          - the second one is to compare teh similarity of the video based on
+            visual features + pooling.
+- Seeing Out of tHe bOx: End-to-End Pre-training for Vision-Language Representation Learning
+    - arxiv 4/2021
+    - key
+        - based on pixel-bert. same author
+        - for eaach visual token, find the nearest neighbor as the encoded
+          feature
+        - if the cluster center is c, to calculate the gradient c = stop_grad(c - x) + x, so that the gradient on c can be 
+          propagated back to x.
+- VATT: Transformers for Multimodal Self-Supervised Learning from Raw Video, Audio and Text
+    - arxiv 4/2021
+    - key
+        - similar with CLIP
+        - it has audio-video, video-text loss
+    - arxiv 4/2021
+    - key
+        - use CLIP as initialization.
+        - for video, CLIP to extract the features for each frame. Then, use a
+          mean pooling to calculate the similarity
+        - or add some similarity network to encode the tempory information
+        - achieve sota result
+- Frozen in Time: A Joint Video and Image Encoder for End-to-End Retrieval
+    - arxiv 4/1/2021
+    - key
+        - similar with OpenAI's CLIP
+        - the visual input could be single frame (image) or multiple frames. no
+          matter what it is, [cls] token is used to represent the visual
+          signal
+        - first to train with fewer time span and then on longer time span,
+          which is helpful. cirriculum learning
+- Neural Baby Talk
+    - cvpr 2018
+    - key
+        - pointer network to determine the template. Template is also a caption
+          sentence, but each token can be either a textural word from the
+          vocabulary or a visual word. A visual word is associated with a
+          region and the word is determined by the sub captegory and the
+          plural. The network output is a probability distribution over N + 1,
+          where N is the number of region and +1 means the textual word.
+- LightningDOT: Pre-training Visual-Semantic Embeddings for Real-Time Image-Text Retrieval
+    - NACCL 2021
+    - key
+        - region feature, bert
+        - text, bert.
+        - inner product to calculate the similarity
+- HERO: Hierarchical Encoder for Video+Language Omni-representation Pre-training
+    - arxiv 5/2020
+    - key
+        - multiple losses for pre-training
+- VisualCOMET: Reasoning about the Dynamic Context of a Still Image
+    - eccv 2020
+    - key
+        - share a dataset
+        - proposed a task
+        - the task is to predict what happened before, what is happening, what
+          will happen after, given a still image.
+        - in the dataset, the image is extracted from video, and the gt is
+          based on the manual describing based on two frames before current
+          frams and other two frames afterwards.
+- ViLT: Vision-and-Language Transformer Without Convolution or Region Supervision
+    - arxiv 2/5/2021
+    - key
+        - a good paper to use one transformer for VL tasks
+- Scaling Up Visual and Vision-Language Representation Learning With Noisy Text Supervision
+    - Google-version of CLIP
+    - key
+        - the temperature in the similarity is learnable by gradient.
+            - ablation experiments show that the temperature can be manually
+              tuned to have a little bit better accuracy. But as the gain is
+              not significant, learnable setting is better.
+        - result shows better improvement than CLIP.
+        - in coco 5k retrieval tasks
+            - clip i2t@1: 58.4
+            - this paper: 58.6
+                - efficient-net-L2 + bert large
+        - 1.8 billion image-text pairs
+        - image input size is 289
+        - 1.2 million steps (12 epochs)
+        - batch size = 16384; 1024 TPUv3
+- RoBERTa: A Robustly Optimized BERT Pretraining Approach
+    - arxiv 7/2019
+    - key
+        - SQuAD v2.0 contains questions which are not answered.
+        - removing the alignment loss or next sentence prediction is ok
+- UniVL: A Unified Video and Language Pre-Training Model for Multimodal Understanding and Generation
+    - arxiv 6/2020
+    - key
+        - video -> extract feature by S3D -> transformer
+        - transcript -> transformer
+        - use one joint transformer. That is, based on two-stream
+        - after that, append one decoder for generation tasks.
+        - in pre-training, first pre-train the sepearte encoder, and then for
+          all.
+        - pre-training takes 14 days for 8 V100
+        - pre-training task
+            - one joint loss on the seperate streams
+            - one mask language modeling loss
+            - one mask feature modeling loss to applying the contrastive loss,
+              i.e. masked feature and the correponding output is positive
+              pairs. masked feature and all other outputs are negative pairs.
+            - one alignment loss.
+        - result is quite impressive
+- Incorporating copying mechanism in image captioning for learning novel objects
+    - arxiv 2017
+    - copy mechanism for object labels. image feature is one global feature
 - Video Understanding as Machine Translation
     - arxiv 12/2020
     - facebook
@@ -530,6 +1383,7 @@ title: Paper Reading
               one pass to get the final matrix.
 
 - Learning Transferable Visual Models From Natural Language Supervision
+    - CLIP from openai, arxi 2/26/2021
     - key
         - constructed a dataset with 400 million image-text pairs
             - construct a query list, whose item includes
@@ -592,6 +1446,7 @@ title: Paper Reading
               generate negative captions
         - use contrastive loss to distinguish those positive and negative
           pairs.
+        - use text-only data also
 - In Defense of Grid Features for Visual Question Answering
     - a nice paper, arxiv 1/2020
     - contribution
@@ -853,6 +1708,17 @@ title: Paper Reading
     - arxiv 6/16/2020 from MSRA
     - 2d encoding based on two lookup tables for each region.
 
+# network structure
+- P2T: Pyramid Pooling Transformer for Scene Understanding
+    - arxiv 7/10-2021
+    - key
+        - nice paper
+        - in attention module, the key and value are not the input signals, but
+          the pooled results of the input signals. The pooling here is multiple
+          pooling operaitons. In this case, the number of tokens in key and
+          values is much smaller than the input. Pyramid design is also
+          incorporated.
+        - results look quite good
 # network structure/Graph Network
 - Graph Attention Networks
     - arxiv 2018/4, iclr 2018
@@ -956,7 +1822,23 @@ title: Paper Reading
       the kernel is the output of another layer. In this case, the space can be
       reduced and the computational cost can also be reduced.
 
-# Object Detection
+# object detection
+- Benchmarking Detection Transfer Learning with Vision Transformers
+    - arxiv 10/2021
+    - key
+        - nice work of expeirment results
+- PIX2SEQ: A LANGUAGE MODELING FRAMEWORK FOR OBJECT DETECTION
+    - arxiv 9/2021
+    - nice paper to geenrate sequence as detected output
+- Tracking Instances as Queries
+    - based on instances as queries.
+- Instances as Queries
+    - key
+        - use object queires. lots of details. not well caught the details
+- Probabilistic two-stage detection
+    - arxiv 3/2021
+    - use one-stage detector to replace the rpn and multiply the probability
+      from rpn to the final classification score. 
 - End-to-End Object Detection with Fully Convolutional Network
     - arxiv 12/2020
     - key
@@ -1260,6 +2142,68 @@ title: Paper Reading
           comparision with sum and concatenation is not disclosed
     - official code release: https://github.com/ruinmessi/ASFF
 
+## object detection/data augmentation
+- Simple Copy-Paste is a Strong Data Augmentation Method for Instance Segmentation
+    - arxiv 12/2020
+    - contribution
+        - copy one object based on annotation from another image into the
+          current image, and then blend it
+
+# object detection/pre-training
+- Aligning Pretraining for Detection via Object-Level Contrastive Learning
+    - key
+        - selective search is used to extract the proposals
+        - mask-rcnn + fpn network is used
+        - each proposal: extract 3 region features; one is based on the
+          proposal locations (jitter is applied for data augmentation), one is
+          a random crop within the reason, the other one is the down-scaled
+          region.
+        - online and target network is used as BYOL
+        - feature between the different views of the proposals are aligned by
+          inner product similarity, similar with BYOL
+        - bounding box regression is not learned at all.
+- DETReg: Unsupervised Pretraining with Region Priors for Object Detection
+    - key
+        - pre-training with raw image only for detection task
+        - network is DETR
+        - Selective search to extract the proposals. Then randomly select the
+          proposals based on teh score from selective search. Teh score is
+          interpreted as a probability. Each time, 30 boxes are selected
+        - SwAV is used to extract the feature for each region
+        - DETR outputs 3 signals for each box. Location, object or not object,
+          feature embedding to align SwAV output.
+        - results also only good at low-label regime.
+# object detection/zero-shot
+- zero-shot detection via vision and language knowledge distillation
+    - arxiv 4/28/2021
+    - key
+        - zero-shot object detection problem
+            - we have base categories and the full annotated training data
+            - we need to detect novel categories
+        - one naive solution discussed is that the class-agnostic detector
+          generates the boxes and then crop the regions with 1x and 1.5x. Feed
+          these cropped region into clip image classifier and then do the
+          clip-style label assignment.
+        - two-stage detector to generte class-agnostic boxes as proposals
+        - VILD-text
+            - take the text classifier as weight embedding function in segment
+              everything.
+            - for base class, generte the embedding and then do the learning
+            - to inference novel classes, generte the embedding for novel
+              categories.
+        - VILD-image
+            - add a regularizer to the region feature so that the region
+              feature should be aligned with the image feature from the clip
+              image encoder. then use this feautre to predict novel or base
+              categories
+        - VILD: combine VILD-text and VILD-image. Two heads are used to handle
+          both loss. ensemble is used to finalize the result
+        - use clip to help identify the novel class
+        - clip model parameters are not updated
+        - last classifier is set by the text embedding
+    - exp
+        - LVIS. common categories are as base categories. Rare categories are
+          novel categories.
 ## Object detection/knowledge distillation
 - Learning Efficient Object Detection Models with Knowledge Distillation
     - nips 2017
@@ -1351,6 +2295,21 @@ title: Paper Reading
     - arxiv 1/2019. not find if it is in peer-reviewed conf/journal
 
 # semi-supervised learning
+- unsupervised data augmentation for consistentency training
+    - 11/5/2020
+    - key:
+        - the data augmentation should be strong in semi-supervised learning
+          for consistency matching.
+- Meta Pseudo Labels
+    - arxiv 3/2020
+    - google
+    - key
+        - teacher model is also updated when learning student network on
+          unlableed data
+        - studnet model is only learned on unlabeled data together with the
+          teacher network. Then, it is fine-tuned with the labeled data.
+        - taking imagenet as labeled data, JET as unlabeled data, the accuracy
+          on imagenet is 90.2%.
 - A Simple Semi-Supervised Learning Framework for Object Detection
     - arxiv 12/2020
     - method
@@ -1376,6 +2335,13 @@ title: Paper Reading
 
 
 # Visual and Lauguage
+- 12-in-1: Multi-Task Vision and Language Representation Learning
+    - arxiv 4/2020
+    - key
+        - in pre-training, it is multi-task learning. in this paper, it is 4
+          tasks, including VQA, NLVR. Different image-text pairs only
+          contribute respective tasks. This can be pre-training task, and
+          fine-tuned for each downstream task.
 - End-to-End Learning of Visual Representations From Uncurated Instructional Videos 
     - cvpr 2020
     - video and narative, pre-training. based on contrastive learning. the
@@ -1442,6 +2408,12 @@ title: Paper Reading
     - some theory on how to measure the mutual information.
 
 #### self-supervised pretext task/data
+- Unsupervised Semantic Segmentation by Contrasting Object Mask Proposals
+    - arxiv 2/11/2021
+    - key
+        - also use the saliency map as supervised signal.
+        - the goal is to make the pixel representations from the same mask
+          proposals be similar, and dissimilar otherwise. 
 - CASTing Your Model: Learning to Localize Improves Self-Supervised Representations
     - arxiv 12/8/2020
     - two contributions
@@ -1643,6 +2615,12 @@ title: Paper Reading
       measure the distance.
 
 ### self-supervised learning/non-separable task/#classes less than #samples
+- Self-supervised Pretraining of Visual Features in the Wild
+    - arxiv 3/5/2021
+    - key
+        - use 1 billion image and apply SwAV to pre-train the model
+        - use gradient checkpointint to save memory
+    - on detection, 2 points' improvement
 - Online Deep Clustering for Unsupervised Representation Learning
     - cvpr 2020
     - contribution
@@ -1764,6 +2742,32 @@ title: Paper Reading
             - updating the cluster every epoch
 
 ### self-supervised learning/non-seperable task/#class equals #samples
+- Efficient Self-supervised Vision Transformers for Representation Learning
+    - arxiv 6/2021
+    - key
+        - use swin as the backbone
+        - use DINO as the loss.
+        - each augmentation generates T tokens. Then it has 2T tokens. each
+          token in one view finds the matched token in another view. The
+          matching here is measured by teh cosine similarity. In the end,
+          minimize the cross entropy loss again, same as DINO
+- Self-Supervised Learning with Swin Transformers
+    - arxiv 5/2021
+    - key
+        - backbone as Swin Transformer
+- Simple Distillation Baselines for Improving Small Self-supervised Models
+    - arxiv 6/2021
+    - key
+        - two BYOL models. one is teacher and the otehr is student.
+- An Empirical Study of Training Self-Supervised Vision Transformers
+    - arxiv 4/2021
+    - key
+        - moco v3
+            - momentum encoder. negative is from the batch size, not from
+              queue
+            - more mlp is on encoder
+        - random init patch projection layer is better than learning the
+          projection
 - Propagate Yourself: Exploring Pixel-Level Consistency for Unsupervised Visual Representation Learning
     - nips 2020
     - contribution
@@ -2270,7 +3274,14 @@ title: Paper Reading
     - CVPR 2018, [code](https://github.com/ronghanghu/seg_every_thing)
     - proposed a weight transfer network
 
-### Video
+# video
+- Rethinking spatiotemporal feature learning: Speed-accuracy trade-offs in video classification
+    - 7/2018
+    - key
+        - seperable 3d conv to replace full 3d conv
+        - apply 3d conv on top-level feature maps rather than on lower-level
+          feature map
+        - S3D
 - Cross Pixel Optical Flow Similarity for Self-Supervised Learning
     - ACCV 2018
     - align the image representation to the optical flow

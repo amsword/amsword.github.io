@@ -37,4 +37,4 @@ mprof plot -o a.png
   ```
 
 #![_config.yml](/images/config.png "_config.yml")
-![_copyonrightbaseline.yml](/images/copyonrightbaseline.png "_copyonrightbaseline.yml")
+![baseline](/images/copy-on-write-baseline.png "baseline")

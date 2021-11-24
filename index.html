@@ -2,31 +2,185 @@
 layout: default
 ---
 
-<div class="posts">
-  {% for post in site.posts %}
+<style>
+    table {
+        border: 0;
+    }
+    table td {
+        border: 0;
+    }
+</style>
+
+<table>
+		<tbody>
+			<tr>
+				<td width="200">
+                    <img height="200" src="images/me.jpg">
+				</td>
+				<td>
+                    <!--<td style="vertical-align:bottom">-->
+                    <font size="5">
+                        <p><b>Jianfeng Wang</b></p>
+                    </font>
+                    <p>
+                        Principal Researcher<br>
+                        Microsoft, Redmond, WA<br>
+                        <a href = "mailto: jianfw@microsoft.com">jianfw@microsoft.com</a>
+                    </p>
+				</td>
+			</tr>
+		</tbody>
+</table>
+
+<p align="justify">
+I am a Principal Researcher at Microsoft Cloud and AI and focus on
+large-scale multimodal representation learning recently.
+I have broad research interest, including computer vision, e.g. image
+classification, object detection, and vision-langauge intelligence, e.g.
+vision-language pretraining, visual question answering.
+I received the B.Eng. degree and PhD degree
+from the University of Science and Technology of China (USTC) in 2010 and 2015,
+respectively.
+</p>
+
+<p>
+<a href="https://github.com/amsword/">Github</a>,
+<a href="https://scholar.google.com/citations?user=vJWEw_8AAAAJ&hl=en">Google Scholar</a>,
+<a href="https://www.linkedin.com/in/jianfengwang1/">LinkedIn</a>
+
+</p>
+
+<p> <font size="4"> <b>Projects</b> </font> </p>
+<ul align="justify">
+    <li> <p>
+        Florence: A New Foundation Model for Computer Vision <br>
+        <font size="2">
+            Lu Yuan, Dongdong Chen, Yi-Ling Chen, Noel Codella, Xiyang Dai, Jianfeng Gao, Houdong Hu, Xuedong Huang, Boxin Li, Chunyuan Li, Ce Liu, Mengchen Liu, Zicheng Liu, Yumao Lu, Yu Shi, Lijuan Wang, <b>Jianfeng Wang</b>, Bin Xiao, Zhen Xiao, Jianwei Yang, Michael Zeng, Luowei Zhou, Pengchuan Zhang<br>
+            10/2021 <a href="https://arxiv.org/pdf/2111.11432.pdf">arxiv-pdf</a>
+        </font>
+    </p> </li>
+
+    <li> <p>
+        An Empirical Study of GPT-3 for Few-Shot Knowledge-Based VQA<br>
+        <font size="2">
+            Zhengyuan Yang, Zhe Gan, <b>Jianfeng Wang</b>, Xiaowei Hu, Yumao Lu, Zicheng Liu, Lijuan Wang
+            <br>
+            9/2021 <a href="https://arxiv.org/pdf/2109.05014.pdf">arxiv-pdf</a>
+        </font>
+    </p> </li>
+
+    <li> <p>
+        End-to-End Semi-Supervised Object Detection with Soft Teacher<br>
+        <font size="2">
+            Mengde Xu, Zheng Zhang, Han Hu, <b>Jianfeng Wang</b>, Lijuan Wang, Fangyun Wei, Xiang Bai, Zicheng Liu
+            <br>
+            4/2021 <a href="https://arxiv.org/pdf/2106.09018.pdf">arxiv-pdf</a>
+        </font>
+    </p> </li>
+
+    <li> <p>
+        Compressing Visual-Linguistic Model via Knowledge Distillation<br>
+        <font size="2">
+            Zhiyuan Fang, <b>Jianfeng Wang</b>, Xiaowei Hu, Lijuan Wang, Yezhou
+            Yang, Zicheng Liu<br>
+            4/2021 <a href="https://arxiv.org/pdf/2104.02096.pdf">arxiv-pdf</a>
+        </font>
+    </p> </li>
+
+    <li> <p>
+        DAP: Detection-Aware Pre-Training With Weak Supervision<br>
+        <font size="2">
+            Yuanyi Zhong, <b>Jianfeng Wang</b>, Lijuan Wang, Jian Peng, Yu-Xiong Wang, Lei Zhang
+            <br>
+            3/2021 <a href="https://arxiv.org/pdf/2103.16651.pdf">arxiv-pdf</a>
+        </font>
+    </p> </li>
+
+    <li> <p>
+        Seed: Self-Supervised Distillation for Visual Representation<br>
+        <font size="2">
+            Zhiyuan Fang, <b>Jianfeng Wang</b>, Lijuan Wang, Lei Zhang, Yezhou Yang, Zicheng Liu
+            <br>
+            1/2021 <a href="https://arxiv.org/pdf/2101.04731.pdf">arxiv-pdf</a>
+        </font>
+    </p> </li>
+
+    <li> <p>
+        TAP: Text-Aware Pre-training for Text-VQA and Text-Caption<br>
+        <font size="2">
+            Zhengyuan Yang, Yijuan Lu, <b>Jianfeng Wang</b>, Xi Yin, Dinei Florencio, Lijuan Wang, Cha Zhang, Lei Zhang, Jiebo Luo
+            <br>
+            12/2020 <a href="https://arxiv.org/pdf/2012.04638.pdf">arxiv-pdf</a>
+        </font>
+    </p> </li>
+
+    <li> <p>
+        MiniVLM: A Smaller and Faster Vision-Language Model<br>
+        <font size="2">
+            <b>Jianfeng Wang</b>, Xiaowei Hu, Pengchuan Zhang, Xiujun Li,
+            Lijuan Wang, Lei Zhang, Jianfeng Gao, Zicheng Liu
+            <br>
+            12/2020 <a href="https://arxiv.org/pdf/2012.06946.pdf">arxiv-pdf</a>
+        </font>
+    </p> </li>
+
+    <li> <p>
+        Boosting Weakly Supervised Object Detection with Progressive Knowledge Transfer<br>
+        <font size="2">
+            Yuanyi Zhong, <b>Jianfeng Wang</b>, Jian Peng, Lei Zhang
+            <br>
+            7/2020 <a href="https://arxiv.org/pdf/2007.07986.pdf">arxiv-pdf</a>
+        </font>
+    </p> </li>
+
+    <li> <p>
+        Hashing-based Non-Maximum Suppression for Crowded Object Detection<br>
+        <font size="2">
+            <b>Jianfeng Wang</b>, Xi Yin, Lijuan Wang, Lei Zhang
+            <br>
+            5/2020 <a href="https://arxiv.org/pdf/2005.11426.pdf">arxiv-pdf</a>
+        </font>
+    </p> </li>
+
+    <li> <p>
+        Anchor Box Optimization for Object Detection<br>
+        <font size="2">
+            Yuanyi Zhong, <b>Jianfeng Wang</b>, Jian Peng, Lei Zhang
+            <br>
+            1/2020 <a href="https://arxiv.org/pdf/1812.00469.pdf">arxiv-pdf</a>
+        </font>
+    </p> </li>
+
+</ul>
+
+
+<!--<div class="posts">-->
+<!--{% for post in site.posts %}-->
   <!--<article class="post">-->
-
-      <!--<h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title
-          }}</a></h1>-->
-
+  <!---->
+  <!--<h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title-->
+  <!--}}</a></h1>-->
+  <!---->
       <!--<div class="entry">-->
       <!--{{ post.excerpt }}-->
       <!--</div>-->
-
-      <!--<a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read
-          More</a>-->
+      <!---->
+      <!--<a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read-->
+      <!--More</a>-->
       <!--</article>-->
-       <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-  {% endfor %}
-</div>
+      <!--<li>-->
+        <!--{%- assign date_format = site.minima.date_format | default: "%b
+            <!--%-d, %Y" -%}-->
+        <!--<span class="post-meta">{{ post.date | date: date_format
+            <!--}}</span>-->
+            <!--<h3>-->
+            <!--<a class="post-link" href="{{ post.url | relative_url }}">-->
+            <!--{{ post.title | escape }}-->
+            <!--</a>-->
+            <!--</h3>-->
+            <!--{%- if site.show_excerpts -%}-->
+            <!--{{ post.excerpt }}-->
+            <!--{%- endif -%}-->
+            <!--</li>-->
+            <!--{% endfor %}-->
+            <!--</div>-->
