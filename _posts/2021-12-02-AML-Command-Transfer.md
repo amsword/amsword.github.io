@@ -181,5 +181,8 @@ have the following utilities to manage the data in azure blob
   ```
 
 # Conclusion
-The tool is small, handy and intuitive. With this tool, I have submitted at
-least 53133 jobs (before 11/1/2021), 39159 of which are from 11/1/2020 to 11/1/2021.
+The tool is small, handy and intuitive. Welcome to give it a try and open any
+issue.
+#With this tool, I have submitted at
+#least 53133 jobs (before 11/1/2021), 39159 of which are from 11/1/2020 to 11/1/2021.
+
