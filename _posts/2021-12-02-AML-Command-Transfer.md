@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title: AML Command Transfer
+author: Jianfeng Wang
 ---
 
 AML Command Transfer ([ACT](https://github.com/microsoft/act)) 
@@ -187,4 +188,3 @@ issue.
 With this tool, I have submitted at
 least 53133 jobs (before 11/1/2021), 39159 of which are from 11/1/2020 to 11/1/2021.
 --->
-
