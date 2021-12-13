@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title: How PyCaffe Implements Parallel Training
+published: false
 ---
 
 1. generate the uid

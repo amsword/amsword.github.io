@@ -2,6 +2,7 @@
 layout: post
 comments: tr=e
 title: Paper Reading
+published: false
 ---
 
 - learn
@@ -16,6 +17,7 @@ title: Paper Reading
         - how the backward is derived?
     - Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention
 - To read
+    - FQ-ViT: Fully Quantized Vision Transformer without Retraining
     - Efficient Large-Scale Language Model Training on GPU Clusters Using Megatron-LM
     - Self-EMD: Self-Supervised Object Detection without ImageNet
     - Unsupervised Object-Level Representation Learning from Scene Images
@@ -623,6 +625,7 @@ title: Paper Reading
     - arxiv 8/2021, deepmind
     - key
         - multiple queries to generate the output
+        - introduce the query to generate any number of outputs.
         - nice paper, also
 - perceiver general perception with iterative attention
     - arxiv 6/2021
@@ -1823,6 +1826,24 @@ unsupervised discovery of actions in insturctional videos
       reduced and the computational cost can also be reduced.
 
 # object detection
+- DEFORMABLE DETR: DEFORMABLE TRANSFORMERS FOR END-TO-END OBJECT DETECTION
+    - key
+        - lernable offset around each point, to geenrate the keys, instead of
+          using all keys. The goal is still to explore the locality
+- Towards Open Vocabulary Object Detection without Human-provided Bounding Boxes
+    - arxiv 11/2021
+    - key
+        - from Salesforce
+        - bad writing
+        - the key idea is that to use the attention map as the indictor to tell
+          which box correpsonds to teh word in the caption. The box is
+          generated from proposal generator, which is mask-rcnn here.
+        - the paper is claimed not to use box annotation during training, but
+          the proposal generator it uses is based on mask-rcnn which was
+          trained on the coco by removing the novel category. In experiments,
+          it also studied the performance if the proposal generator is replaced
+          with selective search, in which case the performance is almost
+          halved.
 - Benchmarking Detection Transfer Learning with Vision Transformers
     - arxiv 10/2021
     - key

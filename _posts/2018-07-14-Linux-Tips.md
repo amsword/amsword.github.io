@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title: Linux Tips
+published: false
 ---
 
 ## Windows

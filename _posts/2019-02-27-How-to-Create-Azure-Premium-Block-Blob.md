@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title: How to create premium azure block blob
+published: false
 ---
 
 The premium block blob account is not ready in azure portal, but could be

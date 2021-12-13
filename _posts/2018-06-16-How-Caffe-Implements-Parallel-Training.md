@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title: How Caffe Implements Parallel Training
+published: false
 ---
 
 ```cpp

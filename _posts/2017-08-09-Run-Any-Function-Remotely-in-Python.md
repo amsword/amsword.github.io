@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title: Run any function remotely in python
+published: false
 ---
 
 Since we have multiple machines to do the computing, it might be useful if we

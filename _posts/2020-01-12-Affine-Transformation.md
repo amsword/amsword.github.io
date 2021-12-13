@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title: Image Affine Transformation
+published: false
 ---
 
 - Affine transformation means, the point of $$(x, y)$$ in the source image is mapped to $$(x', y')$$ in the destimation image. The equation is

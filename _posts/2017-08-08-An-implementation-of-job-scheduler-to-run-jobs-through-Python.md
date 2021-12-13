@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title: An implementation of job scheduler to run jobs through Python
+published: false
 ---
 
 Sometimes, we would like to run J jobs on C computing resources, but each
