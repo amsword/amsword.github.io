@@ -37,7 +37,7 @@ def image_text_contrastive_loss_baseline(image_feat, text_feat, temperature):
     return (loss1 + loss2) / 2
 ```
 ## L2 normalization
-One important thing is that the L2 normaliation should be applied to the
+One important thing is that the L2 normalization should be applied to the
 features before applying the loss function. This is essential regarding to the
 accuracy, e.g. retrieval performance. To make it complete, we have the
 following implementation.
@@ -194,7 +194,7 @@ $$
 
 As the gradient on the other GPUs' representation can not be propagated back,
 each GPU actually accidentally calculates $$\frac{\partial f}{\partial x_m} \frac{\partial x_m}{\partial\theta}$$.
-During gradient synchronization (e.g. `torch.nn.parallel.DistributedDataParallel`), average reduction is preformed, and thus we need to
+During gradient synchronization (e.g. `torch.nn.parallel.DistributedDataParallel`), average reduction is performed, and thus we need to
 scale up the loss value by $$M$$ to finalize the correct gradient. That is
 
 ```python
