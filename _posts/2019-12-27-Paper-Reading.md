@@ -17,6 +17,8 @@ published: false
         - how the backward is derived?
     - Transformers are RNNs: Fast Autoregressive Transformers with Linear Attention
 - To read
+    - Open-Vocabulary Image Segmentation
+    - Improving language models by retrieving from trillions of tokens
     - FQ-ViT: Fully Quantized Vision Transformer without Retraining
     - Efficient Large-Scale Language Model Training on GPU Clusters Using Megatron-LM
     - Self-EMD: Self-Supervised Object Detection without ImageNet

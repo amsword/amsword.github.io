@@ -215,6 +215,42 @@ def image_text_contrastive_loss(image_feat, text_feat, temperature, image_id, te
     return (loss1 + loss2) / 2 * torch.distributed.get_world_size() # scale it up by the number of GPUs
 ```
 
+One question here is that in the image classification task with the cross-entropy
+loss, why we do not need to scale up the loss. The reason is that we do not run
+the all gather to collect all the features. Now, let's check out what happens when we gather the features on each GPU.
+On the $$i$$-th GPU, let
+$$x_i\in \mathbb{R}^{N\times D}$$ and $$y_i$$ be
+the features and the label indices on the $$i$$-th GPU, respectively.
+The cross-entropy loss can be written as
+
+$$
+CE(x_i, y_i) = -\frac{1}{N} \sum_{j}\log(x_{i, j}(y_{i, j}))
+$$
+
+where $$x_{i, j}$$ is the $$j$$-th row of $$x_i$$ and $$y_{i, j}$$ is the label
+index for the $$j$$-th sample.
+If we collect the features and the label indices from all GPUs, what we 
+calculate will be
+
+$$
+CE(x, y) = -\frac{1}{N M} \sum_{k, j}\log(x_{k, j}(y_{k, j}))
+$$
+
+where $$M$$ is the number of GPU.
+Noted that after collection, the loss is normalized by $$1/NM$$ rather than
+$$1/N$$. As the gradient can not be propagated back to other GPUs'
+representations, we can re-write the loss as
+
+$$
+CE(x, y) = -\frac{1}{N M} \sum_{j}\log(x_{i, j}(y_{i, j})) +
+-\frac{1}{N M} \sum_{k \ne i, j}\log(x_{k, j}(y_{k, j}))
+$$
+
+The second item will not contribute any gradient on the $i$-th GPU and can be
+discarded. It is also easily observed that we need to scale it up by $M$ such
+that the gradient can be the same as that when we calculate the loss
+individually on each GPU.
+
 ## Conclusion
 At the first glance, the image-text contrastive loss should be easy to
 implement. However, there are lots of details to make it right, and the most
