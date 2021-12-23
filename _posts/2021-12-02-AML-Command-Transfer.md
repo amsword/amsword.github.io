@@ -9,7 +9,7 @@ AML Command Transfer ([ACT](https://github.com/microsoft/act))
 is a tool to 
 easily execute any command in the Azure Machine Learning (AML)
 services.
-The blog will present the underlying design principal of the tool.
+The blog will present the underlying design principle of the tool.
 
 # How AML works
 First of all, let's review the basic idea of how AML works.
@@ -48,17 +48,16 @@ One way AML supports is the
 [blobfuse](https://github.com/Azure/azure-storage-fuse). The story is as
 follows.
 1. The user uploads the data to the [Azure Storage](https://docs.microsoft.com/en-us/azure/storage/).
-   Any uploaded file can be accessed through a URL with appropriate authentication header.
+   Any uploaded file can be accessed through a URL with an appropriate authentication header.
    Let's say that the storage account is `account`, the storage container is `container`, and the file path is
-   `data/a.txt`. The storage container is some concept of the Azure Storage.
+   `data/a.txt`. The storage container is some concept of Azure Storage.
    All data within one container can have the same access level, e.g. public.
    Then, the URL will be `https://account.blob.core.windows.net/container/data/a.txt`.
 
 2. During the job submission, an ID string can be assigned to the file path
    through the [AML's Python SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/?view=azure-ml-py),
-   and will be used as a place holder for the
-   script argument. For example, the file path is `blob_data/a.txt` under some
-   storage account, and the Python SDK generates a special string to refer to this file, say, `ID_of_a.txt`.
+   and will be used as a placeholder for the
+   script argument. For example, the file path is `blob_data/a.txt` under some storage account and the Python SDK generates a special string to refer to this file, say, `ID_of_a.txt`.
    Then, the
    submitted command line is
    ```shell
@@ -86,7 +85,7 @@ connect the user script and AML. Let's say the name of the tool is named `a`.
   We expect to specify `python` rather than to assume that the interpreter is
   always `python` such that we can support other non-python scripts. In other
   words, we can always test the script locally by `python script.py`. If we'd
-  like to execute it in AML, we just need to add the prefix of `a aubmit`.
+  like to execute it in AML, we just need to add the prefix of `a submit.
 - If we'd like to run `train.py` with some parameter of `--data imagenet`, the submission syntax is
   ```shell
   a submit python script.py --data imagenet
@@ -95,14 +94,14 @@ connect the user script and AML. Let's say the name of the tool is named `a`.
   ```shell
   a submit nvidia-smi
   ```
-That is, we expect the tool of `a` to handle everything related with AML such
+That is, we expect the tool of `a` to handle everything related to AML such
 that the parameters after `submit` can be seemingly transferred to AML,
 which is quite similar with [remote procedure call](https://en.wikipedia.org/wiki/Remote_procedure_call).
 This is what ACT does!
 
 ### Design of the Work Flow
 The design is based on the client-server model. That is, we have a client
-script for job submission and a server script which executes any command the
+script for job submission and a server script that executes any command the
 client requests.
 
 The client
@@ -110,27 +109,27 @@ The client
    codes are referred to as the, e.g. the training codes, which implements the
    model structure, optimization logics, e.t.c. `zip` is used to
    compress the current source folder to a
-   temporary `.zip` file, which is then uploaded to the azure blob through `azcopy`.
+   temporary `.zip` file, which is then uploaded to the Azure blob through `azcopy`.
    To customize the zipping process, we can populate the parameter of
    `zip_options` in the configuration to, e.g. ignore some folders or files.
 2. `a submit command` to submit the `command` to AML. In addition of the
    `command`, the client script will also submit the following information.
-   - The blob path of the zipped source code, so that the server  knows
+   - The blob path of the zipped source code, so that the server knows
      where to access the source code.
    - Azure Blob information, so that AML can mount the azure blob through
      `blobfuse`.
    - The data link information, including the local folder name and the
      corresponding blob path, so that the server side can create a symbol
      link to access the data. As long as the user's source codes always
-     uses the relative file path, e.g. `data/a.txt`, and the client sets
-     the `data` to the apprioriate azure blob path, no change is required to
+     use the relative file path, e.g. `data/a.txt`, and the client sets
+     the `data` to the appropriate azure blob path, no change is required to
      change the data path in the code. That is, if the code is tested well
      on the local machine, it should also work in AML. 
 
 The server side
 1. unzip the source code
    - The destination folder is under `/tmp` since this folder
-     always exsits and is writable. Another option is to use the
+     always exists and is writable. Another option is to use the
      home folder. However, sometimes the home folder is a network share,
      which could be slow if we need to compile the code. If the home folder
      is shared among different jobs, synchronization could be very difficult.
@@ -141,7 +140,7 @@ The server side
      of `mpi` or `torch.distributed`, both of which might create more dependency.
      In practice, the file-based exclusive lock works well.
 2. run `compile.aml.sh` if the file exists after the source folder is
-   unzipped. This gives the user an opportunity to compile the source code
+   unzipped. This allows the user to compile the source code
    with any kind of command.
 3. pip install the packages in `requirements.txt` if the file exists. This
    is specifically for python packages.
@@ -185,6 +184,5 @@ have the following utilities to manage the data in azure blob
 The tool is small, handy and intuitive. Welcome to give it a try and open any
 issue.
 <!---
-With this tool, I have submitted at
-least 53133 jobs (before 11/1/2021), 39159 of which are from 11/1/2020 to 11/1/2021.
+With this tool, I have submitted at least 53133 jobs (before 11/1/2021), 39159 of which are from 11/1/2020 to 11/1/2021.
 --->
