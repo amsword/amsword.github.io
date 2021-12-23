@@ -18,7 +18,7 @@ The model can be well applied to the retrieval task, classification task, and
 others replying on an image encoder, e.g. object detection.
 
 Recently, I find it is not that easy to implement the loss correctly in
-Pytorch, especicially in the distributed envirionement. 
+Pytorch, especially in the distributed environment. 
 ## Baseline
 Let's firstly take a
 look at a baseline implementation. In each iteration, we generate the image
@@ -38,7 +38,7 @@ def image_text_contrastive_loss_baseline(image_feat, text_feat, temperature):
 ```
 ## L2 normalization
 One important thing is that the L2 normalization should be applied to the
-features before applying the loss function. This is essential regarding to the
+features before applying the loss function. This is essential regarding the
 accuracy, e.g. retrieval performance. To make it complete, we have the
 following implementation.
 
@@ -55,30 +55,25 @@ def image_text_contrastive_loss_with_l2(image_feat, text_feat, temperature):
     return (loss1 + loss2) / 2
 ```
 ## Duplicate images or texts
-What if there are two images or two texts which are identical? For example,
-each image in the [COCO](https://cocodataset.org/#home) dataset contains 5 text description,
-and thus there is a
-chance that two different rows in `image_feat` corresponds to the same image.
+What if there are two identical images or texts? For example,
+each image in the [COCO](https://cocodataset.org/#home) dataset contains 5 text descriptions,
+and thus there is a chance that two different rows in `image_feat` correspond to the same image.
 For the concept of being identical, we only consider the case where two images
-are with the same image index in the dataset, and where the text descripton
-strings are exactly the same. We do not consider the case if the two images or
-the two texts are
-not exactly the same but super similar because it is hard to robustly tell
+are with the same image index in the dataset, and where the text description strings are the same. We do not consider the case if the two images or
+the two texts are not the same but super similar because it is hard to robustly tell
 whether these two are similar enough.
 
-In the baseline implementation, we assume only one possitive for each image or
+In the baseline implementation, we assume only one positive for each image or
 the text. Considering duplicates, we need to handle multiple positives. Here we
-just to use the multi-hot cross entropy loss. 
+just use the multi-hot cross-entropy loss. 
 1. For each image, we can use the
 image index in the dataset as the identifier, and the two images are identical if and
-only if the indices are the same. It is noting that in the dataset of
+only if the indices are the same. It is noted that in the dataset of
 image-text pairs, we have the concept of the image index and the concept of the image-text index.
-2. For each text description, we can generate a hash value for each string and the
-two text are considered to be exactly the same if the hash values are
+2. For each text description, we can generate a hash value for each string, and the two texts are considered to be the same if the hash values are
 identical. As the hash function might not be perfect, there is a chance that
-the two text descriptions are different but the hash code are same. As this
-conclict is rare, we will simply assume we have a perfect hash function.
-Practically, we can generate the hash code from the data loader in the pytorch
+the two text descriptions are different but the hash codes are the same. As this conflict is rare, we will simply assume we have a perfect hash function.
+Practically, we can generate the hash code from the data loader in the PyTorch
 training pipeline. One hash function we can use is the built-in `hash(str)` in
 python.
 
@@ -104,13 +99,13 @@ def image_text_contrastive_loss_with_l2_id(image_feat, text_feat, temperature, i
 ### Gather representations
 Almost always, we use multiple GPUs to run the contrastive loss as it
 is normally for large-scale training. In distributed training, each GPU
-processes only a portion of the data and then calculate the gradient itself
+processes only a portion of the data and then calculates the gradient itself
 before averaging the gradient across all participated GPUs. As the loss is
 based on the batch size, we need to gather the features before applying the
 loss. One function we need is `torch.distributed.all_gather()` to gather all
-features and the identifiers. The first parameter is a list of tensors which
+features and the identifiers. The first parameter is a list of tensors that
 are going to be populated, and the second is the tensor we will gather. Here,
-we assume the tensor shape is the same across all GPUs and have the following
+we assume the tensor shape is the same across all GPUs and we have the following
 wrapper function.
 ```python
 def all_gather(x):
@@ -194,7 +189,7 @@ $$
 
 As the gradient on the other GPUs' representation can not be propagated back,
 each GPU actually accidentally calculates $$\frac{\partial f}{\partial x_m} \frac{\partial x_m}{\partial\theta}$$.
-During gradient synchronization (e.g. `torch.nn.parallel.DistributedDataParallel`), average reduction is performed, and thus we need to
+During gradient synchronization (e.g. `torch.nn.parallel.DistributedDataParallel`), the average reduction is performed, and thus we need to
 scale up the loss value by $$M$$ to finalize the correct gradient. That is
 
 ```python
@@ -236,4 +231,3 @@ pip install https://github.com/amsword/image_text_contrastive
 from image_text_contrastive import image_text_contrastive_loss as itc
 itc(image_feat, text_feat, temperature, image_id, text_id)
 ```
-
