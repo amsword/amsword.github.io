@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: How to implement the image-text contrastive loss correctly in Pytorch
+title: How to implement the image-text contrastive loss in Pytorch
 author: Jianfeng Wang
 ---
 
@@ -17,8 +17,10 @@ as possible while those of mismatched images and texts be as far as possible.
 The model can be well applied to the retrieval task, classification task, and
 others replying on an image encoder, e.g. object detection.
 
-Recently, I find it is not that easy to implement the loss correctly in
-Pytorch, especially in the distributed environment. 
+At the first glance, the image-text contrastive loss should be easy to
+implement. However, there are lots of details to make it right, and the most
+important could be to scale it properly in the distributed environment.
+
 ## Baseline
 Let's firstly take a
 look at a baseline implementation. In each iteration, we generate the image
@@ -252,11 +254,7 @@ that the gradient can be the same as that when we calculate the loss
 individually on each GPU.
 
 ## Conclusion
-At the first glance, the image-text contrastive loss should be easy to
-implement. However, there are lots of details to make it right, and the most
-important could be the last one: scale it up by the number of GPUs. To make it
-easy to use, here is the [code](https://github.com/amsword/itc) and you can
-apply it
+To make it easy to use, here is the [code](https://github.com/amsword/image_text_contrastive) and you can apply it
 
 1. Install it by
 ```bash
@@ -265,5 +263,11 @@ pip install https://github.com/amsword/image_text_contrastive
 2. Use it
 ```python
 from image_text_contrastive import image_text_contrastive_loss as itc
-itc(image_feat, text_feat, temperature, image_id, text_id)
+image_feat = torch.zeros((64, 128))
+text_feat = torch.zeros((64, 128))
+itc(image_feat, text_feat, 0.1)
+
+image_id = torch.arange(64)
+text_id = torch.arange(64)
+itc(image_feat, text_feat, 0.1, image_id, text_id)
 ```
