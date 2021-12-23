@@ -257,17 +257,19 @@ individually on each GPU.
 To make it easy to use, here is the [code](https://github.com/amsword/image_text_contrastive) and you can apply it
 
 1. Install it by
-```bash
-pip install https://github.com/amsword/image_text_contrastive
-```
-2. Use it
-```python
-from image_text_contrastive import image_text_contrastive_loss as itc
-image_feat = torch.zeros((64, 128))
-text_feat = torch.zeros((64, 128))
-itc(image_feat, text_feat, 0.1)
 
-image_id = torch.arange(64)
-text_id = torch.arange(64)
-itc(image_feat, text_feat, 0.1, image_id, text_id)
-```
+   ```bash
+   pip install https://github.com/amsword/image_text_contrastive
+   ```
+2. Use it
+
+   ```python
+   from image_text_contrastive import image_text_contrastive_loss as itc
+   image_feat = torch.zeros((64, 128))
+   text_feat = torch.zeros((64, 128))
+   itc(image_feat, text_feat, 0.1)
+   
+   image_id = torch.arange(64)
+   text_id = torch.arange(64)
+   itc(image_feat, text_feat, 0.1, image_id, text_id)
+   ```
