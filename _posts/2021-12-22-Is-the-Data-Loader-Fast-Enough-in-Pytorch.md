@@ -44,7 +44,7 @@ for i, data in enumerate(data_loader):
 ## Summarization since last print
 However, this logging cannot capture the case if the data loader is slow
 between two consecutive prints. Thus, the printed time cost
-should be some summarization over all iterations since last print rather than
+should be some summarization over all iterations since the last print rather than
 for only the current iteration. We have the following update.
 
 ```python
@@ -89,7 +89,7 @@ the log on the master worker, we may not capture the speed issue from
 non-master workers. To address the issue, we can only print the log if the
 ratio of the data time cost is not small enough. However, we have to pre-define a
 threshold, which might be sensitive to the application. Anyway, let's give the
-full implementation  here.
+full implementation here.
 
 ```python
 start = time.time()
@@ -115,13 +115,11 @@ for i, data in enumerate(data_loader):
 
 Another tip is to print out the medium as well as the average. Sometimes, we
 may hit the situation where 1) the mean value is high and 2) the medium value is small.
-This normally means that some samples are offensive and need lots of time. One
-example is that most of the images are small, but some few images are super
-bit, which needs lots of time on I/O and preprocessing in the data loader.
+This normally means that some samples are offensive and need lots of time.
+An example is that most of the images are small, but a few images are super slow, which needs lots of time on I/O and preprocessing in the data loader.
 
 ## Conclusion
 The important parts are that 1) the printed or verified time cost should be the
 summarization since the last print and 2) time cost on non-master worker also
 needs to check as most of the time only the master worker's performance is
 examined.
-
