@@ -174,9 +174,9 @@ def image_text_contrastive_loss_with_l2_id_gather(image_feat, text_feat, tempera
     loss2 = -torch.sum(gt.t() * torch.nn.functional.log_softmax(logits.t(), dim=1)) / gt.sum()
     return (loss1 + loss2) / 2
 ```
-However, this implementation is still NOT correct.
+However, this implementation is still NOT good enough.
 
-### Scale properly the loss
+### Properly scale  the loss
 After we use `all_gather_grad()` to have the full representation, we need to
 keep in mind that the gradient on the other GPUs' representation will NOT be
 propagated back but only that on the current GPU's representation be. Let $$M$$

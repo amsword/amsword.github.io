@@ -1,7 +1,7 @@
 ---
 layout: post
 comments: true
-title: scaleapex: a simple way to combine fairscale and apex
+title: ScaleApex: a simple way to combine fairscale and apex
 author: Jianfeng Wang
 ---
 
