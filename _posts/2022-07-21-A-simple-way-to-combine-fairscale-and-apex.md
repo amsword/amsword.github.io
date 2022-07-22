@@ -16,8 +16,7 @@ the model parameters. Normally, deepspeed can save more GPU memory, which
 might improve the speed by increasing the batch size.
 To reduce the speed gap, this blog presents some background knowledge of
 [scaleapex](https://github.com/amsword/scaleapex), which 
-provides a simple way such  
-that the fairscale can also use
+provides a simple way such that the fairscale can also use
 fp16 to have deepspeed-like training.
 One benefit is to customize the training procedures more easily with
 fairscale, e.g. different dynamic loss scalers for different losses.
