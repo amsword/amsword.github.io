@@ -289,12 +289,12 @@ L_{t - 1}
 \right) d \mathbf{x} + C_2
 \\
 & = -\int r(\mathbf{x}) \log \exp\left(
-- \frac{1}{2\sigma_{t}^{2}}\|\mathbf{x} - \tilde{\mu}_t(\mathbf{x}_t, \mathbf{x}_0)) +
+- \frac{1}{2\sigma_{t}^{2}}\| \mathbf{x} - \tilde{\mu}_t(\mathbf{x}_t, \mathbf{x}_0) +
 \tilde{\mu}_t(\mathbf{x}_t, \mathbf{x}_0) - \mu_{\theta}(\mathbf{x}_t, t)\|^2
 \right) d \mathbf{x} + C_2
 \\
 & = -\int r(\mathbf{x}) \left(
-- \frac{1}{2\sigma_{t}^{2}} \| \mathbf{x} - \tilde{\mu}_t(\mathbf{x}_t, \mathbf{x}_0)) +
+- \frac{1}{2\sigma_{t}^{2}} \| \mathbf{x} - \tilde{\mu}_t(\mathbf{x}_t, \mathbf{x}_0) +
 \tilde{\mu}_t(\mathbf{x}_t, \mathbf{x}_0) - \mu_{\theta}(\mathbf{x}_t, t)\|^2
 \right) d \mathbf{x} + C_2
 \\
