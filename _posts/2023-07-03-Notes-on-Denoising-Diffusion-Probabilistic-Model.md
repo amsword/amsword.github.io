@@ -66,6 +66,32 @@ q(\mathbf{x}_{t} | \mathbf{x}_{0}) \sim \mathcal{N}(\sqrt{\bar{\alpha}_t}\mathbf
 \bar{\alpha}_{t} = \prod_{i = 1}^{t} \alpha_{i}, \alpha_i = 1 - \beta_i
 $$
 
+Another way to derive $$q(\mathbf{x}_t | \mathbf{x}_0)$$ is by induction. When
+$$t = 1$$, it is straightfward to have the result. Let's say we have
+$$q(\mathbf{x}_{t - 1} | \mathbf{x}_0) =
+\sqrt{\bar{\alpha}_{t - 1}} \mathbf{x}_0 + \sqrt{1 - \bar{\alpha}_{t - 1}}
+\epsilon_{t - 1}$$.
+Considering the definition of $$q(\mathbf{x}_t | \mathbf{x}_{t - 1})$$, we have
+
+$$
+\begin{aligned}
+\mathbf{x}_t & = \sqrt{1 - \beta_{t}} \mathbf{x}_{t - 1} + \sqrt{\beta_{t}} \epsilon_{t} \\
+             & = \sqrt{1 - \beta_{t}} (
+                                        \sqrt{\bar{\alpha}_{t - 1}} \mathbf{x}_0 + \sqrt{1 - \bar{\alpha}_{t - 1}} \epsilon_{t - 1}
+                                      ) + \sqrt{\beta_{t}} \epsilon_{t} \\
+             & = \sqrt{\bar{\alpha}_t} \mathbf{x}_0 + \sqrt{1 - \beta_{t}} \sqrt{1 - \bar{\alpha}_{t - 1}} \epsilon_{t - 1} + \sqrt{\beta_{t}} \epsilon_t
+\end{aligned}
+$$
+
+The right two items are the sum of two independent Gaussian variables. The mean
+is 0, and the variance is 
+
+$$
+\alpha_t (1 - \bar{\alpha}_{t - 1}) + \beta_{t} = 1 - \bar{\alpha}_t
+$$
+
+which concludes the results.
+
 ## Backward pass
 The backward is modeled as a Markov chain. $\mathbf{x}_{T}$ follows the standard Gaussian distribution.
 
