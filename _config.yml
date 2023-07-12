@@ -35,7 +35,7 @@ avatar: https://amsword.blob.core.windows.net/setup/IMG_1009.JPG
 
 # Enter your Disqus shortname (not your username) to enable commenting on posts
 # You can find your shortname on the Settings page of your Disqus account
-#disqus: amsword
+disqus: jianfengwang
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
 google_analytics: UA-59164039-1
