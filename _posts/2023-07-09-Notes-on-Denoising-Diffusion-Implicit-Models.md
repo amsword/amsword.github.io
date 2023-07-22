@@ -73,7 +73,7 @@ $$
 $$
 
 where $$\epsilon \sim \mathcal{N}(0, \mathbf{I})$$. Given $$\mathbf{x}_0$$ and
-$$\mathbf{x}_t$$, we can draw $$\mathbf{x}_{t - 1}$$ through $$q(\mathbf{x}_{t - 1} | \mathbf{x}_t, \mathbf{x}_)$$:
+$$\mathbf{x}_t$$, we can draw $$\mathbf{x}_{t - 1}$$ through $$q(\mathbf{x}_{t - 1} | \mathbf{x}_t, \mathbf{x}_0)$$:
 
 $$
 \mathbf{x}_{t - 1} = \sqrt{\bar{\alpha}_{t - 1}} \mathbf{x}_0 + 
@@ -84,14 +84,14 @@ $$
     }
     {
         \sqrt{1 - \bar{\alpha}_{t}}
-    } + \sigma_{t}^2 \epsilon_{t - 1}.
+    } + \sigma_{t} \epsilon_{t - 1}.
 $$
 
 By substituting $$\mathbf{x}_t$$, we have
 
 $$
 \mathbf{x}_{t - 1} = \sqrt{\bar{\alpha}_{t - 1}} \mathbf{x}_0 +
-    \sqrt{1 - \bar{\alpha}_{t - 1} - \sigma_t^2} \epsilon_{t} + \sigma_{t}^{2} \epsilon_{t - 1}.
+    \sqrt{1 - \bar{\alpha}_{t - 1} - \sigma_t^2} \epsilon_{t} + \sigma_{t} \epsilon_{t - 1}.
 $$
 
 Thus, we can easily conclude $$q(\mathbf{x}_{t - 1} | \mathbf{x}_{0})$$ also
