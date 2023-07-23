@@ -160,7 +160,7 @@ $$
 }.
 $$
 
-Recall DDPM's inference process, we know both DDPM and DDIM drive $$\mathbf{x}_{t - 1}$$ based on $$\hat{\mathbf{x}}_0$$ and $$\mathbf{x}_t$$.
+Recalling DDPM's inference process, we know both DDPM and DDIM drive $$\mathbf{x}_{t - 1}$$ based on $$\hat{\mathbf{x}}_0$$ and $$\mathbf{x}_t$$.
 In DDIM, the variance is 
 
 $$
