@@ -323,7 +323,6 @@ $$
 }\mathbf{x}_t
 \\
 = & 
-(
 \frac
 {
     \bar{\alpha}_{t - 1} - \bar{\alpha}_{t}
@@ -331,7 +330,6 @@ $$
 {
     (1 - \bar{\alpha}_t) \sqrt{\bar{\alpha}_{t - 1}}
 }
-)
 \mathbf{x}_0
 +
 \frac
@@ -343,7 +341,6 @@ $$
 }\mathbf{x}_t
 \\
 = & 
-(
 \frac
 {
     \sqrt{\bar{\alpha}_{t - 1}} \beta_{t}
@@ -351,7 +348,6 @@ $$
 {
     1 - \bar{\alpha}_t
 }
-)
 \mathbf{x}_0
 +
 \frac
